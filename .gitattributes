@@ -1,4 +1,4 @@
 * text=auto eol=lf
 *.html linguist-detectable=true
 *.md   linguist-documentation=true
-prototype-pwa/** linguist-generated=true
+website/** linguist-generated=true

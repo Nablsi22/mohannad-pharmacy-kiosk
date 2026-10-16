@@ -1,10 +1,13 @@
 <div dir="rtl">
 
-# كشك صيدلية مهند
+# صيدلية مهند — الموقع والكشك
 
-**Mohannad Pharmacy — In-store Touch Kiosk**
+**Mohannad Pharmacy — Website & In-store Touch Kiosk**
 
-تطبيق شاشة لمس عمودية بقياس 43 بوصة داخل صيدلية في دمشق، متخصصة في منتجات العناية والتغذية. الشاشة تعمل معظم وقتها كلافتة رقمية (وضع الجذب)، وعند لمسها تتحوّل إلى كتالوج تفاعلي يتيح للزبون تصفّح المنتجات والتأكد من توفّرها وطلبها بمسح رمز QR يفتح واتساب الصيدلية.
+مشروع رقمي لصيدلية في دمشق متخصصة في منتجات العناية والتغذية، من جزأين:
+
+- **الموقع:** تطبيق ويب تقدّمي (PWA) بالعربية، يعرض الأقسام الستة والمنتجات مع حالة التوفّر، والطلب برسالة واتساب جاهزة دون تحميل تطبيق أو إنشاء حساب.
+- **الكشك:** تطبيق شاشة لمس عمودية بقياس 43 بوصة داخل الصيدلية، يعمل معظم وقته كلافتة رقمية (وضع الجذب)، وعند لمسه يتحوّل إلى كتالوج تفاعلي يطلب منه الزبون بمسح رمز QR يفتح واتساب الصيدلية.
 
 > المحتوى المعروض (المنتجات والأسعار) **تجريبي** لأغراض العرض فقط، ولا يتضمّن أي ادعاء علاجي.
 
@@ -12,10 +15,10 @@
 
 | المجلد | الوصف | الحالة |
 | --- | --- | --- |
-| [`kiosk-app/`](kiosk-app/index.html) | تطبيق الكشك الكامل: وضع الجذب + الكتالوج التفاعلي + شاشة الخدمة | **المنتج الحالي** |
+| [`website/`](website/index.html) | موقع الصيدلية (PWA) — نسخة البناء النهائية، تعمل دون اتصال | ملف بناء (build) |
+| [`kiosk-app/`](kiosk-app/index.html) | تطبيق الكشك الكامل: وضع الجذب + الكتالوج التفاعلي + شاشة الخدمة | **قيد التطوير** |
 | [`attract-mode/`](attract-mode/index.html) | نموذج أولي مستقل لوضع الجذب (حلقة شرائح إعلانية) | نموذج أولي |
 | [`docs/architecture.html`](docs/architecture.html) | وثيقة المعمارية والتصميم بالعربية (31 بنداً + المصادر) | الإصدار 2 · أغسطس 2026 |
-| [`prototype-pwa/`](prototype-pwa/index.html) | نسخة مبنية (build) من النموذج الأولي الأقدم كتطبيق ويب تقدّمي PWA | مؤرشف — أُلغي في أغسطس 2026 |
 
 ## المزايا الرئيسية — `kiosk-app`
 
@@ -31,12 +34,14 @@
 
 ## التشغيل
 
-التطبيق ملف HTML واحد بلا أي اعتماديات أو خطوة بناء. افتح `kiosk-app/index.html` في المتصفح مباشرة، أو شغّل خادماً محلياً:
+كل جزء ملف HTML واحد مستقل بلا اعتماديات ولا خطوة بناء. افتح `website/index.html` أو `kiosk-app/index.html` في المتصفح مباشرة، أو شغّل خادماً محلياً:
 
 ```bash
 python3 -m http.server 8080
-# ثم افتح http://localhost:8080/kiosk-app/
+# ثم افتح http://localhost:8080/website/  أو  http://localhost:8080/kiosk-app/
 ```
+
+عند تفعيل GitHub Pages على الفرع `main` يصبح الموقع متاحاً على `https://nablsi22.github.io/mohannad-pharmacy-kiosk/website/`.
 
 للمعاينة بأبعاد الكشك، اضبط نافذة المتصفح على نسبة عمودية 9:16 (مثلاً 1080 × 1920) من أدوات المطوّر.
 
@@ -65,9 +70,12 @@ python3 -m http.server 8080
 - **الغلاف:** تطبيق Kotlin رفيع يعرض الواجهة داخل `WebView`، مع تفعيل [وضع Lock Task](https://developer.android.com/work/dpc/dedicated-devices/lock-task-mode) عبر Device Owner حتى لا يخرج المستخدم من التطبيق.
 - التفاصيل الكاملة (العتاد، البيئة الفيزيائية، الأمان، العمل دون اتصال، التحليلات، إمكانية الوصول، خارطة الطريق) في [وثيقة المعمارية](docs/architecture.html).
 
-## عن النموذج الأولي المؤرشف
+## عن الموقع
 
-`prototype-pwa/` نسخة مبنية من تطبيق الويب التقدّمي الذي سبق الكشك (React 19 · TypeScript · Vite · Tailwind CSS 4 · Framer Motion · Workbox)، وكانت منشورة على [Netlify](https://clever-panda-42b0e5.netlify.app). أُلغي هذا المسار في أغسطس 2026 لصالح الكشك، وبقي منه نظام الهوية البصرية. الشيفرة المصدرية الأصلية غير متوفرة، لذلك يُحفظ هنا ملف البناء النهائي للمرجعية فقط.
+- **التقنيات:** React 19 · TypeScript · Vite · Tailwind CSS 4 · Framer Motion · Workbox، بخطّي Tajawal وIBM Plex Sans Arabic.
+- **المزايا:** واجهة عربية RTL للموبايل أولاً، تصفّح بالأقسام الستة، بحث مع اقتراحات، شارات توفّر، طلب يُرسل كرسالة واتساب جاهزة، وشريط تنقّل سفلي على الموبايل.
+- **ما في المستودع:** `website/index.html` هو ملف البناء النهائي (نسخة العرض التي تعمل دون اتصال)، وهي نفسها المنشورة على [Netlify](https://clever-panda-42b0e5.netlify.app). الشيفرة المصدرية الأصلية غير مضمّنة.
+- البيانات المعروضة (المنتجات والأسعار والتوفّر) تجريبية.
 
 ## الحقوق
 
@@ -79,18 +87,18 @@ python3 -m http.server 8080
 
 ## English summary
 
-A portrait 43″ touch-kiosk application for a skincare-and-nutrition pharmacy in Damascus, Syria. The screen runs as digital signage (**attract mode**) most of the time; on touch it becomes an **interactive catalog** where customers browse products, check availability, and order by scanning a QR code that opens the pharmacy's WhatsApp.
+Digital presence for a skincare-and-nutrition pharmacy in Damascus, Syria, in two parts: a mobile-first Arabic **website** (PWA) where customers browse six sections, check availability and order through a pre-filled WhatsApp message; and a portrait 43″ **in-store touch kiosk** that runs as digital signage (attract mode) and turns into an interactive catalog on touch, with QR-to-WhatsApp ordering.
 
 | Folder | Description | Status |
 | --- | --- | --- |
-| `kiosk-app/` | Full kiosk app — attract mode, interactive catalog, hidden service screen | **Current product** |
+| `website/` | Pharmacy website (PWA) — final offline build (React 19 · TypeScript · Vite · Tailwind 4); source not included | Build |
+| `kiosk-app/` | Full kiosk app — attract mode, interactive catalog, hidden service screen | **In development** |
 | `attract-mode/` | Stand-alone attract-mode prototype | Prototype |
 | `docs/architecture.html` | Architecture & design document (Arabic, 31 sections + sources) | v2 · Aug 2026 |
-| `prototype-pwa/` | Compiled build of the earlier PWA prototype | Archived (source not available) |
 
 **Highlights:** millimetre-based design system (`--mm`) that keeps physical sizes constant on any panel resolution · dependency-free QR encoder written from scratch (byte mode, EC level M, versions 1–20) · Arabic/English with CSS logical properties · idle-session reset · four-corner hidden service screen · Google Sheets CSV sync with `localStorage` cache and offline fallback · feature flags that keep regulated pharmaceutical content out of the kiosk pending Ministry of Health approval.
 
-**Run:** single self-contained HTML file, no build step — open `kiosk-app/index.html` or serve the repo with `python3 -m http.server`.
+**Run:** each part is a single self-contained HTML file, no build step — open `website/index.html` or `kiosk-app/index.html`, or serve the repo with `python3 -m http.server`.
 
 **Deployment plan:** thin Kotlin `WebView` shell on the kiosk's Android OS, Device Owner + [lock task mode](https://developer.android.com/work/dpc/dedicated-devices/lock-task-mode).
 
