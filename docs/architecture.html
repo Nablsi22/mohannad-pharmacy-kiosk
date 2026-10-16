@@ -1,0 +1,1796 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>كشك صيدلية مهند</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --bg:#F4F5F3;
+  --surface:#FFFFFF;
+  --surface-2:#EAEEEA;
+  --sunken:#E2E7E3;
+  --ink:#121A17;
+  --ink-2:#455049;
+  --ink-3:#6E7B74;
+  --rule:#D6DCD7;
+  --rule-2:#BDC7BF;
+  --brass:#8E6A2B;
+  --brass-2:#B08A45;
+  --brass-wash:#F2EADA;
+  --ok:#166B4B;      --ok-wash:#E1EFE8;
+  --est:#375F8C;     --est-wash:#E3EBF4;
+  --risk:#983327;    --risk-wash:#F6E3E0;
+  --shadow:0 1px 2px rgba(18,26,23,.05), 0 10px 30px -18px rgba(18,26,23,.28);
+  --measure:34rem;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1211;
+    --surface:#161C1A;
+    --surface-2:#1D2523;
+    --sunken:#111615;
+    --ink:#E7EDE9;
+    --ink-2:#A5B2AC;
+    --ink-3:#78857E;
+    --rule:#28312E;
+    --rule-2:#3A4643;
+    --brass:#D2A45E;
+    --brass-2:#E0BA80;
+    --brass-wash:#241C0F;
+    --ok:#54BA8C;      --ok-wash:#0F2019;
+    --est:#84A9D6;     --est-wash:#111B26;
+    --risk:#E27E6C;    --risk-wash:#241412;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1211;
+  --surface:#161C1A;
+  --surface-2:#1D2523;
+  --sunken:#111615;
+  --ink:#E7EDE9;
+  --ink-2:#A5B2AC;
+  --ink-3:#78857E;
+  --rule:#28312E;
+  --rule-2:#3A4643;
+  --brass:#D2A45E;
+  --brass-2:#E0BA80;
+  --brass-wash:#241C0F;
+  --ok:#54BA8C;      --ok-wash:#0F2019;
+  --est:#84A9D6;     --est-wash:#111B26;
+  --risk:#E27E6C;    --risk-wash:#241412;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Tajawal","Segoe UI",system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.85;
+  direction:rtl;
+  text-align:right;
+  -webkit-font-smoothing:antialiased;
+}
+code,.mono,.ltr{font-family:"IBM Plex Mono","SFMono-Regular",Consolas,monospace}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+h1,h2,h3,h4,.disp{font-family:"IBM Plex Sans Arabic","Tajawal",system-ui,sans-serif;font-weight:600;line-height:1.4;text-wrap:balance}
+a{color:var(--brass);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+/* ---------- shell ---------- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:min(74rem,94vw);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.7rem 0;
+}
+.mark{display:flex;align-items:center;gap:.6rem;font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:600;font-size:.95rem}
+.mark i{
+  width:1.6rem;height:1.6rem;border-radius:3px;flex:none;
+  background:var(--brass);
+  display:grid;place-items:center;
+  color:var(--bg);font-style:normal;font-size:.85rem;font-weight:700;
+}
+.bar .meta{font-size:.76rem;color:var(--ink-3);letter-spacing:.02em}
+
+.wrap{max-width:min(74rem,94vw);margin:0 auto;padding:0 0 6rem}
+
+/* ---------- hero ---------- */
+.hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brass);margin:0 0 1.1rem
+}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.4rem);margin:0 0 1rem;font-weight:700;letter-spacing:-.01em}
+.hero .lede{font-size:1.14rem;color:var(--ink-2);max-width:var(--measure);margin:0 0 2rem}
+.facts{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--surface)}
+.fact{flex:1 1 11rem;padding:.9rem 1.1rem;border-inline-start:1px solid var(--rule)}
+.fact:first-child{border-inline-start:0}
+.fact dt{font-size:.72rem;color:var(--ink-3);letter-spacing:.06em;margin:0 0 .15rem}
+.fact dd{margin:0;font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:600;font-size:.95rem;line-height:1.4}
+
+/* ---------- verdict box ---------- */
+.verdict{
+  margin:2.5rem 0 0;padding:1.6rem 1.7rem;
+  background:var(--brass-wash);
+  border:1px solid color-mix(in srgb,var(--brass) 35%, transparent);
+  border-radius:5px;
+}
+.verdict h2{margin:0 0 .7rem;font-size:1.12rem}
+.verdict p{margin:0 0 .7rem;color:var(--ink-2)}
+.verdict p:last-child{margin-bottom:0}
+.verdict strong{color:var(--ink);font-weight:700}
+
+/* ---------- toc ---------- */
+.toc{padding:3rem 0;border-bottom:1px solid var(--rule)}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.15rem .5rem;margin-top:1.2rem}
+.toc-grid a{
+  display:flex;gap:.7rem;align-items:baseline;padding:.4rem .55rem;
+  text-decoration:none;color:var(--ink-2);border-radius:3px;font-size:.9rem
+}
+.toc-grid a:hover{background:var(--surface-2);color:var(--ink)}
+.toc-grid b{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--brass);font-weight:500;flex:none;min-width:1.7rem}
+
+/* ---------- sections ---------- */
+section{padding:3.4rem 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.hd{display:flex;gap:1rem;align-items:baseline;margin:0 0 1.4rem}
+.hd .num{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--brass);
+  font-weight:500;padding-top:.35rem;flex:none;letter-spacing:.04em
+}
+.hd h2{font-size:clamp(1.4rem,3vw,1.85rem);margin:0;font-weight:700;letter-spacing:-.005em}
+.hd h2 .sub{display:block;font-size:.82rem;font-weight:400;color:var(--ink-3);letter-spacing:.03em;margin-top:.25rem;font-family:"IBM Plex Mono",monospace}
+p{max-width:var(--measure);margin:0 0 1.15rem}
+.lead{font-size:1.05rem;color:var(--ink-2)}
+h3{font-size:1.05rem;margin:2.1rem 0 .8rem;color:var(--ink)}
+h3:first-child{margin-top:0}
+h4{font-size:.93rem;margin:1.5rem 0 .55rem;color:var(--ink-2);font-weight:600}
+ul,ol{max-width:var(--measure);margin:0 0 1.15rem;padding-inline-start:1.3rem}
+li{margin-bottom:.42rem}
+li::marker{color:var(--brass)}
+strong{font-weight:700;color:var(--ink)}
+em{font-style:normal;background:var(--brass-wash);padding:.05em .3em;border-radius:2px}
+
+/* ---------- confidence chips ---------- */
+.chip{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:"IBM Plex Sans Arabic",sans-serif;font-size:.72rem;font-weight:600;
+  padding:.12rem .5rem;border-radius:99px;white-space:nowrap;line-height:1.7;
+}
+.chip::before{content:"";width:.42rem;height:.42rem;border-radius:99px;background:currentColor;flex:none}
+.c-ok{background:var(--ok-wash);color:var(--ok)}
+.c-est{background:var(--est-wash);color:var(--est)}
+.c-risk{background:var(--risk-wash);color:var(--risk)}
+
+/* ---------- tables ---------- */
+.tbl-scroll{overflow-x:auto;margin:0 0 1.4rem;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:34rem}
+th,td{text-align:right;padding:.62rem .85rem;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  background:var(--surface-2);font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:600;
+  font-size:.78rem;color:var(--ink-2);letter-spacing:.02em;white-space:nowrap;
+  position:sticky;top:0
+}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl-note{font-size:.78rem;color:var(--ink-3);margin:-.9rem 0 1.4rem;max-width:var(--measure)}
+
+/* ---------- callouts ---------- */
+.note{
+  border-inline-start:3px solid var(--brass);
+  background:var(--surface);
+  padding:1rem 1.2rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;
+  max-width:var(--measure);
+}
+.note.risk{border-color:var(--risk);background:var(--risk-wash)}
+.note.ok{border-color:var(--ok);background:var(--ok-wash)}
+.note p{margin:0}
+.note p + p{margin-top:.7rem}
+.note .lbl{
+  display:block;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--brass);margin-bottom:.4rem
+}
+.note.risk .lbl{color:var(--risk)}
+.note.ok .lbl{color:var(--ok)}
+
+/* ---------- code ---------- */
+pre{
+  background:var(--sunken);border:1px solid var(--rule);border-radius:4px;
+  padding:.95rem 1.1rem;overflow-x:auto;direction:ltr;text-align:left;
+  font-size:.8rem;line-height:1.7;margin:0 0 1.4rem;color:var(--ink-2)
+}
+pre code{color:inherit}
+p code,li code,td code{
+  background:var(--surface-2);padding:.1em .38em;border-radius:3px;font-size:.85em;
+  direction:ltr;unicode-bidi:isolate;display:inline-block;color:var(--ink)
+}
+
+/* ---------- do / don't ---------- */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem;margin:0 0 1.4rem}
+.pane{border:1px solid var(--rule);border-radius:4px;padding:1rem 1.2rem;background:var(--surface)}
+.pane h4{margin:0 0 .6rem;display:flex;align-items:center;gap:.45rem;font-size:.85rem}
+.pane ul{margin:0;padding-inline-start:1.1rem;font-size:.88rem;max-width:none}
+.pane li{margin-bottom:.35rem}
+.pane.yes{border-color:color-mix(in srgb,var(--ok) 40%,transparent)}
+.pane.yes h4{color:var(--ok)}
+.pane.no{border-color:color-mix(in srgb,var(--risk) 40%,transparent)}
+.pane.no h4{color:var(--risk)}
+
+/* ---------- reach diagram ---------- */
+.reach{
+  display:grid;grid-template-columns:5.5rem 1fr;gap:0 1rem;
+  max-width:var(--measure);margin:0 0 .6rem;
+}
+.reach-scale{position:relative;height:430px;border-inline-start:1px solid var(--rule-2)}
+.reach-scale span{
+  position:absolute;inset-inline-end:calc(100% + .4rem);transform:translateY(-50%);
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--ink-3);white-space:nowrap
+}
+.reach-scale span::after{
+  content:"";position:absolute;inset-inline-start:calc(100% + .35rem);top:50%;
+  width:.4rem;height:1px;background:var(--rule-2)
+}
+.reach-col{position:relative;height:430px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.zone{position:absolute;inset-inline:0;display:flex;align-items:center;padding:0 .9rem;border-top:1px dashed var(--rule-2)}
+.zone b{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:.78rem;font-weight:600;line-height:1.4}
+.zone small{display:block;font-weight:400;color:var(--ink-3);font-size:.72rem}
+.z-display{background:var(--surface);border-top:0}
+.z-mid{background:var(--est-wash)}
+.z-touch{background:var(--ok-wash)}
+.z-floor{background:var(--sunken);border-top:1px solid var(--rule-2)}
+.z-out{background:repeating-linear-gradient(135deg,var(--sunken),var(--sunken) 6px,transparent 6px,transparent 12px)}
+
+/* ---------- layer diagram ---------- */
+.layers{max-width:var(--measure);margin:0 0 1.4rem}
+.layer{
+  border:1px solid var(--rule);background:var(--surface);border-radius:4px;
+  padding:.75rem 1rem;position:relative;
+}
+.layer + .layer{margin-top:1.5rem}
+.layer + .layer::before{
+  content:"";position:absolute;inset-inline-start:50%;bottom:100%;
+  width:1px;height:1.5rem;background:var(--rule-2)
+}
+.layer b{display:block;font-family:"IBM Plex Sans Arabic",sans-serif;font-size:.9rem;font-weight:600}
+.layer small{color:var(--ink-3);font-size:.78rem;line-height:1.6;display:block}
+.layer.edge{border-color:var(--brass);background:var(--brass-wash)}
+.layer.data{border-style:dashed}
+
+/* ---------- roadmap ---------- */
+.road{max-width:var(--measure);margin:0 0 1.4rem;border-inline-start:2px solid var(--rule);padding-inline-start:1.3rem}
+.step{position:relative;padding-bottom:1.6rem}
+.step:last-child{padding-bottom:0}
+.step::before{
+  content:"";position:absolute;inset-inline-start:calc(-1.3rem - 6px);top:.55rem;
+  width:11px;height:11px;border-radius:99px;background:var(--bg);border:2px solid var(--brass)
+}
+.step.done::before{background:var(--brass)}
+.step.gate::before{border-color:var(--risk);background:var(--risk-wash)}
+.step h4{margin:0 0 .25rem;font-size:.95rem;color:var(--ink);display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.step h4 .tag{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--ink-3);font-weight:400}
+.step p{margin:0;font-size:.9rem;color:var(--ink-2)}
+
+/* ---------- checklist ---------- */
+.check{max-width:var(--measure);counter-reset:ck}
+.check-grp{margin-bottom:1.6rem}
+.check-grp > b{
+  display:block;font-family:"IBM Plex Sans Arabic",sans-serif;font-size:.85rem;font-weight:600;
+  color:var(--brass);margin-bottom:.5rem;letter-spacing:.01em
+}
+.check li{
+  counter-increment:ck;list-style:none;position:relative;
+  padding-inline-start:2.1rem;margin-bottom:.5rem;font-size:.92rem
+}
+.check ul{padding:0;margin:0;max-width:none}
+.check li::before{
+  content:counter(ck,decimal-leading-zero);position:absolute;inset-inline-start:0;top:.15rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--ink-3);
+  border:1px solid var(--rule-2);border-radius:2px;width:1.5rem;height:1.4rem;
+  display:grid;place-items:center
+}
+.check li.hot::before{border-color:var(--risk);color:var(--risk)}
+
+/* ---------- ask ---------- */
+.ask{counter-reset:a}
+.ask li{counter-increment:a;list-style:none;padding-inline-start:1.9rem;position:relative;margin-bottom:.7rem}
+.ask li::before{
+  content:"↳";position:absolute;inset-inline-start:0;color:var(--brass);
+  font-family:"IBM Plex Mono",monospace
+}
+
+/* ---------- sources ---------- */
+.src{font-size:.85rem}
+.src ol{max-width:none;padding-inline-start:1.4rem}
+.src li{margin-bottom:.5rem;color:var(--ink-3)}
+.src a{color:var(--brass)}
+.src .k{color:var(--ink-2)}
+
+footer{padding:2.5rem 0 0;color:var(--ink-3);font-size:.82rem;border-top:1px solid var(--rule)}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .hd{flex-direction:column;gap:.2rem}
+  .reach{grid-template-columns:4.2rem 1fr}
+  .fact{flex:1 1 100%;border-inline-start:0;border-top:1px solid var(--rule)}
+  .fact:first-child{border-top:0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="mark"><i>م</i><span>صيدلية مهند · الكشك الرقمي</span></div>
+    <div class="meta ltr">v2 · 28.08.2026</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Phase 1–5 · تحليل ومعمارية · مُحدَّثة بعد فحص الجهاز</p>
+  <h1>كشك صيدلية مهند</h1>
+  <p class="lede">
+    تحليل كامل للعتاد، وللنطاق التنظيمي الذي يحكم ما يُسمح لهذا الجهاز أن يفعله،
+    ومعمارية مقترحة لبرمجية لافتات رقمية تفاعلية تعمل على شاشة 43 بوصة داخل الصيدلية —
+    مع فصل صريح بين ما هو <span class="chip c-ok">مؤكّد</span>
+    و<span class="chip c-est">مرجَّح</span> و<span class="chip c-risk">يجب التحقّق منه</span>.
+  </p>
+
+  <dl class="facts">
+    <div class="fact"><dt>الجهاز</dt><dd class="ltr mono">CSHW-ELED-LS43</dd></div>
+    <div class="fact"><dt>القياس</dt><dd>43 بوصة · قائم أرضي</dd></div>
+    <div class="fact"><dt>التغذية</dt><dd class="ltr mono">AC 220V / 50Hz</dd></div>
+    <div class="fact"><dt>نظام التشغيل</dt><dd style="color:var(--ok)">أندرويد + Google Play</dd></div>
+    <div class="fact"><dt>الاتجاه</dt><dd style="color:var(--ok)">عمودي</dd></div>
+    <div class="fact"><dt>حالة المنصّة الأم</dt><dd style="color:var(--risk)">بانتظار موافقة الوزارة</dd></div>
+  </dl>
+
+  <div class="verdict">
+    <h2>الخلاصة</h2>
+    <p>
+      <strong>صفر —</strong> صور الجهاز وصلت، وحسمت أخطر ثلاثة مجاهيل:
+      <strong>أندرويد بخدمات Google كاملة، اتجاه عمودي، وقابل للبرمجة بالكامل.</strong>
+      شجرة القرار في بند 07 انهارت إلى فرع واحد — وهو الأفضل: إعادة استخدام بناء
+      <span class="ltr">React</span> القائم داخل غلاف <span class="ltr">Kotlin</span> رفيع.
+      لا حاجة لإعادة كتابة شيء بـ<span class="ltr">Flutter</span>.
+    </p>
+    <p>
+      <strong>أولاً —</strong> بحثتُ في قرارات وزارة الصحة، ووجدتُ
+      <a href="https://www.moh.gov.sy/legislation/decisions" target="_blank" rel="noopener">القرار التنظيمي رقم 24/ت تاريخ 2/12/2025</a>
+      الخاص بـ«تطبيقات الصحة الإلكترونية»، وهو على الأرجح ما تقف خلفه المنصّة الأم.
+      لذلك المبدأ الحاكم لهذا المشروع كلّه: <strong>الكشك يجب أن يبقى خارج تعريف «التطبيق الصحي الإلكتروني»</strong>،
+      لا لأنه أقلّ طموحاً، بل لأن ذلك يجعله قابلاً للإطلاق فوراً.
+    </p>
+    <p>
+      <strong>ثانياً —</strong> جهل مواصفات العتاد <em>لا يوقف العمل</em>. الحلّ أن يُبنى نظام التصميم
+      بالمليمتر لا بالبكسل، فتُشتقّ كل الأحجام وقت الإقلاع من قياس واحد تأخذه بشريط قياس عند التركيب.
+    </p>
+    <p>
+      <strong>ثالثاً —</strong> الكشك ليس مشروعاً جانبياً: هو <strong>المرحلة صفر من المنصّة</strong>.
+      يُطلَق أولاً كمشغّل إعلانات فقط، ثم تُضاف الطبقة التفاعلية، ثم — بعد الموافقة — يُفتح ما هو منظَّم.
+    </p>
+  </div>
+</header>
+
+<nav class="toc">
+  <p class="eyebrow">محتويات الوثيقة</p>
+  <div class="toc-grid">
+    <a href="#s1"><b>01</b> تحليل العتاد: المؤكّد</a>
+    <a href="#s2"><b>02</b> المرجَّح — وعلى أي أساس</a>
+    <a href="#s3"><b>03</b> ما يجب التحقّق منه</a>
+    <a href="#s4"><b>04</b> ما تبقّى من الفحص</a>
+    <a href="#s5"><b>05</b> النطاق التنظيمي — القرار 24/ت</a>
+    <a href="#s6"><b>06</b> البيئة الفيزيائية: الموضع والكهرباء</a>
+    <a href="#s7"><b>07</b> قرار المنصّة التقنية</a>
+    <a href="#s8"><b>08</b> معمارية البرمجية</a>
+    <a href="#s9"><b>09</b> العلاقة بالنموذج الأولي</a>
+    <a href="#s10"><b>10</b> نظام التصميم بالمليمتر</a>
+    <a href="#s11"><b>11</b> مناطق الوصول والإرغونوميا</a>
+    <a href="#s12"><b>12</b> رحلة المستخدم</a>
+    <a href="#s13"><b>13</b> وضع الجذب</a>
+    <a href="#s14"><b>14</b> الوضع التفاعلي</a>
+    <a href="#s15"><b>15</b> تصفّح المنتجات</a>
+    <a href="#s16"><b>16</b> معمارية اللافتات والحملات</a>
+    <a href="#s17"><b>17</b> الواجهة البرمجية والتكامل</a>
+    <a href="#s18"><b>18</b> العمل دون اتصال</a>
+    <a href="#s19"><b>19</b> الأمان والتحصين</a>
+    <a href="#s20"><b>20</b> إدارة الجلسة</a>
+    <a href="#s21"><b>21</b> التحليلات والخصوصية</a>
+    <a href="#s22"><b>22</b> لوحة الإدارة</a>
+    <a href="#s23"><b>23</b> العربية وRTL</a>
+    <a href="#s24"><b>24</b> إمكانية الوصول</a>
+    <a href="#s25"><b>25</b> الأداء والاستقرار</a>
+    <a href="#s26"><b>26</b> النشر والمراقبة</a>
+    <a href="#s27"><b>27</b> بنية المشروع</a>
+    <a href="#s28"><b>28</b> خارطة الطريق</a>
+    <a href="#s29"><b>29</b> القيمة التجارية</a>
+    <a href="#s30"><b>30</b> السلامة والادعاءات</a>
+    <a href="#s31"><b>31</b> ما أحتاجه منك</a>
+    <a href="#src"><b>—</b> المصادر</a>
+  </div>
+</nav>
+
+<!-- ===================== 01 ===================== -->
+<section id="s1">
+  <div class="hd"><span class="num">01</span><h2>تحليل العتاد: ما هو مؤكّد<span class="sub">Confirmed hardware facts</span></h2></div>
+
+  <div class="note ok">
+    <span class="lbl">مُحدَّث · قراءة مباشرة من صور الجهاز</span>
+    <p>وصلت صورتان: اللصاقة الخلفية، والجهاز يعمل ويعرض واجهة أندرويد. ما يلي مقروء منهما
+      مباشرةً، لا مستنتَج. <strong>هذا يُلغي معظم المجاهيل التي كانت تحجب القرار المعماري.</strong></p>
+  </div>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>ما تُظهره الصورة</th><th>الدلالة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>واجهة أندرويد كاملة</strong> مع درج تطبيقات وشريط تنقّل سفلي</td>
+        <td>النظام أندرويد. والجهاز <strong>غير مقفول حالياً</strong> — الزبون يقدر يخرج من أي تطبيق بضغطة</td></tr>
+      <tr><td><strong>Play Store · Chrome · Gmail · Instagram · Facebook · WhatsApp</strong></td>
+        <td>هذه كلها تطبيقات من متجر Play — أي أن <strong>خدمات Google كاملة وفعّالة</strong>. وهذا يعني أن
+          <span class="ltr mono">Android System WebView</span> و<span class="ltr">Chrome</span> <strong>قابلان للتحديث</strong>،
+          فيسقط أخطر افتراض كان في النسخة السابقة</td></tr>
+      <tr><td>تطبيقات مثبَّتة يدوياً (<span class="ltr">Psiphon</span>، <span class="ltr">ShareIt</span>)</td>
+        <td>تثبيت <span class="ltr mono">APK</span> يعمل. <strong>الجهاز قابل للبرمجة</strong> — السؤال القاتل الأول أُجيب بنعم</td></tr>
+      <tr><td>حزمة لافتات مسبقة: <span class="ltr">AbleSign · Signage Settings · SinglePlayer · XbhPlayer</span></td>
+        <td>لوحة لافتات تجارية معروفة. <span class="ltr">AbleSign</span> تطبيق مجاني من Play — يمكن استخدامه مؤقّتاً لعرض إعلانات <em>هذا الأسبوع</em> ريثما يجهز تطبيقنا</td></tr>
+      <tr><td><strong>الاتجاه عمودي</strong></td><td>يُثبَّت تخطيط بند 11 نهائياً. لا حاجة لتصميم بديل أفقي</td></tr>
+      <tr><td>تطبيق <strong>Camera</strong> موجود</td><td>يُرجَّح وجود كاميرا فيزيائية. إن لم تُستخدَم — <strong>تُغطّى، ويُقال ذلك للزبائن</strong>. مسألة ثقة</td></tr>
+      <tr><td class="ltr mono">Serial: SYET20260130</td><td>يُقرأ كتاريخ 30/1/2026 — جهاز حديث، والضمان على الأرجح ساري</td></tr>
+      <tr><td>شهادات: <span class="ltr mono">ISO · FCC · RoHS · CE · CCC</span></td><td>شهادات كهربائية وبيئية. <strong>ولا واحدة منها تصنيف حماية <span class="ltr mono">IP</span></strong></td></tr>
+      <tr><td><strong>فتحات تهوية على الظهر</strong> (ظاهرة تحت اللصاقة مباشرةً)</td>
+        <td>الهيكل <strong>غير محكم</strong>. الهواء يدخل ويخرج بحرّية — ومعه المطر والغبار. هذا وحده يحسم أن الجهاز داخليّ، وهو دليل من صورتك أنت لا من ورقة مواصفات</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>ما كان على اللصاقة</h3>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>البند</th><th>القيمة</th><th>ماذا يعني عملياً</th><th>الثقة</th></tr></thead>
+    <tbody>
+      <tr><td>نوع الجهاز</td><td>43″ Stand Touch Self Service Kiosk</td>
+        <td>كشك خدمة ذاتية قائم أرضياً بشاشة لمس — أي أنه مُصمَّم ليكون قابلاً للبرمجة، لا مجرد شاشة عرض</td>
+        <td><span class="chip c-ok">مؤكّد</span></td></tr>
+      <tr><td>الطراز</td><td class="ltr mono">CSHW-ELED-LS43</td>
+        <td>لم أجد له صفحة مُصنّع مفهرَسة. هذا طبيعي: أجهزة ODM صينية تُباع تحت عشرات العلامات</td>
+        <td><span class="chip c-ok">مؤكّد</span></td></tr>
+      <tr><td>جهد الدخل</td><td class="ltr mono">AC 220V</td>
+        <td>مطابق لشبكة سورية — لا حاجة لمحوّل جهد</td>
+        <td><span class="chip c-ok">مؤكّد</span></td></tr>
+      <tr><td>التردّد</td><td class="ltr mono">50 Hz</td><td>مطابق</td>
+        <td><span class="chip c-ok">مؤكّد</span></td></tr>
+      <tr><td>بلد الصنع</td><td>الصين</td>
+        <td>يرفع احتمال: أندرويد على معالج <span class="ltr mono">Rockchip</span>، بلا خدمات Google، بمتصفّح قديم</td>
+        <td><span class="chip c-ok">مؤكّد</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>
+    ما بقي مجهولاً بعد الصور: <strong>إصدار أندرويد · الذاكرة والتخزين · الدقّة الحقيقية ·
+    السطوع بالشمعة · هل يقلع وحده بعد الكهرباء</strong>. خمسة أسئلة، كلها تُجاب من إعدادات
+    الجهاز وقابس كهرباء — ولا واحد منها يوقف بدء العمل (بند 04).
+  </p>
+</section>
+
+<!-- ===================== 02 ===================== -->
+<section id="s2">
+  <div class="hd"><span class="num">02</span><h2>المرجَّح — وعلى أي أساس<span class="sub">Inferred, with the reasoning shown</span></h2></div>
+
+  <p class="lead">
+    ما يلي ليس مواصفات جهازك. هو <strong>مجال القيم المتوقّع</strong> لفئة الأجهزة التي ينتمي إليها،
+    مستمدّ من ورقتَي مواصفات منشورتين لكشكين مكافئين مقاس 43 بوصة. أوردته لغرض واحد:
+    أن نُصمّم لأسوأ حالة معقولة بدل أن ننتظر.
+  </p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>البند</th><th>المجال المتوقّع</th><th>الأثر على القرار المعماري</th></tr></thead>
+    <tbody>
+      <tr><td>اللوحة</td><td>43″ · IPS · نسبة 16:9 · مساحة فعّالة <span class="ltr mono">952 × 536 mm</span></td>
+        <td>ثابت هندسي: القُطر ونسبة العرض يحدّدان الأبعاد الفيزيائية حتماً</td></tr>
+      <tr><td>الدقّة</td><td class="ltr mono">1920 × 1080</td>
+        <td>يعني كثافة ≈ <span class="ltr mono">51 PPI</span> فقط — البكسل هنا كبير فيزيائياً، وهذا يقلب حسابات الخطوط رأساً على عقب (بند 10)</td></tr>
+      <tr><td>الإضاءة</td><td class="ltr mono">300–450 cd/m²</td>
+        <td>الحدّ الأدنى مقبول داخلياً؛ إن كانت الصيدلية ساطعة أو قرب واجهة زجاجية فقد لا يكفي</td></tr>
+      <tr><td>اللمس</td><td>سعوي إسقاطي <span class="ltr mono">PCAP</span> · 10 نقاط · زجاج مقسّى <span class="ltr mono">7H</span></td>
+        <td>ممتاز — يتحمّل الاستخدام العام والتنظيف المتكرّر</td></tr>
+      <tr><td>النظام</td><td>أندرويد على <span class="ltr mono">Rockchip RK3288</span> أو ما يعادله · رباعي النواة <span class="ltr mono">Cortex-A17</span></td>
+        <td>معالج من فئة 2014. ثقيل عليه أي واجهة ويب غير مُحسَّنة</td></tr>
+      <tr><td>الذاكرة</td><td class="ltr mono">2 GB DDR3</td>
+        <td>قيد صارم. يمنع Electron، ويجعل تسريب الذاكرة قاتلاً خلال ساعات لا أيام</td></tr>
+      <tr><td>التخزين</td><td class="ltr mono">8–16 GB eMMC</td>
+        <td>يحدّ حجم مخزون الوسائط المحلّي — يجب وضع سقف وسياسة تنظيف (بند 18)</td></tr>
+      <tr><td>الشبكة</td><td><span class="ltr mono">Wi-Fi b/g/n</span> · إيثرنت <span class="ltr mono">100M</span></td>
+        <td>غياب <span class="ltr mono">5 GHz</span> شائع — يعني ازدحاماً على 2.4 داخل مبنى تجاري</td></tr>
+      <tr><td>الصوت</td><td>سمّاعتان <span class="ltr mono">5W</span></td>
+        <td>موجود غالباً. القرار التصميمي: يُكتَم افتراضياً (بند 13)</td></tr>
+      <tr><td>الاتجاه</td><td>عمودي <span class="ltr mono">Portrait 1080×1920</span></td>
+        <td>الشائع في الأكشاك القائمة. لكنه <strong>أخطر مجهول في الوثيقة</strong> — يغيّر التخطيط كلياً</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tbl-note">
+    المصادر: ورقتا مواصفات لكشكَي 43 بوصة مكافئين — <a href="https://www.shiningltd.com/product/sh4302wf-43inch-rk3288-android-touch-screen-tablet/" target="_blank" rel="noopener">Shining SH4302WF</a>
+    و<a href="https://www.allsee-tech.com/digital-signage-products/pcap-freestanding-touch-screen-kiosk-table-dual-os-windows-android.html" target="_blank" rel="noopener">Allsee PCAP Freestanding</a>.
+    استُخدمتا كمرجع لفئة الجهاز فقط، لا كمواصفات لجهازك.
+  </p>
+
+  <h3>قراءة رمز الطراز — استنتاج لا حقيقة</h3>
+  <p>
+    <span class="ltr mono">CSHW</span> بادئة المُصنّع · <span class="ltr mono">ELED</span> على الأرجح
+    <span class="ltr">Edge-LED</span> أي إضاءة خلفية جانبية (مصطلح صناعي شائع) ·
+    <span class="ltr mono">LS43</span> على الأرجح <span class="ltr">Landing Stand 43″</span>.
+    <strong>هذه قراءة لغوية للرمز، وليست مصدراً.</strong> لا تبنِ عليها شيئاً، وإنما استخدمها
+    عند سؤال المورّد لتتكلّم بلغته.
+  </p>
+</section>
+
+<!-- ===================== 03 ===================== -->
+<section id="s3">
+  <div class="hd"><span class="num">03</span><h2>ما يجب التحقّق منه فيزيائياً<span class="sub">The blocking unknowns</span></h2></div>
+
+  <p class="lead">
+    الأسئلة القاتلة الأربعة التي كانت هنا في النسخة السابقة <strong>أُجيب ثلاثة منها من الصور</strong>:
+    الجهاز قابل للبرمجة · النظام أندرويد بخدمات Google · الاتجاه عمودي.
+    بقي واحد قاتل، وأربعة تُغيّر التنفيذ لا المعمارية.
+  </p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>المجهول</th><th>لماذا يهمّ</th><th>الرتبة</th></tr></thead>
+    <tbody>
+      <tr><td><strong>هل يقلع تلقائياً بعد عودة الكهرباء؟</strong></td>
+        <td>في سورية انقطاع التيار هو الحالة الطبيعية. إن احتاج ضغطة زر بعد كل انقطاع، فالمنتج فاشل عملياً مهما كانت جودة البرمجية (بند 06). <strong>يُختبَر بقابس، الآن</strong></td>
+        <td><span class="chip c-risk">قاتل</span></td></tr>
+      <tr><td><strong>إصدار أندرويد</strong><br><small style="color:var(--ink-3)">الإعدادات ← حول الجهاز</small></td>
+        <td>≥ 9 يعطي <code>setLockTaskFeatures()</code> والتحكّم الكامل بواجهة القفل. 7 أو 8 يعمل أيضاً لكن بخيارات أقل. أقلّ من 5 يُسقط وضع القفل كلياً</td>
+        <td><span class="chip c-est">مهم</span></td></tr>
+      <tr><td><strong>هل يوجد مالك جهاز مُهيّأ مسبقاً؟</strong><br><small style="color:var(--ink-3)"><code>adb shell dpm list-owners</code></small></td>
+        <td>حزمة اللافتات المثبّتة قد تكون مسجَّلة كمالك جهاز. إن كانت كذلك، لا يمكن تسجيل تطبيقنا دون إعادة ضبط مصنع — وهي عملية تُخطَّط لا تُفاجأ بها</td>
+        <td><span class="chip c-est">مهم</span></td></tr>
+      <tr><td>الدقّة · الذاكرة · التخزين</td>
+        <td>الدقّة <strong>لم تعد موقفاً</strong> بفضل نظام المليمتر (بند 10). الذاكرة والتخزين يحدّدان ميزانية الوسائط</td>
+        <td><span class="chip c-est">مهم</span></td></tr>
+      <tr><td>السطوع بالشمعة/م² · تصنيف ساعات التشغيل</td>
+        <td>يُسألان من المورّد كتابةً. السطوع يحسم نقاش الموضع نهائياً، والتصنيف يحدّد هل يجوز تركه مضاءً ليلاً دون إسقاط الضمان</td>
+        <td><span class="chip c-est">مهم</span></td></tr>
+      <tr><td>منافذ <span class="ltr mono">USB</span> مكشوفة · الكاميرا</td>
+        <td>منفذ مكشوف = أشهر ثغرة أكشاك مُهمَلة (بند 19). والكاميرا — إن وُجدت ولن تُستخدم — تُغطّى ويُعلَن ذلك</td>
+        <td><span class="chip c-est">مهم</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ===================== 04 ===================== -->
+<section id="s4">
+  <div class="hd"><span class="num">04</span><h2>ما تبقّى من الفحص<span class="sub">≈ 20 دقيقة · معظم القائمة الأصلية أُغلق بالصور</span></h2></div>
+
+  <p>احمل: شريط قياس، لابتوب مع كبل <span class="ltr mono">USB</span>، وعدّاد استهلاك كهربائي إن توفّر.</p>
+
+  <div class="check">
+    <div class="check-grp">
+      <b>أ · القياس الذي يُغذّي التصميم — دقيقتان</b>
+      <ul>
+        <li class="hot"><strong>قِس مساحة الصورة الفعّالة بشريط القياس:</strong> العرض والارتفاع بالمليمتر، من حافة الصورة المضيئة لا من حافة الإطار الخشبي. <em>هذا الرقم الواحد يُغذّي نظام التصميم كلّه (بند 10).</em></li>
+        <li>قِس ارتفاع أسفل الصورة عن الأرض، والجهاز واقف في موضعه. يحدّد مناطق الوصول في بند 11.</li>
+      </ul>
+    </div>
+
+    <div class="check-grp">
+      <b>ب · الكهرباء — الاختبار القاتل الوحيد المتبقّي</b>
+      <ul>
+        <li class="hot"><strong>افصل القابس والجهاز يعمل، انتظر عشر ثوانٍ، أعده.</strong> هل عاد وحده إلى التطبيق، أم انتظر ضغطة زر؟ <strong>كرّرها ثلاث مرات.</strong></li>
+        <li>قِس الاستهلاك بالواط أثناء التشغيل الكامل — لتحديد حجم الـ<span class="ltr">UPS</span> إن لزم.</li>
+        <li>قِس جهد الشبكة في الموضع في أوقات مختلفة. التذبذب يقتل مزوّدات الطاقة.</li>
+      </ul>
+    </div>
+
+    <div class="check-grp">
+      <b>ج · من إعدادات الجهاز — خمس دقائق</b>
+      <ul>
+        <li>الإعدادات ← حول الجهاز: <strong>إصدار أندرويد</strong> ورقم البناء واسم الطراز الداخلي.</li>
+        <li>الإعدادات ← العرض: الدقّة، وهل السطوع قابل للضبط.</li>
+        <li>الإعدادات ← التخزين والذاكرة: المتاح فعلياً.</li>
+        <li>افتح <span class="ltr">Chrome</span> وانتقل إلى <code>chrome://version</code> — سجّل رقم الإصدار.</li>
+      </ul>
+    </div>
+
+    <div class="check-grp">
+      <b>د · من اللابتوب</b>
+      <ul>
+        <li>خيارات المطوّر ← تصحيح <span class="ltr mono">USB</span>، ثم <code>adb devices</code>.</li>
+        <li class="hot"><code>adb shell dpm list-owners</code> — هل حزمة اللافتات المثبّتة مسجَّلة كمالك جهاز؟ الجواب يحدّد هل نحتاج إعادة ضبط مصنع قبل التحصين.</li>
+        <li><code>adb shell getprop ro.build.version.release</code> و<code>ro.product.model</code> — تأكيد مكتوب لما قرأته من الإعدادات.</li>
+      </ul>
+    </div>
+
+    <div class="check-grp">
+      <b>هـ · فحوص سريعة</b>
+      <ul>
+        <li>اللمس: افتح تطبيق رسم، اختبر الزوايا الأربع والمركز، وجرّب أكثر من إصبع. ابحث عن مناطق ميتة.</li>
+        <li>هل توجد كاميرا فيزيائية فوق الشاشة؟ (تطبيق الكاميرا موجود — افتحه وشوف إن كان يعرض صورة.)</li>
+        <li>منافذ <span class="ltr mono">USB</span> أو فتحة ذاكرة يصلها الزبون؟</li>
+        <li>الشبكة: قوة الواي فاي <strong>في الموضع بالضبط</strong>، ووجود منفذ <span class="ltr mono">RJ45</span>.</li>
+        <li>اسأل المورّد <strong>كتابةً</strong>: السطوع بالشمعة/م²، تصنيف ساعات التشغيل، ومدّة الضمان وهل يُبطِله التشغيل الخارجي.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note ok">
+    <span class="lbl">النتيجة المطلوبة</span>
+    <p>ثلاثة أرقام وجواب واحد: <strong>مقاس الصورة بالمليمتر · إصدار أندرويد · السطوع بالشمعة</strong>،
+      و<strong>هل يقلع وحده بعد الكهرباء؟</strong> بهذه، لا يبقى شيء يحجب التنفيذ.</p>
+  </div>
+</section>
+
+<!-- ===================== 05 ===================== -->
+<section id="s5">
+  <div class="hd"><span class="num">05</span><h2>النطاق التنظيمي — القرار 24/ت<span class="sub">أهم بند في الوثيقة</span></h2></div>
+
+  <p class="lead">
+    قلتَ إن المنصّة الأم لم تُعتمد من وزارة الصحة، وإن الدكتور مهند طلب تطبيقاً لهذه الشاشة بدلاً منها.
+    بحثتُ في سجلّ قرارات الوزارة فوجدتُ ما يُرجَّح أنه السبب.
+  </p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>ما وجدتُه</th><th>التفصيل</th><th>الثقة</th></tr></thead>
+    <tbody>
+      <tr><td>القرار التنظيمي رقم <strong>24/ت</strong></td>
+        <td>تاريخ <span class="ltr mono">2/12/2025</span> — «بخصوص تطبيقات الصحة الإلكترونية». أبوابه المعلنة: التعاريف · تصنيف التطبيقات الطبية والصحية · شروط الحصول على الموافقة · إجراءات منح الموافقة · إلغاء الموافقة · أحكام عامة</td>
+        <td><span class="chip c-ok">مؤكّد</span></td></tr>
+      <tr><td>النصّ الكامل</td>
+        <td>منشور في ثلاثة ملاحق <span class="ltr mono">PDF</span> على صفحة القرار. <strong>لم أستطع تنزيلها</strong> — روابط التحميل لم تُفتح. هي أول ما يجب أن تحصل عليه</td>
+        <td><span class="chip c-risk">ناقص</span></td></tr>
+      <tr><td>تصنيف الكشك ضمن القرار</td>
+        <td>غير معروف حتى تُقرأ التعاريف والتصنيف. قد يكون خارج النطاق كلياً باعتباره عرضاً تجارياً داخل محل</td>
+        <td><span class="chip c-risk">يجب التحقّق</span></td></tr>
+      <tr><td>اعتمادية التطبيقات الإلكترونية</td>
+        <td>هيئة خدمات الشبكة تُصدر شهادة اعتمادية للتطبيقات العاملة على الشبكة السورية، وتشمل فئتها التجارية «الإعلان والتسويق الإلكتروني». هل يشمل ذلك جهازاً داخل محل غير منشور في متجر تطبيقات؟ <strong>يُسأل عنه</strong></td>
+        <td><span class="chip c-risk">يجب التحقّق</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>المبدأ الحاكم: ارسم المحيط، وابنِ داخله</h3>
+  <p>
+    ما دام القرار يحكم «التطبيقات الصحية»، فإن أفضل قرار معماري يمكن اتخاذه اليوم هو أن يكون الكشك،
+    بحكم تصميمه لا بحكم النيّة، <strong>عرضاً تجارياً داخل نقطة بيع</strong>: يعرض علامة الصيدلية
+    ومنتجاتها وعروضها، ولا يقدّم أي وظيفة صحية.
+  </p>
+
+  <div class="split">
+    <div class="pane yes">
+      <h4>داخل المحيط — المرحلة الأولى</h4>
+      <ul>
+        <li>هوية الصيدلية والحملات والعروض</li>
+        <li>الأقسام غير الدوائية: العناية بالبشرة، المكمّلات الغذائية، عناية الطفل، العناية الشخصية</li>
+        <li>تصفّح وبحث وصفحة منتج</li>
+        <li>حالة التوفّر (متوفّر / اسأل الصيدلاني)</li>
+        <li>زر «أطلب صيدلانياً» — جرس خدمة، لا استشارة</li>
+        <li>محتوى توعوي عام من مصدر مُسمّى ومنسوب</li>
+        <li>عدّادات تفاعل مجهولة تماماً</li>
+      </ul>
+    </div>
+    <div class="pane no">
+      <h4>خارج المحيط — مؤجَّل حتى الموافقة</h4>
+      <ul>
+        <li>أي إدخال لأعراض أو بيانات صحية</li>
+        <li>الجرعة، الاستطباب، التداخلات، مضادّات الاستطباب</li>
+        <li>الوصفات الطبية والأدوية الموصوفة</li>
+        <li>تحليل البشرة بالصورة — <strong>الميزة الأخطر تنظيمياً في قائمتك</strong></li>
+        <li>حساب زبون أو أي هوية شخصية</li>
+        <li>أي توصية مُخصّصة لشخص</li>
+        <li>قسم الأورام — يبقى خارج الكشك كلياً</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl">الملاحظة التي تجعل هذا سهلاً</span>
+    <p>
+      النطاق الآمن تنظيمياً هو نفسه <strong>النطاق الأعلى ربحاً</strong>. العناية بالبشرة والمكمّلات هي
+      أقسام «الاكتشاف» — الزبون لا يعرف مسبقاً ماذا يريد، وهي بالضبط ما تتميّز به الصيدلية أصلاً.
+      الأدوية الموصوفة لا تُباع بالعرض على شاشة؛ تُباع بوصفة. لذلك استبعادها من الكشك
+      لا يكلّفك مبيعات، بل يُركّز الشاشة على ما يبيع فعلاً.
+    </p>
+  </div>
+
+  <h3>وأثره على المعمارية</h3>
+  <p>
+    كل ميزة «خارج المحيط» تُبنى خلف <strong>راية ميزة</strong> واحدة تُدار من الخادم لا من الكود:
+  </p>
+  <pre><code>// packages/contract/src/capabilities.ts
+export interface KioskCapabilities {
+  regulatedFeaturesEnabled: boolean;   // ← يبقى false حتى تصل الموافقة
+  showMedicines: boolean;
+  allowDirectOrder: boolean;
+  allowedSectors: SectorId[];
+}</code></pre>
+  <p>
+    فحين تصل موافقة الوزارة، لا يُعاد بناء شيء ولا يُنشر إصدار جديد على الجهاز: تُبدَّل قيمة
+    في لوحة الإدارة، ويتنفّس الكشك ميزاته الجديدة. وحين تُسأل عن الالتزام، تستطيع أن تُظهِر
+    <em>أين</em> الحدّ في الكود، لا أن تَعِد به.
+  </p>
+</section>
+
+<!-- ===================== 06 ===================== -->
+<section id="s6">
+  <div class="hd"><span class="num">06</span><h2>البيئة الفيزيائية<span class="sub">الموضع والكهرباء — ما يقتل الأكشاك فعلاً</span></h2></div>
+
+  <h3>الموضع: هذا الجهاز داخليّ، والدليل في صورتك</h3>
+  <p>
+    الخطّة المطروحة كانت وضعه <strong>على الرصيف عند مدخل الصيدلية</strong> (3 م عن السيارات، 1 م عن المشاة).
+    لا يحتمل ذلك. والدليل الأقوى ليس ورقة مواصفات، بل <strong>فتحات التهوية الظاهرة على ظهره
+    تحت اللصاقة مباشرةً في صورتك</strong>: الهيكل مفتوح عمداً ليتنفّس. ما يدخل منه هواءً يدخل منه
+    مطراً وغباراً. وشهادات اللصاقة — <span class="ltr mono">CE · FCC · RoHS · CCC</span> — ولا واحدة منها تصنيف <span class="ltr mono">IP</span>.
+  </p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>الخطر</th><th>الرقم</th><th>النتيجة</th></tr></thead>
+    <tbody>
+      <tr><td>السطوع</td>
+        <td>الجهاز من فئة 300–450 شمعة/م² · الخارجي المظلّل يحتاج 2000–3000 · الشمس المباشرة 4000+</td>
+        <td>غير مرئي نهاراً</td></tr>
+      <tr><td><strong>الحرارة</strong></td>
+        <td>دمشق تموز/آب معدّل عظمى 37.8°م، والقياسي 46°م · مواصفة أجهزة هذه الفئة 0–40°م</td>
+        <td>الجوّ وحده خارج المواصفة</td></tr>
+      <tr><td><strong>الشمس المباشرة</strong></td>
+        <td>≈1000 واط/م² على سطح اللوحة ← تجاوز نقطة الصفاء 70–80°م</td>
+        <td><strong>الشاشة تسودّ.</strong> يزول بالتبريد، لكن التكرار يُتلف المستقطِبات نهائياً</td></tr>
+      <tr><td>الماء والغبار</td>
+        <td>الخارجي يحتاج <span class="ltr mono">IP65</span> · الجهاز بلا تصنيف وبفتحات مفتوحة · دمشق 125 مم مطر سنوياً</td>
+        <td>تلف تدريجي مؤكّد</td></tr>
+      <tr><td>اللمس</td><td>لمس سعوي + ماء على الزجاج</td><td>لمسات وهمية متواصلة</td></tr>
+      <tr><td>الأمان</td><td>43 بوصة على رصيف عام ليلاً</td><td>سرقة أو تخريب</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note risk">
+    <span class="lbl">التوصية</span>
+    <p>
+      <strong>الشاشة داخل الصيدلية، قرب المدخل أو منطقة الانتظار.</strong> الشارع الحيوي قيمته
+      أنه يزيد عدد الداخلين — لا أن يُوضَع الجهاز في الطقس. والزبون الذي بالداخل هو الذي يشتري.
+    </p>
+    <p>
+      إن ثبتت جدوى مخاطبة الشارع لاحقاً، تُشترى <strong>شاشة خارجية مخصّصة</strong>
+      (<span class="ltr mono">IP65</span> · 2500+ شمعة · إدارة حرارية · زجاج مضاد للتخريب) ويبقى هذا الجهاز بالداخل.
+      أمّا صندوق الحماية الخارجي فيحلّ الطقس ولا يحلّ السطوع — <strong>نصف حلّ، لا يُنصَح به</strong>.
+    </p>
+    <p>ويُضاف للتحقّق: هل يحتاج وضع جهاز على الرصيف <strong>ترخيص إشغال</strong> من المحافظة؟</p>
+  </div>
+
+  <h3>الكهرباء</h3>
+  <p class="lead">
+    كل ما يُكتب عن أكشاك الخدمة الذاتية يفترض كهرباء مستقرّة. هذا الافتراض لا يصحّ هنا،
+    وتجاهله هو الطريقة الأسرع لأن يجد الدكتور مهند شاشة سوداء كل صباح.
+  </p>
+
+  <h3>ثلاثة أعطال، ثلاثة حلول</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>العطل</th><th>ما يحدث</th><th>المعالجة</th></tr></thead>
+    <tbody>
+      <tr><td>لا يقلع تلقائياً بعد عودة التيار</td>
+        <td>الشاشة تبقى مطفأة حتى يمرّ موظّف ويضغط الزر. المنتج يبدو معطّلاً معظم الوقت</td>
+        <td>ابحث في <span class="ltr">BIOS</span>/إعدادات النظام عن <span class="ltr mono">Power On After AC Loss</span> أو ما يماثله. إن لم يوجد: <span class="ltr">UPS</span> صغير يُبقيه حيّاً عبر الانقطاعات القصيرة</td></tr>
+      <tr><td>تلف نظام الملفات من القطع المفاجئ</td>
+        <td>ذاكرة <span class="ltr mono">eMMC</span> تفسد بعد عشرات دورات القطع أثناء الكتابة. الجهاز يموت نهائياً بعد أشهر</td>
+        <td>كتابة ذرّية فقط: اكتب إلى ملف مؤقّت ثم <span class="ltr mono">rename</span>. مجلّدا محتوى <span class="ltr mono">A/B</span> بالتناوب. لا كتابة أثناء العرض. سجلّات في ذاكرة دوّارة تُفرَّغ دفعةً</td></tr>
+      <tr><td>تذبذب الجهد</td>
+        <td>مزوّد الطاقة يتلف تدريجياً، ثم فجأة</td>
+        <td>منظّم جهد <span class="ltr">AVR</span> قبل الجهاز — أرخص من لوحة 43 بوصة بكثير</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note risk">
+    <span class="lbl">قرار يُتخذ الآن، لا لاحقاً</span>
+    <p>
+      إن أظهر اختبار الانقطاع (بند 04-د) أن الجهاز <strong>لا يقلع وحده</strong>، فإن
+      <span class="ltr">UPS</span> ومنظّم جهد ليسا إضافة اختيارية — هما جزء من المنتج،
+      ويجب أن يدخلا في العرض المقدَّم للدكتور مهند من البداية. اكتشافهما بعد التسليم
+      يحوّلهما من «بند في العرض» إلى «مشكلة في التنفيذ».
+    </p>
+  </div>
+
+  <p>
+    وبرمجياً: عند كل إقلاع، يبدأ التطبيق من وضع الجذب من أول الدورة، لا من حيث توقّف.
+    الجهاز الذي يستيقظ في منتصف شاشة منتج بعد انقطاع كهرباء يبدو مُعطَّلاً؛ الذي يستيقظ
+    على شعار الصيدلية يبدو مُصمَّماً.
+  </p>
+</section>
+
+<!-- ===================== 07 ===================== -->
+<section id="s7">
+  <div class="hd"><span class="num">07</span><h2>قرار المنصّة التقنية<span class="sub">انهار إلى فرع واحد — والأفضل</span></h2></div>
+
+  <p class="lead">
+    كان هذا البند في النسخة السابقة جدولاً بأربعة فروع. صور الجهاز أغلقت ثلاثة منها.
+    <strong>الجهاز أندرويد، بخدمات Google كاملة، ويقبل تثبيت التطبيقات.</strong>
+    هذا أحسن ما كان يمكن أن نجده.
+  </p>
+
+  <div class="note ok">
+    <span class="lbl">القرار</span>
+    <p>
+      <strong>بناء <span class="ltr">React 19 + Vite</span> القائم، مُجمَّعاً كأصول محلية،
+      داخل غلاف <span class="ltr">Kotlin</span> رفيع يستضيف <span class="ltr mono">WebView</span></strong> —
+      مع <span class="ltr">Device Owner</span> و<code>startLockTask()</code> للتحصين.
+      إعادة استخدام تقارب <strong>85–90٪</strong> من العمل القائم. لا <span class="ltr">Flutter</span>،
+      ولا إعادة كتابة، ولا مسار ثانٍ.
+    </p>
+  </div>
+
+  <h3>لماذا سقط خيار Flutter</h3>
+  <p>
+    كان مبرّره الوحيد هو الخوف من <span class="ltr mono">WebView</span> قديم لا يُحدَّث على ROM صيني
+    بلا خدمات Google. لكن الصورة تُظهر <span class="ltr">Play Store</span> و<span class="ltr">Chrome</span>
+    و<span class="ltr">Gmail</span> و<span class="ltr">Instagram</span> — كلها تطبيقات من المتجر.
+    وجودها يعني أن خدمات Google تعمل، وأن <span class="ltr mono">Android System WebView</span>
+    <strong>يُحدَّث كأي تطبيق آخر</strong>. المجهول الذي كان يبرّر <span class="ltr">Flutter</span> لم يعد موجوداً،
+    فسقط المبرّر معه. هذا هو الفرق بين اختيار تقنية بالخوف واختيارها بالمعطيات.
+  </p>
+
+  <h3>ما يفعله غلاف Kotlin — ولماذا لا نكتفي بـChrome</h3>
+  <p>
+    يمكن نظرياً تشغيل <span class="ltr">Chrome</span> بملء الشاشة والاكتفاء بذلك. لا تفعل:
+    لا يعطيك إقلاعاً تلقائياً موثوقاً، ولا استرداداً بعد انهيار، ولا تحكّماً بالسطوع،
+    ولا منعاً حقيقياً للخروج. الغلاف الرفيع — بضع مئات من الأسطر — يعطيك:
+  </p>
+  <ul>
+    <li><code>Device Owner</code> عبر <code>adb shell dpm set-device-owner</code>، ثم <code>setLockTaskPackages()</code> و<code>startLockTask()</code>: يُخفي شريط الحالة وأزرار الرئيسية والمهام، ويمنع أي تطبيق آخر من الظهور.</li>
+    <li>مستقبِل <code>BOOT_COMPLETED</code> — الإقلاع التلقائي بعد كل انقطاع كهرباء.</li>
+    <li>مراقب حياة يعيد التشغيل عند التجمّد، وإعادة تشغيل مجدولة ليلاً (بند 20).</li>
+    <li>جسر أصيل للسطوع المجدول، وإحصاءات التخزين والذاكرة التي تُرسَل مع النبض.</li>
+    <li>تعطيل التكبير بالإصبعين، والاختيار المطوّل، وقائمة السياق — كلها تُظهر واجهة أندرويد للزبون.</li>
+  </ul>
+
+  <div class="note">
+    <span class="lbl">تنبيه على مسار التحصين</span>
+    <p>
+      تسجيل <span class="ltr">Device Owner</span> يتطلّب جهازاً <strong>بلا حسابات مضافة</strong>.
+      الجهاز الآن عليه حزمة لافتات وربما حساب Google. لذلك الأرجح أن التحصين يحتاج
+      <strong>إعادة ضبط مصنع مخطَّطة</strong> — تُنفَّذ مرة واحدة قبل التركيب النهائي، لا بعده.
+      نفّذ <code>adb shell dpm list-owners</code> أولاً (بند 04-د) لتعرف ما أنت مقبل عليه.
+    </p>
+  </div>
+
+  <div class="note ok">
+    <span class="lbl">مكسب فوري غير متوقّع</span>
+    <p>
+      الجهاز عليه <strong><span class="ltr">AbleSign Digital Signage</span></strong> — تطبيق لافتات مجاني من متجر Play.
+      يعني تقدر تعرض إعلانات الصيدلية <strong>هذا الأسبوع</strong>، بصور تُرفَع يدوياً، ريثما يجهز تطبيقنا.
+      شاشة تشتغل اليوم أفضل من شاشة مثالية بعد شهر — والدكتور مهند يرى شيئاً يعمل بينما نبني الشيء الحقيقي.
+      <strong>لكن اعتبره جسراً لا حلاً:</strong> لا يعرف مخزونك، ولا يتكامل مع نظامك، ولا يعطيك تفاعلاً ولا تحليلات.
+    </p>
+  </div>
+
+  <h4>ما استُبعِد ولماذا</h4>
+  <ul>
+    <li><strong><span class="ltr">Flutter</span></strong> — سقط مبرّره كما أعلاه. لم يعد يشتري شيئاً، ويكلّف قاعدة كود ثانية.</li>
+    <li><strong><span class="ltr">Electron</span></strong> — يحمل متصفّحاً كاملاً في الذاكرة. غير وارد على عتاد بهذه الفئة.</li>
+    <li><strong>موقع ويب في متصفّح</strong> — لا قفل ولا استرداد ولا إقلاع تلقائي. الكشك ليس صفحة.</li>
+    <li><strong><span class="ltr">React Native</span></strong> — إعادة كتابة الواجهة دون مقابل، بينما الويب يعمل هنا أصلاً.</li>
+  </ul>
+
+  <div class="note">
+    <span class="lbl">وما زال ساري المفعول</span>
+    <p>
+      واجهة كشك 43 بوصة لواقف، وواجهة هاتف في يد جالس، <strong>ليستا نفس المنتج</strong> —
+      حتى لو تشاركتا نفس المكدّس التقني. المشترك هو <strong>عقد المحتوى</strong> وطبقة النطاق،
+      لا مكوّنات الواجهة. شارِك العقد، لا الهيكل.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 08 ===================== -->
+<section id="s8">
+  <div class="hd"><span class="num">08</span><h2>معمارية البرمجية<span class="sub">ست وحدات، حدود صارمة</span></h2></div>
+
+  <p>الكشك ليس تطبيقاً واحداً بل ستّ مسؤوليات لا تتحدّث إلا عبر واجهات معرَّفة:</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>الوحدة</th><th>مسؤوليتها الوحيدة</th><th>ما لا يُسمح لها به</th></tr></thead>
+    <tbody>
+      <tr><td><code>boot</code></td><td>معايرة مقياس المليمتر، قفل الاتجاه، تشغيل مراقب الحياة، الإقلاع إلى وضع الجذب</td><td>لا تعرف شيئاً عن المنتجات</td></tr>
+      <tr><td><code>sync</code></td><td>جلب بيان المحتوى، تنزيل الأصول، التحقّق من البصمات، التبديل الذرّي</td><td>لا ترسم شيئاً على الشاشة أبداً</td></tr>
+      <tr><td><code>player</code></td><td>وضع الجذب: جدولة الشرائح، الانتقالات، فكّ ترميز الوسائط</td><td>لا تلمس الشبكة إطلاقاً — تقرأ من القرص فقط</td></tr>
+      <tr><td><code>interactive</code></td><td>الجلسة، التنقّل، الشاشات</td><td>لا تحتفظ بأي شيء بعد انتهاء الجلسة</td></tr>
+      <tr><td><code>telemetry</code></td><td>عدّادات مجهولة في ذاكرة دوّارة، تُفرَّغ دفعات</td><td>لا تحجب الواجهة، ولا تجمع أي مُعرِّف شخصي</td></tr>
+      <tr><td><code>ui</code></td><td>عناصر بمقاس الكشك، كل أبعادها بالمليمتر</td><td>لا تحتوي رقم بكسل واحداً مكتوباً يدوياً</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok">
+    <span class="lbl">القاعدة الحاملة</span>
+    <p>
+      <strong>الشبكة ليست في مسار الرسم أبداً.</strong> <code>player</code> و<code>interactive</code>
+      يقرآن من التخزين المحلّي فقط؛ <code>sync</code> وحدها تعرف أن الإنترنت موجود.
+      هذه الحدود وحدها تجعل شاشة «خطأ في الشبكة» مستحيلة بنيوياً — لا لأننا تذكّرنا معالجتها،
+      بل لأن الطبقة التي ترسم لا تملك أصلاً وسيلة للفشل بهذا الشكل.
+    </p>
+  </div>
+
+  <p>وهذا امتداد مباشر للانضباط الموجود في النموذج الأولي: طبقة النطاق لا تستورد <span class="ltr">React</span>،
+    ولا مكوّن يقرأ من مصفوفة المنتجات مباشرة. المبدأ نفسه، مطبَّقاً على جهاز.</p>
+</section>
+
+<!-- ===================== 09 ===================== -->
+<section id="s9">
+  <div class="hd"><span class="num">09</span><h2>العلاقة بالنموذج الأولي والمنصّة القادمة<span class="sub">ثلاث سطوح، عقد واحد</span></h2></div>
+
+  <div class="layers">
+    <div class="layer data"><b>قاعدة البيانات · <span class="ltr">PostgreSQL</span></b><small>مصدر الحقيقة الوحيد. لا يصلها أي عميل مباشرة</small></div>
+    <div class="layer"><b>الواجهة البرمجية · <span class="ltr">NestJS + Prisma</span></b><small>كل المنطق، كل الصلاحيات، كل التدقيق</small></div>
+    <div class="layer edge"><b>عقد المحتوى · <span class="ltr mono">@mohannad/contract</span></b><small>مخطّط <span class="ltr mono">JSON Schema</span> واحد ← تُولَّد منه أنواع <span class="ltr">TypeScript</span> ونماذج <span class="ltr">Dart</span>. هذا هو الشيء الوحيد المشترك بين السطوح</small></div>
+    <div class="layer"><b>ثلاثة سطوح مستقلّة</b><small>تطبيق الزبون (<span class="ltr">React PWA</span>) · نظام إدارة الصيدلية · <strong>الكشك</strong> — كلٌّ بواجهته الخاصة، وكلٌّ يستهلك العقد نفسه</small></div>
+  </div>
+
+  <p>
+    النموذج الأولي القائم بُني بمعمارية تُسهّل هذا كثيراً: <code>CatalogRepository</code> واجهة مجرّدة
+    تنتظر تنفيذاً حقيقياً، و<code>config/brand.ts</code> هو المصدر الوحيد لهوية الصيدلية.
+    الكشك يرث المبدأين حرفياً: مستودع واحد للبيانات، ملفّ هوية واحد.
+  </p>
+
+  <div class="note">
+    <span class="lbl">قرار انتقالي</span>
+    <p>
+      الواجهة البرمجية الحقيقية غير جاهزة بعد. لذلك الكشك في مرحلته الأولى يقرأ من
+      <strong>ملفّ بيان ثابت</strong> يُرفَع إلى أي استضافة بسيطة — نفس شكل العقد، نفس المخطّط،
+      نفس منطق المزامنة. حين تجهز <span class="ltr">NestJS</span>، يتغيّر عنوان واحد
+      في الإعدادات ولا شيء غيره. لا تنتظر الخلفية كي تُشغّل الشاشة.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section id="s10">
+  <div class="hd"><span class="num">10</span><h2>نظام التصميم بالمليمتر<span class="sub">الفكرة التي تُلغي انتظار العتاد</span></h2></div>
+
+  <p class="lead">
+    شاشة 43 بوصة بدقّة <span class="ltr mono">1080p</span> كثافتها ≈ <strong><span class="ltr mono">51 PPI</span></strong>.
+    الهاتف الحديث ≈ <span class="ltr mono">460 PPI</span>. أي أن البكسل الواحد هنا
+    <strong>أكبر فيزيائياً بتسعة أضعاف</strong>. وهذا يعني أن كل رقم بكسل اعتدتَ عليه في الويب
+    <em>خاطئ</em> على هذا الجهاز — ثم يصبح خاطئاً بمقدار مختلف تماماً إن تبيّن أن اللوحة <span class="ltr mono">4K</span>.
+  </p>
+
+  <h3>الحلّ: لا تكتب بكسل. اكتب مليمتر.</h3>
+  <p>
+    الهندسة الفيزيائية للوحة 43 بوصة بنسبة 16:9 معروفة يقيناً:
+    <span class="ltr mono">952.4 × 535.7 mm</span>. عند الإقلاع، يُقسَم عرض النافذة بالبكسل
+    على عرض اللوحة بالمليمتر، فينتج متغيّر واحد تُشتقّ منه كل الأحجام:
+  </p>
+  <pre><code>// boot/scale.ts — يُنفَّذ مرة واحدة عند الإقلاع
+const PANEL_MM = { portrait: 535.7, landscape: 952.4 };
+const widthMm  = isPortrait ? PANEL_MM.portrait : PANEL_MM.landscape;
+
+document.documentElement.style.setProperty(
+  '--mm', `${window.innerWidth / widthMm}px`
+);
+
+/* بعدها، كل حجم في التطبيق يُكتب هكذا فقط: */
+.cta        { min-block-size: calc(var(--mm) * 28); }
+.body-text  { font-size:        calc(var(--mm) * 7);  }
+.card-gap   { gap:              calc(var(--mm) * 6);  }</code></pre>
+
+  <div class="note ok">
+    <span class="lbl">لماذا هذا مهم الآن</span>
+    <p>
+      لأنه يعني أنك <strong>تستطيع تصميم الواجهة كاملة اليوم</strong>، قبل أن تعرف الدقّة أو الاتجاه.
+      المجهول الوحيد الذي يدخل النظام هو رقم واحد تقيسه بشريط قياس عند التركيب.
+      إن تبيّن أن اللوحة <span class="ltr mono">4K</span> بدل <span class="ltr mono">1080p</span>،
+      لا يتغيّر سطر واحد في أي مكوّن — يتغيّر المتغيّر وحده، ويُعاد تحجيم الواجهة كلّها بشكل صحيح تلقائياً.
+    </p>
+  </div>
+
+  <h3>سُلَّم الخطوط — مشتقّ من مسافة القراءة</h3>
+  <p>
+    قاعدة اللافتات الصناعية: ارتفاع الحرف ≈ مسافة المشاهدة ÷ 120 لقراءة مريحة.
+    وبحث مجلس الوصول الأمريكي على لافتات الرسائل المتغيّرة يعطي دليل مقروئية ≈
+    <span class="ltr mono">35 ft/in</span> للمشاهد المتوسط، وينخفض إلى <span class="ltr mono">17</span>
+    لكبار السنّ ضعيفي البصر — وهم شريحة أساسية في صيدلية.
+    من هنا تنشأ <strong>منظومتان طباعيّتان منفصلتان</strong>، لا واحدة:
+  </p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>الدور</th><th>مسافة القراءة</th><th class="num">بالمليمتر</th><th class="num">= بكسل عند 1080p</th></tr></thead>
+    <tbody>
+      <tr><td><strong>الجذب</strong> — العنوان البطل</td><td>3–5 م</td><td class="num">60 mm</td><td class="num">121 px</td></tr>
+      <tr><td><strong>الجذب</strong> — عنوان فرعي</td><td>3 م</td><td class="num">28 mm</td><td class="num">56 px</td></tr>
+      <tr><td><strong>الجذب</strong> — سعر / نسبة خصم</td><td>3 م</td><td class="num">40 mm</td><td class="num">81 px</td></tr>
+      <tr><td>التفاعلي — عنوان شاشة</td><td>0.7 م</td><td class="num">16 mm</td><td class="num">32 px</td></tr>
+      <tr><td>التفاعلي — اسم منتج</td><td>0.7 م</td><td class="num">11 mm</td><td class="num">22 px</td></tr>
+      <tr><td>التفاعلي — نصّ عادي</td><td>0.7 م</td><td class="num">7 mm</td><td class="num">14 px</td></tr>
+      <tr><td>التفاعلي — تسمية ثانوية</td><td>0.7 م</td><td class="num">5.5 mm</td><td class="num">11 px</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tbl-note">لاحظ الفارق: نصّ الجذب أكبر من نصّ التفاعل بـ<strong>ثمانية أضعاف</strong>. هذا وحده يُفسّر لماذا لا يمكن أن يكون الوضعان تصميماً واحداً بأحجام معدّلة.</p>
+
+  <h3>أهداف اللمس</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>العنصر</th><th class="num">مليمتر</th><th class="num">= بكسل عند 1080p</th><th>ملاحظة</th></tr></thead>
+    <tbody>
+      <tr><td>الحدّ الأدنى المطلق لأي عنصر قابل للّمس</td><td class="num">12 mm</td><td class="num">24 px</td><td>لا يُنزَل تحته أبداً</td></tr>
+      <tr><td>العنصر القياسي</td><td class="num">18 mm</td><td class="num">36 px</td><td>يقابل تقريباً معيار <span class="ltr">WCAG 2.5.5</span></td></tr>
+      <tr><td>زرّ الإجراء الأساسي</td><td class="num">28 mm ارتفاعاً</td><td class="num">56 px</td><td>وعرضه ≥ 60 mm</td></tr>
+      <tr><td>الفراغ بين هدفين متجاورين</td><td class="num">≥ 6 mm</td><td class="num">12 px</td><td>يمنع اللمس الخاطئ</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tbl-note">
+    <span class="ltr">WCAG 2.5.8</span> يفرض 24×24 بكسل <span class="ltr">CSS</span> كحدّ أدنى (مستوى AA)،
+    و<span class="ltr">2.5.5</span> يوصي بـ44×44 (مستوى AAA). على هذه اللوحة، 44 بكسل ≈ 21.8 mm —
+    أي أن التوصية الدولية تقع داخل النطاق المقترح أعلاه، وهو تحقّق مُطمئِن.
+  </p>
+</section>
+
+<!-- ===================== 11 ===================== -->
+<section id="s11">
+  <div class="hd"><span class="num">11</span><h2>مناطق الوصول والإرغونوميا<span class="sub">لماذا تُقلَب واجهة الكشك رأساً على عقب</span></h2></div>
+
+  <p class="lead">
+    شاشة 43 بوصة عمودية على قاعدة أرضية تمتدّ تقريباً من 850 مم إلى 1800 مم عن الأرض.
+    <strong>ثلثها العلوي خارج متناول اليد.</strong> هذه ليست ملاحظة تصميمية، بل قيد تخطيط
+    يقلب ترتيب الواجهة عمّا اعتدناه في الويب.
+  </p>
+
+  <div class="reach">
+    <div class="reach-scale">
+      <span style="top:0">1800 مم</span>
+      <span style="top:15.8%">1500</span>
+      <span style="top:30.5%">1220</span>
+      <span style="top:50%">850</span>
+      <span style="top:100%">الأرض</span>
+    </div>
+    <div class="reach-col">
+      <div class="zone z-display" style="top:0;height:15.8%">
+        <b>منطقة العرض فقط<small>1500–1800 مم · الشعار، الصورة البطلة، عنوان الحملة — لا لمس إطلاقاً</small></b>
+      </div>
+      <div class="zone z-mid" style="top:15.8%;height:14.7%">
+        <b>منطقة وسطى<small>1220–1500 مم · مقروءة ويصلها الواقف — لكن لا يصلها الجالس على كرسي متحرّك</small></b>
+      </div>
+      <div class="zone z-touch" style="top:30.5%;height:19.5%">
+        <b>منطقة التفاعل الأساسية<small>850–1220 مم · هنا كل زرّ أساسي، وكل إجراء، ولوحة المفاتيح</small></b>
+      </div>
+      <div class="zone z-out" style="top:50%;height:50%">
+        <b>قاعدة الجهاز<small>تحت حافة الشاشة</small></b>
+      </div>
+    </div>
+  </div>
+  <p class="tbl-note">
+    الرسم بمقياس رأسي حقيقي. حدّ 1220 مم مأخوذ من معيار <span class="ltr">ADA §308</span>
+    لأقصى مدى وصول أمامي غير مُعاق (48 بوصة)؛ استُخدم هنا كمرجع تصميمي دولي، لا كإلزام قانوني محلّي.
+  </p>
+
+  <h3>ما يترتّب على ذلك</h3>
+  <ul>
+    <li><strong>الأزرار في الأسفل، لا في الأعلى.</strong> عكس الويب تماماً. شريط التنقّل الدائم
+      (الرئيسية · رجوع · العربية/English · أطلب صيدلانياً) يُثبَّت في أسفل الشاشة.</li>
+    <li><strong>كل ما هو فوق 1500 مم عرضٌ صرف.</strong> لا زرّ، لا رابط، لا شيء يُغري باللمس هناك.
+      إن كان يبدو قابلاً للّمس ولا يصله المستخدم فتلك عيب، لا تفصيل.</li>
+    <li><strong>كل ما في المنطقة الوسطى له مقابل في الأسفل.</strong> بطاقة منتج قد تكون عند 1400 مم،
+      لكن زرّ «التفاصيل» الخاص بها يجب أن يكون له طريق آخر من الأسفل — تمرير أو قائمة.</li>
+    <li><strong>لوحة المفاتيح في القاع دائماً</strong>، وبمفاتيح لا تقلّ عن 18 مم، وبأقلّ استخدام ممكن (بند 15).</li>
+  </ul>
+
+  <div class="note risk">
+    <span class="lbl">إن تبيّن أن التركيب أفقي</span>
+    <p>
+      تنقلب المعادلة: الشاشة كلها تقريباً داخل متناول اليد، لكن الارتفاع المتاح للمحتوى
+      يهبط من 952 مم إلى 536 مم. تخطيط مختلف كلياً — أعمدة بدل طبقات، وتصفّح أفقي.
+      لهذا كان الاتجاه في المرتبة الأولى من قائمة الفحص.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 12 ===================== -->
+<section id="s12">
+  <div class="hd"><span class="num">12</span><h2>رحلة المستخدم<span class="sub">من مسافة أربعة أمتار إلى الرفّ</span></h2></div>
+
+  <div class="road">
+    <div class="step done"><h4>0 · المرور <span class="tag">4–6 م · لا وعي</span></h4>
+      <p>الحركة على الشاشة تلتقط الطرف المحيطي للعين. لهذا يحتوي كل انتقال في وضع الجذب على حركة، ولو خفيفة.</p></div>
+    <div class="step"><h4>1 · النظرة <span class="tag">3 م · ثانيتان</span></h4>
+      <p>كلمة واحدة كبيرة ورقم واحد. لا جملة. إن لم يُفهَم العرض في ثانيتين فقد ضاع.</p></div>
+    <div class="step"><h4>2 · التوقّف <span class="tag">1.5 م · 3–5 ثوانٍ</span></h4>
+      <p>هنا تظهر دعوة اللمس. متحرّكة قليلاً، منخفضة على الشاشة، بصيغة أمر واضح: «المس للتصفّح».</p></div>
+    <div class="step"><h4>3 · اللمسة الأولى <span class="tag">0.7 م</span></h4>
+      <p>الانتقال إلى الوضع التفاعلي خلال 300 مللي ثانية، مع ارتجاع بصري فوري عند نقطة اللمس. البطء هنا يُفسَّر على أنه عطل ويُنهي الجلسة.</p></div>
+    <div class="step"><h4>4 · الاستكشاف <span class="tag">30–120 ثانية</span></h4>
+      <p>أقسام ← قسم ← منتج. ثلاث نقرات كحدّ أقصى للوصول إلى أي منتج. طريق الرجوع ظاهر دائماً.</p></div>
+    <div class="step"><h4>5 · الفعل <span class="tag">لحظة القرار</span></h4>
+      <p>أحد ثلاثة: يمشي إلى الرفّ ومعه اسم المنتج · يضغط «أطلب صيدلانياً» فينبّه الموظّف · يمسح رمز <span class="ltr">QR</span> لينقل المنتج إلى هاتفه ويكمل على واتساب.</p></div>
+    <div class="step gate"><h4>6 · المغادرة <span class="tag">صامتة، دائماً</span></h4>
+      <p>لا أحد يضغط «خروج». الجلسة تنتهي بالصمت وحده — وهذا ما يجعل مؤقّت الخمول أهمّ من أي زر (بند 20).</p></div>
+  </div>
+
+  <div class="note">
+    <span class="lbl">الخطوة 5 هي المنتج</span>
+    <p>
+      رمز <span class="ltr">QR</span> على بطاقة المنتج هو أرخص جسر بين الشاشة والهاتف، وهو أيضاً
+      المسار الذي يُبقي الطلب <strong>خارج</strong> الكشك تنظيمياً: الكشك يعرض، والهاتف يطلب،
+      والطلب يصل على واتساب بنفس الصيغة المتّفق عليها في النموذج الأولي.
+      لا حساب، لا بيانات، لا التزام تنظيمي جديد.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 13 ===================== -->
+<section id="s13">
+  <div class="hd"><span class="num">13</span><h2>وضع الجذب<span class="sub">Attract Mode · 95% من عمر الجهاز</span></h2></div>
+
+  <p class="lead">
+    الجهاز سيقضي أغلب ساعاته بلا لمس. لذلك وضع الجذب ليس شاشة انتظار — هو
+    <strong>المنتج الأساسي</strong>، والوضع التفاعلي هو الإضافة.
+  </p>
+
+  <h3>بنية الدورة</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th class="num">#</th><th>الشريحة</th><th class="num">المدّة</th><th>الغرض</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>هوية الصيدلية — شعار وحركة هادئة</td><td class="num">4 ث</td><td>ترسيخ العلامة، ونقطة عودة نظيفة بعد كل جلسة</td></tr>
+      <tr><td class="num">2</td><td>الحملة الرئيسية (أعلى أولوية نشطة)</td><td class="num">8 ث</td><td>الرسالة التجارية الأولى</td></tr>
+      <tr><td class="num">3</td><td>منتج مميّز — صورة كبيرة وسعر</td><td class="num">6 ث</td><td>عرض ملموس</td></tr>
+      <tr><td class="num">4</td><td>عرض أو خصم</td><td class="num">6 ث</td><td>محفّز</td></tr>
+      <tr><td class="num">5</td><td>محتوى توعوي عام منسوب لمصدره</td><td class="num">7 ث</td><td>مصداقية — لا بيع</td></tr>
+      <tr><td class="num">6</td><td>دعوة للتفاعل</td><td class="num">4 ث</td><td>تحويل المتفرّج إلى مستخدم</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tbl-note">دورة ≈ 35 ثانية. الترتيب والمدد والأولويات كلها من لوحة الإدارة، لا من الكود.</p>
+
+  <h3>قواعد ملزِمة</h3>
+  <ul>
+    <li><strong>كلمات قليلة جداً.</strong> ثلاثة أسطر كحدّ أقصى، خمس كلمات في السطر. الشاشة تُلمَح لا تُقرأ.</li>
+    <li><strong>لا عنصر تحكّم مرئي</strong> — لا أسهم، لا نقاط، لا مؤقّت. الشاشة تبدو كإعلان، لا كتطبيق.</li>
+    <li><strong>حركة هادئة ومستمرة.</strong> تلاشٍ متقاطع 600 مللي ثانية، وحركة <span class="ltr">Ken Burns</span> بطيئة جداً على الصور الثابتة. الحركة هي ما يلتقط العين المحيطية.</li>
+    <li><strong>الصوت مكتوم افتراضياً.</strong> صيدلية مكان هادئ، وفيها مرضى. الصوت خيار في لوحة الإدارة، معطّل عند التسليم.</li>
+    <li><strong>أي لمسة، في أي مكان، تفتح الوضع التفاعلي</strong> — حتى لمسة عشوائية. لا يوجد «زرّ صحيح» يجب إصابته.</li>
+    <li><strong>سطوع مجدوَل:</strong> ينخفض تلقائياً بعد إغلاق الصيدلية. يُطيل عمر اللوحة ويوفّر كهرباء.</li>
+  </ul>
+
+  <div class="note ok">
+    <span class="lbl">النسخة القابلة للشحن وحدها</span>
+    <p>
+      وضع الجذب <strong>يُطلَق بمفرده</strong> كأول تسليم. شاشة إعلانات جميلة تعمل بلا انقطاع
+      داخل الصيدلية هي قيمة كاملة بذاتها، وتضع الجهاز في مكانه، وتختبره ضدّ الكهرباء والإضاءة
+      والغبار الحقيقيين — بينما تُبنى الطبقة التفاعلية على مهل. لا تنتظر اكتمال كل شيء لتُشغّل شيئاً.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 14 ===================== -->
+<section id="s14">
+  <div class="hd"><span class="num">14</span><h2>الوضع التفاعلي<span class="sub">قائمة قصيرة عمداً</span></h2></div>
+
+  <p class="lead">
+    طلبتَ ألّا أنفّذ كل الخيارات المقترحة دون تحليل. بعد قراءة نموذج عمل الصيدلية
+    والقيد التنظيمي، هذه هي القائمة التي أوصي بها — وما استبعدته ولماذا.
+  </p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>الخيار</th><th>القرار</th><th>السبب</th></tr></thead>
+    <tbody>
+      <tr><td>تصفّح الأقسام</td><td><span class="chip c-ok">نعم — أساسي</span></td><td>الطريق الطبيعي للاكتشاف، وهو ما تتميّز به الصيدلية</td></tr>
+      <tr><td>العروض والحملات</td><td><span class="chip c-ok">نعم — أساسي</span></td><td>سبب وجود الشاشة تجارياً</td></tr>
+      <tr><td>منتجات مميّزة</td><td><span class="chip c-ok">نعم</span></td><td>يُدار من لوحة الإدارة، ويصنع دوراناً للمخزون البطيء</td></tr>
+      <tr><td>صفحة منتج</td><td><span class="chip c-ok">نعم</span></td><td>صورة، حجم عبوة، شكل صيدلاني، توفّر، سعر. بلا أي ادعاء علاجي</td></tr>
+      <tr><td>البحث</td><td><span class="chip c-est">نعم — لكن بأقلّ كتابة</span></td><td>الكتابة على شاشة عمودية واقفاً مؤلمة. التصفّح أولاً، والبحث ملاذ (بند 15)</td></tr>
+      <tr><td>أطلب صيدلانياً</td><td><span class="chip c-ok">نعم — الأعلى قيمة</span></td><td>جرس خدمة رقمي. يحوّل الفضول إلى بيع فوري، وهو خارج النطاق المنظَّم تماماً</td></tr>
+      <tr><td>نقل المنتج إلى الهاتف عبر <span class="ltr">QR</span></td><td><span class="chip c-ok">نعم</span></td><td>يُكمل الطلب على واتساب دون أن يجمع الكشك أي بيانات</td></tr>
+      <tr><td>خدمات الصيدلية</td><td><span class="chip c-est">لاحقاً</span></td><td>يحتاج صياغة يراجعها الدكتور مهند أولاً</td></tr>
+      <tr><td>طلب مباشر من الكشك</td><td><span class="chip c-risk">لا — المرحلة الأولى</span></td><td>يقترب من حدّ القرار 24/ت. مسار <span class="ltr">QR</span> يحقّق الغاية نفسها بلا مخاطرة</td></tr>
+      <tr><td>معلومات صحية / أدوية</td><td><span class="chip c-risk">لا</span></td><td>داخل النطاق المنظَّم صراحةً</td></tr>
+      <tr><td>تحليل البشرة بالصورة</td><td><span class="chip c-risk">لا</span></td><td>أخطر ميزة تنظيمياً في القائمة كلها. تبقى معلَّمة «لاحقاً» كما في النموذج الأولي</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>الشاشة الرئيسية</h3>
+  <p>
+    عند اللمسة الأولى: <strong>ستّ بطاقات أقسام كبيرة</strong> — نفس الأقسام المعتمدة في النموذج الأولي،
+    بنفس التسميات والترتيب. لا تعيد ترتيبها. الطاقم اعتاد ترتيباً، والزبون رأى الأقسام نفسها
+    على إنستغرام؛ الاتساق هنا أثمن من أي تحسين.
+  </p>
+  <p>
+    فوق البطاقات: شريط حملات نشطة. تحتها مباشرةً وفي المنطقة القابلة للوصول:
+    شريط دائم فيه <strong>الرئيسية · رجوع · بحث · العربية/English · أطلب صيدلانياً</strong>.
+    هذا الشريط لا يختفي في أي شاشة، أبداً.
+  </p>
+</section>
+
+<!-- ===================== 15 ===================== -->
+<section id="s15">
+  <div class="hd"><span class="num">15</span><h2>تصفّح المنتجات<span class="sub">ثلاث نقرات كحدّ أقصى</span></h2></div>
+
+  <pre><code>الرئيسية → القسم → المنتج          (نقرتان للوصول لأي منتج)
+الرئيسية → القسم → علامة → المنتج  (ثلاث، حين يكون القسم كبيراً)</code></pre>
+
+  <h4>شبكة القسم</h4>
+  <ul>
+    <li>عمودان في الوضع العمودي. بطاقة بارتفاع ≈ 70 مم — كبيرة بما يكفي لصورة تُقرأ من متر.</li>
+    <li>البطاقة تحمل: صورة · اسم · حجم العبوة · شارة التوفّر · السعر. لا شيء آخر.</li>
+    <li>تمرير عمودي بزخم، مع <strong>مؤشّر موضع دائم</strong> — الواقف يفقد إحساسه بالمكان أسرع من الجالس.</li>
+    <li>مُرشِّحات كبيرة أعلى الشبكة: العلامة، السعر، المتوفّر فقط. لا قوائم منسدلة إطلاقاً.</li>
+  </ul>
+
+  <h4>البحث — بأقلّ كتابة ممكنة</h4>
+  <ul>
+    <li>عند فتح البحث: تظهر <strong>أولاً</strong> أكثر عشرة مصطلحات بحثاً وأشهر العلامات كأزرار كبيرة. أغلب الزبائن لن يكتبوا حرفاً.</li>
+    <li>لوحة مفاتيح عربية في قاع الشاشة، مفاتيح ≥ 18 مم، مع زرّ تبديل للاتينية (أسماء العلامات تُكتب بالحرفين).</li>
+    <li>بحث متسامح مع الأخطاء ومع تشكيل الهمزات — موجود في النموذج الأولي، يُعاد استخدامه كما هو.</li>
+    <li>نتائج فورية مع كل حرف. لا زرّ «ابحث».</li>
+    <li><strong>عند صفر نتائج:</strong> لا تعرض فراغاً. اعرض «لم نجد — اسأل الصيدلاني» مع زرّ الطلب،
+      <em>وسجّل المصطلح</em>. هذه أثمن بيانات ينتجها الكشك (بند 21).</li>
+  </ul>
+
+  <h4>صفحة المنتج</h4>
+  <ul>
+    <li>صورة كبيرة · الاسم · العلامة · حجم العبوة والشكل الصيدلاني · السعر · التوفّر.</li>
+    <li>سطر ثابت غير قابل للإخفاء: «المعلومات لأغراض تعريفية — استشر الصيدلاني».</li>
+    <li>«منتجات مرتبطة» بصياغة <strong>روتين</strong> لا وصفة: غسول ← سيروم ← مرطّب ← واقٍ شمسي.
+      هذا هو المنطق الحقيقي لبيع العناية بالبشرة، وهو في الوقت نفسه الصياغة الوحيدة الخالية من أي ادعاء طبي.</li>
+    <li>رمز <span class="ltr">QR</span> لنقل المنتج إلى الهاتف · زرّ «أطلب صيدلانياً».</li>
+  </ul>
+
+  <div class="note risk">
+    <span class="lbl">شارة التوفّر — نقطة الصدق</span>
+    <p>
+      شارة التوفّر هي أقوى ما في النموذج الأولي، لأنها الرقم نفسه الذي يراه الصيدلاني.
+      لكن على جهاز قد ينقطع عنه الإنترنت لأيام، عرض «متوفّر» من بيانات الأمس <strong>كذبة</strong>،
+      وثمنها ثقة زبون واقف أمام رفّ فارغ. لذلك: إن تجاوز عمر البيانات حدّاً مضبوطاً
+      (يُقترح ساعتان)، <strong>تتحوّل الشارة تلقائياً</strong> من «متوفّر» إلى «اسأل الصيدلاني».
+      الكشك يعترف بجهله بدل أن يخمّن.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 16 ===================== -->
+<section id="s16">
+  <div class="hd"><span class="num">16</span><h2>معمارية اللافتات والحملات<span class="sub">حملة واحدة، سطحان</span></h2></div>
+
+  <p>الكيان المركزي هو <code>Campaign</code>، ويُستهلَك من الكشك وتطبيق الزبون معاً:</p>
+
+  <pre><code>interface Campaign {
+  id: string;
+  title:    LocalizedText;        // { ar, en }
+  media:    AssetRef;             // صورة أو فيديو، مُعنوَن ببصمته
+  durationMs: number;
+  priority: 'high' | 'normal' | 'low';
+  startAt:  ISODate;
+  endAt:    ISODate;
+  dayparts?: Daypart[];           // مثال: 10:00–14:00 صيفاً لواقيات الشمس
+  surfaces: ('kiosk' | 'app')[];  // ← نفس الحملة، سطحان
+  cta?: { type: 'sector' | 'product' | 'none'; payload?: string };
+  active: boolean;
+}</code></pre>
+
+  <ul>
+    <li><strong>حلّ التعارض:</strong> الأولوية أولاً، ثم دوران موزون داخل نفس الأولوية، ثم الأقدم إنشاءً.</li>
+    <li><strong>الجدولة:</strong> <code>startAt</code> و<code>endAt</code> إلزاميان. حملة بلا نهاية تبقى معروضة بعد انتهاء موسمها — وهذا أشيع عطب في اللافتات الرقمية، ويجعل الصيدلية تبدو مهمَلة.</li>
+    <li><strong>التجزئة الزمنية</strong> اختيارية لكنها قوية: واقيات الشمس ظهراً، مكمّلات النوم مساءً.</li>
+    <li><strong><code>surfaces</code> هو الحقل التجاري:</strong> الحملة التي يراها الزبون على إنستغرام
+      هي نفسها التي تستقبله على الشاشة حين يدخل. حقل واحد يربط التسويق الرقمي بنقطة البيع.</li>
+  </ul>
+</section>
+
+<!-- ===================== 17 ===================== -->
+<section id="s17">
+  <div class="hd"><span class="num">17</span><h2>الواجهة البرمجية والتكامل<span class="sub">وصلاحيات الكشك</span></h2></div>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>المسار</th><th>الاتجاه</th><th>الحمولة</th><th>التكرار</th></tr></thead>
+    <tbody>
+      <tr><td><code>GET /kiosk/manifest</code></td><td>قراءة</td><td>إصدار البيان، الحملات، الأصول ببصماتها، الإعدادات، رايات الميزات</td><td>كل 5 دقائق</td></tr>
+      <tr><td><code>GET /kiosk/catalog</code></td><td>قراءة</td><td>الأقسام، العلامات، المنتجات المسموح عرضها</td><td>كل 15 دقيقة</td></tr>
+      <tr><td><code>GET /kiosk/availability</code></td><td>قراءة</td><td>حالة توفّر مختصرة فقط</td><td>كل 3 دقائق</td></tr>
+      <tr><td><code>POST /kiosk/events</code></td><td>كتابة</td><td>دفعة أحداث مجهولة</td><td>كل 10 دقائق أو 200 حدث</td></tr>
+      <tr><td><code>POST /kiosk/assist</code></td><td>كتابة</td><td>طلب صيدلاني: مُعرّف الجهاز + مُعرّف منتج اختياري</td><td>عند الطلب</td></tr>
+      <tr><td><code>POST /kiosk/heartbeat</code></td><td>كتابة</td><td>الإصدار، إصدار البيان، مدّة التشغيل، التخزين المتبقّي، الحملة الحالية</td><td>كل دقيقة</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note ok">
+    <span class="lbl">مبدأ الصلاحية</span>
+    <p>
+      الكشك <strong>ليس مستخدماً في نظام الصيدلية</strong>، بل هوية منفصلة بصلاحيات ضيّقة:
+      يقرأ الكتالوج والحملات والتوفّر، ويكتب الأحداث المجهولة وطلبات المساعدة — لا أكثر.
+      لا يرى مبيعات، ولا موظّفين، ولا موردين، ولا تكاليف، ولا زبائن. إن سُرِق الجهاز من الصيدلية،
+      يكون ما حصل عليه السارق هو كتالوج منتجات معروض على الشاشة أصلاً.
+    </p>
+  </div>
+
+  <p>ولا يوجد — ولن يوجد — أي اتصال مباشر بين الكشك وقاعدة البيانات. الطريق واحد:
+    <strong>كشك ← واجهة برمجية آمنة ← خلفية ← قاعدة بيانات.</strong></p>
+</section>
+
+<!-- ===================== 18 ===================== -->
+<section id="s18">
+  <div class="hd"><span class="num">18</span><h2>العمل دون اتصال<span class="sub">الشبكة ميزة، لا شرط</span></h2></div>
+
+  <h3>بيان محتوى مُعنوَن بالمحتوى</h3>
+  <pre><code>{
+  "manifestVersion": 47,
+  "generatedAt": "2026-08-28T09:00:00Z",
+  "assets": [
+    { "id": "a1", "sha256": "9f2c…", "bytes": 842113, "url": "/assets/9f2c….jpg" }
+  ],
+  "campaigns": [ /* … */ ],
+  "settings": { "idleTimeoutSec": 60, "availabilityStaleAfterSec": 7200 }
+}</code></pre>
+
+  <ol>
+    <li>يُجلَب البيان. إن لم يتغيّر <code>manifestVersion</code>، لا شيء يحدث.</li>
+    <li>تُنزَّل الأصول الناقصة فقط، وتُخزَّن باسم بصمتها. الأصل المُعنوَن ببصمته <strong>لا يحتاج إبطال ذاكرة مؤقتة</strong> — الصورة المعدّلة بصمة جديدة، فلا تعارض ولا نسخة قديمة عالقة.</li>
+    <li>يُتحقّق من <span class="ltr mono">SHA-256</span> بعد كل تنزيل. الفاشل يُعاد، لا يُستخدم.</li>
+    <li><strong>لا يُبدَّل البيان إلا بعد اكتمال كل أصوله محلياً.</strong> لا حالة وسطى، ولا شريحة تظهر بصورة مفقودة.</li>
+    <li>تُحفَظ أصول البيان السابق حتى تعمل الدورة الجديدة بنجاح مرة واحدة — تراجع فوري إن فشلت.</li>
+    <li>سقف تخزين مضبوط؛ عند بلوغه تُحذف الأصول غير المُشار إليها من أي بيان محفوظ، الأقدم أولاً.</li>
+  </ol>
+
+  <h3>سلوك الانقطاع</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>المدّة</th><th>ما يراه الزبون</th><th>ما يجري داخلياً</th></tr></thead>
+    <tbody>
+      <tr><td>دقائق</td><td>لا شيء</td><td>إعادة محاولة بتباعد أُسّي</td></tr>
+      <tr><td>ساعات</td><td>لا شيء — الدورة تعمل كاملة</td><td>شارة التوفّر تتحوّل إلى «اسأل الصيدلاني» بعد ساعتين</td></tr>
+      <tr><td>أيام</td><td>لا شيء</td><td>يستمر بآخر بيان كامل. الحملات المنتهية تُخفى محلياً حسب تواريخها</td></tr>
+      <tr><td>أسابيع</td><td>لا شيء</td><td>مؤشّر صغير في لوحة الإدارة عن بعد فقط — لا شيء على الشاشة</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>
+    لا توجد شاشة «خطأ في الشبكة». ولا رسالة اتصال. ولا أيقونة قطع. الزبون ليس معنيّاً بشبكة الصيدلية،
+    والصيدلية ليست معنيّة بأن يعرف. من يحتاج أن يعرف هو أنت، عبر نبض الجهاز في لوحة الإدارة.
+  </p>
+</section>
+
+<!-- ===================== 19 ===================== -->
+<section id="s19">
+  <div class="hd"><span class="num">19</span><h2>الأمان والتحصين<span class="sub">جهاز في مكان عام</span></h2></div>
+
+  <h3>القفل — بحسب النظام</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>أندرويد</th><th>ويندوز</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          تهيئة الجهاز كـ<strong><span class="ltr">Device Owner</span></strong>، ثم
+          <code>setLockTaskPackages()</code> و<code>startLockTask()</code>.<br><br>
+          يُخفي شريط الحالة وزرّي الرئيسية والمهام الأخيرة، ويمنع أي تطبيق آخر من الإطلاق،
+          ويعطّل شاشة القفل. <code>setLockTaskFeatures()</code> يتيح استثناء ما نحتاجه فقط.<br><br>
+          يُطلَق التطبيق على <span class="ltr mono">BOOT_COMPLETED</span>، ويبقى مستيقظاً بـ<span class="ltr mono">WakeLock</span>.
+        </td>
+        <td>
+          <strong><span class="ltr">Assigned Access</span></strong> بتطبيق واحد فوق شاشة القفل،
+          يُعاد تشغيله تلقائياً عند إغلاقه.<br><br>
+          <strong><span class="ltr">Shell Launcher</span></strong> يستبدل مستكشف ويندوز نفسه —
+          فلا سطح مكتب ولا قائمة ابدأ أصلاً.<br><br>
+          يحتاج <span class="ltr">Pro</span> فما فوق. <span class="ltr">Home</span> لا يكفي، وهو
+          سبب إضافي لسؤال الفحص عن الإصدار.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>الطبقات الأخرى</h3>
+  <ul>
+    <li><strong>لا واجهة إدارة على الجهاز.</strong> الإدارة عن بعد ومُوثَّقة. إن لزمت قائمة خدمة ميدانية:
+      إيماءة خفية (لمس الزوايا الأربع خلال 3 ثوانٍ) ثم رمز سرّي — ويجب أن يستحيل بلوغها بالصدفة.</li>
+    <li><strong>اعتماد لكل جهاز</strong> في تخزين آمن، بصلاحيات قراءة فقط عدا مساري الأحداث والمساعدة.
+      قابل للإبطال فردياً من لوحة الإدارة.</li>
+    <li><strong>عزل الشبكة:</strong> الكشك على شبكة معزولة عن شبكة الصيدلية الداخلية. جهاز عام
+      لا يشارك شبكة نظام إدارة الصيدلية.</li>
+    <li><strong>المنافذ الفيزيائية:</strong> إن كانت منافذ <span class="ltr mono">USB</span> مكشوفة —
+      عطّل الإقلاع منها في الإعدادات الثابتة إن أمكن، وإلا سُدّت فيزيائياً.
+      <strong>هذه أكثر ثغرة أكشاك يجري إهمالها.</strong></li>
+    <li><strong>لا معلومات حسّاسة على الشاشة أبداً</strong> — لا مخزون، لا أسعار شراء، لا بيانات موظّفين،
+      لا شيء ممّا يظهر في نظام إدارة الصيدلية.</li>
+    <li><strong>اتصال مشفّر</strong> مع تثبيت الشهادة إن سمحت المنصّة.</li>
+  </ul>
+</section>
+
+<!-- ===================== 20 ===================== -->
+<section id="s20">
+  <div class="hd"><span class="num">20</span><h2>إدارة الجلسة<span class="sub">لا أحد يضغط «خروج»</span></h2></div>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>الحدث</th><th>المهلة</th><th>السلوك</th></tr></thead>
+    <tbody>
+      <tr><td>خمول أثناء التصفّح</td><td class="num">45 ث</td><td>لوح هادئ: «هل ما زلت هنا؟» مع عدّ تنازلي 15 ثانية. أي لمسة تُلغيه</td></tr>
+      <tr><td>انتهاء العدّ</td><td class="num">60 ث</td><td>تصفير كامل ← وضع الجذب من أول الدورة</td></tr>
+      <tr><td>بعد إرسال طلب مساعدة</td><td class="num">15 ث</td><td>شاشة تأكيد قصيرة ثم تصفير — الجلسة انتهت بنجاحها</td></tr>
+      <tr><td>ضغط «إنهاء»</td><td>فوري</td><td>تصفير — لمن يريد ألّا يترك أثراً</td></tr>
+      <tr><td>يومياً 04:00</td><td>—</td><td>إعادة تشغيل كاملة للتطبيق</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>التصفير الكامل يعني:</strong> إتلاف كل حالة العرض · مسح البحث ومرشّحاته · إتلاف مسوّدة أي طلب ·
+    إغلاق أي نافذة · العودة إلى الشريحة الأولى. <strong>لا يبقى أثر للزبون السابق على الشاشة، ولا في الذاكرة.</strong></p>
+
+  <div class="note">
+    <span class="lbl">لماذا إعادة تشغيل مجدولة</span>
+    <p>
+      على جهاز بذاكرة 2 غيغابايت يعمل شهوراً بلا انقطاع، أصغر تسريب ذاكرة يتراكم حتى الانهيار —
+      وستكتشفه من شكوى، لا من سجلّ. إعادة تشغيل ليلية عند 4 فجراً تكلّف عشرين ثانية لا يراها أحد،
+      وتُلغي فئة كاملة من الأعطال التي يستحيل تشخيصها عن بعد.
+      هذا ليس تحايلاً على عيب — هو هندسة موثوقية على عتاد لا تملك تصحيحه.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 21 ===================== -->
+<section id="s21">
+  <div class="hd"><span class="num">21</span><h2>التحليلات والخصوصية<span class="sub">عدّادات، لا مراقبة</span></h2></div>
+
+  <pre><code>interface KioskEvent {
+  ts: number;
+  deviceId: string;     // مُعرِّف الجهاز — لا الشخص
+  sessionId: string;    // عشوائي، يُتلَف عند التصفير، لا يُربَط بشيء
+  type: 'session_start' | 'sector_open' | 'product_view'
+      | 'search' | 'search_zero_results' | 'campaign_impression'
+      | 'campaign_tap' | 'assist_request' | 'qr_scan' | 'idle_timeout';
+  target?: string;
+}</code></pre>
+
+  <div class="split">
+    <div class="pane yes">
+      <h4>يُجمَع</h4>
+      <ul>
+        <li>عدد الجلسات وتوزّعها على ساعات اليوم</li>
+        <li>الأقسام والمنتجات الأكثر فتحاً</li>
+        <li>مصطلحات البحث — <strong>وخصوصاً ما لم يُعطِ نتيجة</strong></li>
+        <li>ظهور الحملات ونقراتها</li>
+        <li>طول الجلسة وعمقها</li>
+        <li>عدد طلبات المساعدة</li>
+      </ul>
+    </div>
+    <div class="pane no">
+      <h4>لا يُجمَع — بأي شكل</h4>
+      <ul>
+        <li>صور أو فيديو أو كشف وجوه أو تقدير عمر</li>
+        <li>اسم أو هاتف أو أي مُعرِّف شخصي</li>
+        <li>أي بيان صحّي</li>
+        <li>ربط جلسة بأخرى، أو بزبون بعينه</li>
+        <li>أي شيء يبقى بعد انتهاء الجلسة</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note ok">
+    <span class="lbl">أثمن رقم في المشروع</span>
+    <p>
+      <strong>عمليات البحث التي لم تُعطِ نتيجة.</strong> كل واحدة منها هي زبون طلب شيئاً
+      لا تملكه الصيدلية، وقالها بصوت عالٍ ومجاناً. قائمة شهرية بهذه المصطلحات، مرتّبة بالتكرار،
+      هي دراسة طلب حقيقية لا يملكها منافس — وهي حجّة تجارية أقوى من أي رسم بياني للتفاعل
+      حين تجلس أمام الدكتور مهند.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 22 ===================== -->
+<section id="s22">
+  <div class="hd"><span class="num">22</span><h2>لوحة الإدارة<span class="sub">حتى لو لم تُبنَ في المرحلة الأولى</span></h2></div>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>القسم</th><th>الوظائف</th><th>المرحلة</th></tr></thead>
+    <tbody>
+      <tr><td>حالة الأجهزة</td><td>متّصل/غير متّصل · آخر نبض · إصدار البيان · التخزين المتبقّي · مدّة التشغيل · الحملة المعروضة الآن</td><td>مبكّرة</td></tr>
+      <tr><td>الحملات</td><td>رفع صورة أو فيديو · عنوان بلغتين · مدّة · أولوية · تواريخ · سطوح العرض · تفعيل/تعطيل</td><td>مبكّرة</td></tr>
+      <tr><td>المحتوى</td><td>اختيار المنتجات المميّزة · ترتيب الأقسام · نصوص التوعية ومصادرها</td><td>متوسّطة</td></tr>
+      <tr><td>الرايات</td><td>تفعيل ميزات النطاق المنظَّم حين تصل الموافقة · إظهار الأدوية · السماح بالطلب المباشر</td><td>متوسّطة</td></tr>
+      <tr><td>التحليلات</td><td>تفاعلات · أكثر الأقسام · مصطلحات البحث · <strong>البحث دون نتيجة</strong> · أداء الحملات</td><td>متوسّطة</td></tr>
+      <tr><td>التشغيل</td><td>إعادة تشغيل عن بعد · دفع بيان فوراً · جدولة السطوع · سجلّ التدقيق</td><td>لاحقة</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>
+    المعمارية تجعل هذا ممكناً منذ اليوم الأول حتى لو تأخّر بناؤه: كل ما يُعرَض على الكشك
+    يأتي من البيان، والبيان يُولَّد من قاعدة البيانات. لا شيء مكتوب في الكود.
+    <strong>ولا شيء يُرفَع إلى الجهاز يدوياً على ذاكرة <span class="ltr mono">USB</span> — أبداً.</strong>
+    اللحظة التي يصبح فيها تحديث الشاشة يتطلّب زيارة الصيدلية، يتوقّف تحديث الشاشة.
+  </p>
+</section>
+
+<!-- ===================== 23 ===================== -->
+<section id="s23">
+  <div class="hd"><span class="num">23</span><h2>العربية وRTL<span class="sub">لا تقلب واجهة إنكليزية</span></h2></div>
+
+  <ul>
+    <li><strong>العربية هي الأصل، والإنكليزية إضافة.</strong> يُصمَّم بالعربية أولاً ثم يُتحقّق أن الإنكليزية تعمل — لا العكس. عكس الترتيب يُنتج واجهة عربية تبدو مترجَمة.</li>
+    <li><strong>خصائص منطقية لا فيزيائية:</strong> <code>margin-inline-start</code> لا <code>margin-left</code>،
+      <code>padding-inline</code> لا <code>padding-left/right</code>. تنقلب الواجهة بتغيير <code>dir</code> وحده.</li>
+    <li><strong>الأرقام غربية</strong> (<span class="ltr mono">0–9</span>) — المعتاد في سورية للأسعار والكميات.</li>
+    <li><strong>الأسماء اللاتينية معزولة:</strong> اسم علامة أجنبية داخل جملة عربية يُغلَّف بـ<code>dir="ltr"</code>
+      و<code>unicode-bidi: isolate</code>، وإلا التصقت علامات الترقيم في الجهة الخطأ.</li>
+    <li><strong>الخطوط:</strong> <span class="ltr">Tajawal</span> و<span class="ltr">IBM Plex Sans Arabic</span>
+      — نفس خطّي النموذج الأولي، مستضافان ذاتياً. لا يجوز أن يعتمد كشك بلا إنترنت على خطوط من شبكة توصيل.</li>
+    <li><strong>ارتفاع السطر أوسع:</strong> العربية بحاجة ≈ 1.7–1.9 لأن ارتفاع الحروف الصاعدة والنازلة أكبر.
+      استخدام قيمة لاتينية (1.4) يجعل النصّ العربي مضغوطاً وأصعب قراءة.</li>
+    <li><strong>الأيقونات الاتجاهية تنعكس</strong> (سهم الرجوع)، أمّا غير الاتجاهية فلا (السلّة، البحث).</li>
+    <li><strong>تبديل اللغة زرّ دائم كبير</strong> في الشريط السفلي، لا خيار في قائمة. ويُصفَّر إلى العربية مع كل جلسة جديدة.</li>
+  </ul>
+</section>
+
+<!-- ===================== 24 ===================== -->
+<section id="s24">
+  <div class="hd"><span class="num">24</span><h2>إمكانية الوصول<span class="sub">في صيدلية، هذا ليس بنداً تكميلياً</span></h2></div>
+  <ul>
+    <li>كل أهداف اللمس ضمن حدود بند 10 — وأغلبها فوق توصية <span class="ltr">WCAG 2.5.5</span>، لا عندها.</li>
+    <li>تباين ≥ 7:1 للنصّ الأساسي. اللوحات الرخيصة تفقد التباين بشدّة عند النظر من زاوية، وواقف طويل أو قصير ينظر بزاوية دائماً.</li>
+    <li><strong>لا يُنقَل معنى باللون وحده.</strong> «متوفّر» و«اسأل الصيدلاني» يختلفان بالنصّ والأيقونة، لا بالأخضر والرمادي فقط.</li>
+    <li>ارتجاع بصري خلال 100 مللي ثانية من كل لمسة. غيابه يدفع المستخدم للضغط مرّتين، فيُسجَّل إجراء مزدوج.</li>
+    <li>لغة بسيطة: «تصفّح المنتجات» لا «استعرض الكتالوج».</li>
+    <li>كل الإجراءات الأساسية داخل نطاق 850–1220 مم (بند 11) — وهو ما يجعلها في متناول الجالس على كرسي متحرّك.</li>
+    <li>لا شيء يعتمد على التمرير فوق العنصر، ولا على ضغطة مزدوجة، ولا على إيماءة متعدّدة الأصابع.</li>
+  </ul>
+</section>
+
+<!-- ===================== 25 ===================== -->
+<section id="s25">
+  <div class="hd"><span class="num">25</span><h2>الأداء والاستقرار<span class="sub">شهور بلا إعادة تشغيل</span></h2></div>
+  <ul>
+    <li><strong>ميزانية الوسائط:</strong> صور مضغوطة بأبعاد الشاشة بالضبط، <span class="ltr">WebP</span> أو <span class="ltr">AVIF</span>، ≤ 400 كيلوبايت للشريحة. لا يُرفَع أصل أكبر من الشاشة أبداً — لوحة الإدارة تُعيد التحجيم عند الرفع، لا الجهاز عند العرض.</li>
+    <li><strong>الفيديو:</strong> <span class="ltr">H.264</span> فقط ما لم يُثبَت فكّ <span class="ltr">H.265</span> عتادياً. ≤ 15 ثانية، ≤ 8 ميغابت/ثانية، بلا صوت.</li>
+    <li><strong>ثلاث شرائح في الذاكرة كحدّ أقصى</strong> — الحالية والتالية والسابقة. الباقي يُفكَّك ويُحرَّر.</li>
+    <li><strong>الحركة على <code>transform</code> و<code>opacity</code> فقط</strong> — الخصائص الوحيدة التي لا تُجبِر إعادة التخطيط. أي حركة على <code>width</code> أو <code>top</code> ستتقطّع على معالج 2014.</li>
+    <li><strong>مراقبة الذاكرة كل خمس دقائق</strong>، وتُرسَل مع النبض. اتجاه صاعد ثابت = تسريب، يُكتشَف من لوحة الإدارة قبل أن يُكتشَف من الشاشة.</li>
+    <li><strong>مراقب حياة</strong> يعيد تشغيل التطبيق إن توقّف عن الاستجابة، ويسجّل السبب.</li>
+    <li><strong>هدف:</strong> انتقال بـ60 إطاراً/ثانية في وضع الجذب، واستجابة أولى للّمس تحت 100 مللي ثانية.</li>
+  </ul>
+  <p>
+    <strong>الاستقرار الطويل أهم من أي تأثير بصري.</strong> شاشة تعمل ستّة أشهر بحركة بسيطة
+    أثمن بكثير من شاشة بحركة مبهرة تتجمّد كل أسبوع — لأن الثانية تُعلّم الطاقم أن الجهاز «معطّل»،
+    وهذا حكم لا يُسترَدّ.
+  </p>
+</section>
+
+<!-- ===================== 26 ===================== -->
+<section id="s26">
+  <div class="hd"><span class="num">26</span><h2>النشر والمراقبة<span class="sub">جهاز واحد اليوم، أسطول غداً</span></h2></div>
+  <ul>
+    <li><strong>التحديث:</strong> المحتوى عبر البيان (تلقائي، كل خمس دقائق). أمّا التطبيق نفسه فتحديث موقّع، يُنزَّل في الخلفية، ويُطبَّق عند إعادة التشغيل الليلية — لا وسط النهار أمام زبون.</li>
+    <li><strong>التراجع:</strong> يُحفَظ الإصدار السابق. إن فشل الجديد في تسجيل نبض خلال 10 دقائق، يعود الجهاز تلقائياً. جهاز في مدينة أخرى لا يُصلَّح باليد.</li>
+    <li><strong>البيئات:</strong> تطوير (متصفّح بأبعاد اللوحة محاكاة) ← اختبار (الجهاز الحقيقي على مقعد) ← إنتاج (الجهاز في الصيدلية). لا يُنشَر إلى الإنتاج شيء لم يعمل 24 ساعة متواصلة على الجهاز الحقيقي.</li>
+    <li><strong>التركيب:</strong> الموضع قرار تجاري لا تقني (بند 29) · شبكة معزولة · <span class="ltr">UPS</span> ومنظّم جهد إن لزما · تثبيت مادي للقاعدة · تجربة انقطاع كهرباء أمام الطاقم.</li>
+    <li><strong>التسليم:</strong> ورقة واحدة للطاقم فيها: كيف يُعاد تشغيله · لمن يُتّصل · وكيف تُطلَب حملة جديدة. لا دليل من عشرين صفحة لن يُقرأ.</li>
+    <li><strong>التوسّع:</strong> كل شيء مصمَّم لأسطول منذ البداية — مُعرّف جهاز، بيان لكل جهاز، حملات موجَّهة. جهاز ثانٍ في فرع آخر يُضاف بإدخال سطر، لا بمشروع جديد.</li>
+  </ul>
+</section>
+
+<!-- ===================== 27 ===================== -->
+<section id="s27">
+  <div class="hd"><span class="num">27</span><h2>بنية المشروع<span class="sub">مستودع واحد</span></h2></div>
+  <pre><code>mohannad-pharmacy/
+├─ packages/
+│  ├─ contract/          # JSON Schema ← تُولَّد منه أنواع TS ونماذج Dart
+│  ├─ domain/            # نطاق TypeScript نقي (قائم) — لا يستورد React
+│  └─ brand/             # الهوية: ألوان، سُلَّم خطوط بالمليمتر، شعارات
+├─ apps/
+│  ├─ web/               # تطبيق الزبون React 19 (قائم)
+│  ├─ pms/               # نظام إدارة الصيدلية (قائم)
+│  ├─ cms/               # لوحة إدارة الحملات والأجهزة
+│  └─ kiosk/             # ← الجديد
+├─ services/
+│  └─ api/               # NestJS + Prisma
+└─ infra/
+
+apps/kiosk/src/
+├─ boot/          # معايرة --mm · قفل الاتجاه · مراقب الحياة · جدولة السطوع
+├─ sync/          # جلب البيان · مخزن الأصول · تحقّق البصمات · التبديل الذرّي
+├─ player/        # وضع الجذب: الجدولة · الانتقالات · فكّ الوسائط
+├─ interactive/   # الجلسة · التنقّل · الشاشات
+├─ telemetry/     # ذاكرة أحداث دوّارة · تفريغ دفعات
+├─ ui/            # عناصر بمقاس الكشك — كل الأبعاد بالمليمتر
+└─ content/       # المخزون المحلّي (خارج نظام النسخ)</code></pre>
+
+  <p>
+    إن كان الفرع <span class="ltr">Flutter</span> هو المسار، يصبح <code>apps/kiosk/</code>
+    مشروع <span class="ltr">Flutter</span> بنفس تقسيم المجلّدات تماماً، ويستهلك
+    <code>packages/contract/</code> عبر نماذج <span class="ltr">Dart</span> مُولَّدة من المخطّط نفسه.
+    <strong>التقسيم لا يتغيّر بتغيّر اللغة</strong> — وهذا هو الاختبار على أن التقسيم صحيح.
+  </p>
+</section>
+
+<!-- ===================== 28 ===================== -->
+<section id="s28">
+  <div class="hd"><span class="num">28</span><h2>خارطة الطريق<span class="sub">ما يمكن بدؤه غداً</span></h2></div>
+
+  <div class="road">
+    <div class="step done">
+      <h4>مرحلة 0 · العقد ونظام التصميم <span class="tag">أسبوع · غير محجوب بشيء</span></h4>
+      <p>مخطّط <span class="ltr mono">JSON</span> للحملات والكتالوج · رايات الميزات · <code>packages/brand</code>
+        بسُلَّم المليمتر · نموذج وضع الجذب في المتصفّح بأبعاد اللوحة محاكاة.
+        <strong>كل هذا مطابق في كل فروع القرار</strong> — لا ينتظر شيئاً.</p>
+    </div>
+    <div class="step done">
+      <h4>بوّابة · فحص الجهاز <span class="tag">أُنجز جزئياً بالصور</span></h4>
+      <p>أندرويد بخدمات Google · عمودي · قابل للبرمجة. بقي: مقاس الصورة بالمليمتر، إصدار أندرويد، السطوع، واختبار الكهرباء (بند 04).</p>
+    </div>
+    <div class="step gate">
+      <h4>بوّابة · قرار الموضع <span class="tag">ينتظر الدكتور مهند</span></h4>
+      <p>داخل الصيدلية أم على الرصيف (بند 06). لا يُركَّب الجهاز نهائياً قبل حسمه.</p>
+    </div>
+    <div class="step">
+      <h4>مرحلة 1 · مشغّل الجذب <span class="tag">2–3 أسابيع · أول تسليم حقيقي</span></h4>
+      <p>مزامنة البيان · المخزن المحلّي · دورة العرض · القفل · الإقلاع التلقائي · مراقب الحياة · النبض.
+        <strong>يُركَّب ويُشغَّل في الصيدلية عند هذا الحدّ.</strong> شاشة إعلانات لا تتوقّف = قيمة كاملة، وجهاز مُختبَر في بيئته الحقيقية.</p>
+    </div>
+    <div class="step">
+      <h4>مرحلة 2 · الطبقة التفاعلية <span class="tag">3–4 أسابيع</span></h4>
+      <p>الأقسام الستّة · شبكة المنتجات · صفحة المنتج · البحث · إدارة الجلسة · <span class="ltr">QR</span> إلى الهاتف · «أطلب صيدلانياً».</p>
+    </div>
+    <div class="step">
+      <h4>مرحلة 3 · لوحة الإدارة والتحليلات <span class="tag">2–3 أسابيع</span></h4>
+      <p>رفع الحملات وجدولتها · حالة الأجهزة · تقرير مصطلحات البحث. من هنا يصبح الدكتور مهند قادراً على تشغيل الشاشة بنفسه — وهذه لحظة تحوّل المشروع من خدمة إلى منتج.</p>
+    </div>
+    <div class="step gate">
+      <h4>مرحلة 4 · ما بعد الموافقة <span class="tag">محجوبة بالقرار 24/ت</span></h4>
+      <p>يُبنى فقط بعد وضوح تصنيف الوزارة. الرايات موجودة والأماكن محجوزة في الكود؛ لا شيء يُعاد بناؤه.</p>
+    </div>
+  </div>
+
+  <div class="note ok">
+    <span class="lbl">التوصية الأهم في هذا البند</span>
+    <p>
+      <strong>أطلِق المرحلة الأولى وحدها.</strong> شاشة إعلانات تعمل في الصيدلية بعد ثلاثة أسابيع
+      أثمن بكثير من نظام كامل بعد أربعة أشهر — لأنها تضع الجهاز في مكانه، وتكشف مشاكل الكهرباء
+      والإضاءة والشبكة الحقيقية مبكراً، وتُري الدكتور مهند شيئاً يعمل بدل أن تصفه له.
+      وأنت تبني الطبقة التفاعلية بينما هي تعمل.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 29 ===================== -->
+<section id="s29">
+  <div class="hd"><span class="num">29</span><h2>القيمة التجارية<span class="sub">الحجّة التي تُقال للدكتور مهند</span></h2></div>
+
+  <ol>
+    <li><strong>وقت الانتظار هو المنتج.</strong> الزبون الذي ينتظر تحضير طلبه يقف فارغ اليدين
+      من ثلاث إلى ثماني دقائق. هذا جمهور أسير في لحظة ملل — أثمن نافذة انتباه في الصيدلية كلها.
+      <strong>لذلك يُركَّب الكشك قرب منطقة الانتظار، لا عند الباب.</strong> قرار الموضع تجاري، وهو
+      الفرق بين شاشة تُشاهَد وشاشة تُمَرّ بجانبها.</li>
+    <li><strong>حملة واحدة، سطحان.</strong> 19 ألف متابع على إنستغرام يرون حملة، ثم يدخلون الصيدلية
+      فتستقبلهم الحملة نفسها على الشاشة. حقل <code>surfaces</code> يجعل هذا آلياً، لا تنسيقاً يدوياً.</li>
+    <li><strong>العناية بالبشرة والمكمّلات تُباع بالاكتشاف.</strong> الزبون لا يدخل طالباً سيروم فيتامين C
+      بالاسم؛ يدخل مهتمّاً بالبشرة. الشاشة تُقدّم <em>روتيناً</em> — غسول، سيروم، مرطّب، واقٍ شمسي —
+      فترتفع قيمة السلّة بلا بائع وبلا ضغط وبلا أي ادعاء علاجي.</li>
+    <li><strong>البحث دون نتيجة = دراسة طلب مجانية.</strong> قائمة شهرية بما طلبه الزبائن ولم تجده الصيدلية.
+      لا يملك المنافس مثلها.</li>
+    <li><strong>وقت الطاقم.</strong> «أين قسم واقيات الشمس؟» و«هل عندكم هذه العلامة؟» يُجابان على الشاشة،
+      فيتفرّغ الصيدلاني لما يحتاج صيدلانياً فعلاً.</li>
+    <li><strong>الأثر البصري.</strong> صيدلية في مكان راقٍ بشاشة تفاعلية 43 بوصة تبدو صيدلية مختلفة.
+      هذا انطباع يُدفَع ثمنه عادةً في الديكور — وهنا يأتي مع وظيفة.</li>
+  </ol>
+</section>
+
+<!-- ===================== 30 ===================== -->
+<section id="s30">
+  <div class="hd"><span class="num">30</span><h2>السلامة والادعاءات<span class="sub">الخطّ الذي لا يُقترَب منه</span></h2></div>
+
+  <p>
+    الكشك يفصل صراحةً بين أربعة أنواع من المحتوى، ويعرض ثلاثة فقط:
+  </p>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>النوع</th><th>مثال</th><th>على الكشك؟</th></tr></thead>
+    <tbody>
+      <tr><td>محتوى تسويقي</td><td>«خصم 20% على العناية بالبشرة هذا الأسبوع»</td><td><span class="chip c-ok">نعم — موسوم كعرض</span></td></tr>
+      <tr><td>معلومة منتج وصفية</td><td>«سيروم · 30 مل · للاستخدام اليومي»</td><td><span class="chip c-ok">نعم</span></td></tr>
+      <tr><td>توعية عامة منسوبة</td><td>«أهمية الوقاية من الشمس — المصدر: …»</td><td><span class="chip c-est">نعم — بمصدر مُسمّى</span></td></tr>
+      <tr><td>مشورة طبية</td><td>أي شيء مُخصَّص لحالة شخص</td><td><span class="chip c-risk">لا — يُحال إلى الصيدلاني</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>قواعد الصياغة</h3>
+  <ul>
+    <li><strong>يوصَف المنتج بما هو، لا بما يفعله بمرض.</strong> حجم العبوة، الشكل الصيدلاني،
+      المكوّن الأساسي، مناسبة الاستخدام. هذا هو الانضباط المطبَّق في النموذج الأولي أصلاً — يُحافَظ عليه حرفياً.</li>
+    <li><strong>لا ادعاء بالوقاية أو العلاج أو الشفاء.</strong> هذا هو المبدأ الجوهري في
+      اللائحة الأوروبية <span class="ltr">1924/2006</span> للادعاءات الغذائية والصحية،
+      وهو مرجع تصميمي جيّد أياً كان الاختصاص القضائي.</li>
+    <li><strong>«روتين» لا «وصفة».</strong> فرق لغوي صغير، وفرق تنظيمي كبير.</li>
+    <li><strong>لا مقارنة بين المنتجات بادعاء تفوّق.</strong></li>
+    <li><strong>تنويه دائم على كل صفحة منتج</strong> مع زرّ الوصول إلى صيدلاني بشري.</li>
+    <li><strong>الأدوية الموصوفة وقسم الأورام خارج الكشك كلياً</strong> — يتّسق ذلك مع المعالجة الخاصة
+      المعتمدة أصلاً في النموذج الأولي، ويتجنّب مباشرةً منطقة الدعاية الدوائية للجمهور،
+      وهي منطقة تحكمها لدينا قوانين الدعاية الطبية، وتحذّر منها المعايير الأخلاقية الدولية لترويج الأدوية.</li>
+  </ul>
+</section>
+
+<!-- ===================== 31 ===================== -->
+<section id="s31">
+  <div class="hd"><span class="num">31</span><h2>ما أحتاجه منك قبل أول سطر كود<span class="sub">مرتّب بالأولوية</span></h2></div>
+  <ol class="ask">
+    <li><strong>قرار الموضع (بند 06)</strong> — داخل الصيدلية أم على الرصيف. هذا قرار الدكتور مهند، وهو الآن أهم من كل ما عداه لأنه يحدّد إن كان الجهاز سيبقى حيّاً أصلاً.</li>
+    <li><strong>الأربعة المتبقّية من الفحص (بند 04)</strong> — مقاس الصورة بالمليمتر · إصدار أندرويد · السطوع بالشمعة · وهل يقلع وحده بعد الكهرباء.</li>
+    <li><strong>ملاحق القرار 24/ت الثلاثة</strong> من <a href="https://www.moh.gov.sy/legislation/decisions" target="_blank" rel="noopener">صفحة قرارات الوزارة</a> — لم أستطع تنزيلها. النصّ الكامل يحسم تصنيف الكشك بدل التخمين.</li>
+    <li><strong>ماذا قالت الوزارة بالضبط عن المنصّة الأم؟</strong> رُفضت أم معلّقة أم بانتظار استكمال؟ الجواب يحدّد هل المرحلة الرابعة بعد شهرين أم بعد سنة.</li>
+    <li><strong>أصول الهوية:</strong> ملفّات الشعار، رابط إنستغرام، والأقسام الستّة بتسمياتها التي يستعملها الدكتور مهند.</li>
+    <li><strong>الشبكة والكهرباء في موضع التركيب:</strong> هل تصل الواي فاي بقوة كافية؟ هل هناك <span class="ltr">UPS</span> أو منظّم جهد؟</li>
+    <li><strong>موافقة على الموضع:</strong> قرب منطقة الانتظار لا عند الباب (بند 29). هذا قرار الدكتور مهند، ويستحق أن يُطرَح صراحةً.</li>
+  </ol>
+
+  <div class="note">
+    <span class="lbl">وفي انتظار ذلك</span>
+    <p>
+      المرحلة 0 غير محجوبة بأي من هذه البنود. عقد المحتوى ونظام المليمتر ونموذج وضع الجذب
+      يمكن أن تبدأ الآن، وستكون صحيحة أياً كانت نتائج الفحص. قُل الكلمة وأبدأ بها.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== sources ===================== -->
+<section id="src" class="src">
+  <div class="hd"><span class="num">—</span><h2>المصادر</h2></div>
+  <ol>
+    <li><span class="k">وزارة الصحة – الجمهورية العربية السورية،</span> سجلّ القرارات، ومنه القرار التنظيمي 24/ت (2/12/2025) بخصوص تطبيقات الصحة الإلكترونية — <a href="https://www.moh.gov.sy/legislation/decisions" target="_blank" rel="noopener">moh.gov.sy/legislation/decisions</a></li>
+    <li><span class="k">نقابة الصيادلة – فرع دمشق،</span> قوانين وأنظمة مهنة الصيدلة في سورية (قانون مراقبة الدواء 2/1993، نظام المكاتب العلمية للدعاية الطبية 7/2005) — <a href="https://damaspharmacy.sy/law/" target="_blank" rel="noopener">damaspharmacy.sy/law</a></li>
+    <li><span class="k">الهيئة الوطنية لخدمات الشبكة،</span> لائحة الضوابط والنواظم الخاصة باعتمادية التطبيق الإلكتروني — <a href="https://naits.gov.sy/storage/media/layh-aldoabt-o-alnoathm-alkhas-baaatmady-alttbyk-alalktrony.pdf" target="_blank" rel="noopener">naits.gov.sy</a></li>
+    <li><span class="k">Android Developers,</span> Lock task mode — Android Enterprise dedicated devices — <a href="https://developer.android.com/work/dpc/dedicated-devices/lock-task-mode" target="_blank" rel="noopener">developer.android.com</a></li>
+    <li><span class="k">Microsoft Learn,</span> Assigned Access overview — <a href="https://learn.microsoft.com/en-us/windows/configuration/assigned-access/" target="_blank" rel="noopener">learn.microsoft.com</a> · Configure Shell Launcher (Windows IoT Enterprise) — <a href="https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/commercialization/iot-ent-shell-launcher-app-launcher" target="_blank" rel="noopener">learn.microsoft.com</a></li>
+    <li><span class="k">Microsoft Learn,</span> Configure Microsoft Edge kiosk mode (<code>--edge-kiosk-type=fullscreen</code>, <code>--kiosk-idle-timeout-minutes</code>) — <a href="https://learn.microsoft.com/en-us/deployedge/microsoft-edge-configure-kiosk-mode" target="_blank" rel="noopener">learn.microsoft.com</a></li>
+    <li><span class="k">W3C WAI,</span> Understanding SC 2.5.8 Target Size (Minimum), WCAG 2.2 — <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html" target="_blank" rel="noopener">w3.org</a> · SC 2.5.5 Target Size (Enhanced) — <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html" target="_blank" rel="noopener">w3.org</a></li>
+    <li><span class="k">W3C i18n,</span> Arabic &amp; Persian Layout Requirements — <a href="https://www.w3.org/International/alreq/" target="_blank" rel="noopener">w3.org/International/alreq</a></li>
+    <li><span class="k">MDN,</span> CSS logical properties and values — <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Logical_properties_and_values" target="_blank" rel="noopener">developer.mozilla.org</a></li>
+    <li><span class="k">U.S. Access Board,</span> ADA Chapter 3: Operable Parts — نطاقات الوصول 15″–48″ — <a href="https://www.access-board.gov/ada/guides/chapter-3-operable-parts/" target="_blank" rel="noopener">access-board.gov</a></li>
+    <li><span class="k">U.S. Access Board,</span> VMS Legibility Standards and Research — دليل المقروئية وأثر العمر — <a href="https://www.access-board.gov/research/communication/variable-message-signing/vms-legibility/" target="_blank" rel="noopener">access-board.gov</a></li>
+    <li><span class="k">EUR-Lex,</span> Regulation (EC) No 1924/2006 on nutrition and health claims made on foods — <a href="https://eur-lex.europa.eu/eli/reg/2006/1924/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+    <li><span class="k">World Health Organization,</span> Ethical criteria for medicinal drug promotion — <a href="https://iris.who.int/bitstream/handle/10665/38125/924154239X_eng.pdf" target="_blank" rel="noopener">iris.who.int</a></li>
+    <li><span class="k">AVIXA Xchange,</span> How to Choose the Right Brightness for Indoor and Outdoor Commercial Displays — <a href="https://xchange.avixa.org/posts/how-to-choose-the-right-brightness-for-indoor-and-outdoor-commercial-displays" target="_blank" rel="noopener">xchange.avixa.org</a></li>
+    <li><span class="k">Anders Electronics,</span> High brightness isn't enough: what sunlight readable displays need to survive direct sun — ظاهرة <span class="ltr">solar clearing</span> ونقطة الصفاء — <a href="https://www.andersdx.com/sunlight-readable-outdoor-display-guidelines/" target="_blank" rel="noopener">andersdx.com</a></li>
+    <li><span class="k">MediaSignage,</span> Outdoor Digital Signage Displays: Specification &amp; Selection Guide — تصنيف <span class="ltr mono">IP</span> ومجالات الحرارة والسطوع — <a href="https://digitalsignage.com/digital_signage/docs/hardware/outdoor-displays/" target="_blank" rel="noopener">digitalsignage.com</a></li>
+    <li><span class="k">Climates to Travel,</span> مناخ دمشق — معدّلات ومتطرّفات الحرارة والأمطار — <a href="https://www.climatestotravel.com/climate/syria/damascus" target="_blank" rel="noopener">climatestotravel.com</a></li>
+    <li><span class="k">AbleSign,</span> تطبيق اللافتات المثبَّت على الجهاز — <a href="https://www.ablesign.tv/free-digital-signage-android/" target="_blank" rel="noopener">ablesign.tv</a></li>
+    <li><span class="k">مواصفات مرجعية لفئة الجهاز (لا لجهازك):</span> <a href="https://www.shiningltd.com/product/sh4302wf-43inch-rk3288-android-touch-screen-tablet/" target="_blank" rel="noopener">Shining SH4302WF 43″ RK3288</a> · <a href="https://www.allsee-tech.com/digital-signage-products/pcap-freestanding-touch-screen-kiosk-table-dual-os-windows-android.html" target="_blank" rel="noopener">Allsee 43″ PCAP Freestanding Kiosk</a></li>
+  </ol>
+</section>
+
+<footer>
+  <p style="max-width:none">
+    وثيقة تحليل ومعمارية · صيدلية مهند · الكشك الرقمي · إصدار 1 · 28 آب 2026 —
+    تُقرأ مع <span class="ltr mono">claude/prototype-build-notes.md</span> في مساحة المشروع.
+    لا يبدأ التنفيذ قبل اعتماد بند 07، ولا يُعتمد بند 07 قبل تنفيذ بند 04.
+  </p>
+</footer>
+
+</div>
+
+</body></html>

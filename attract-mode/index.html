@@ -1,0 +1,489 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>شاشة صيدلية مهند</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --page:#EFEFEC;
+  --page-ink:#171C1A;
+  --page-ink-2:#5A6560;
+  --page-ink-3:#8A948F;
+  --page-surface:#FFFFFF;
+  --page-rule:#D8DCD8;
+  --page-accent:#0F5140;
+
+  /* هوية صيدلية مهند */
+  --br-green:#0E4437;
+  --br-green-d:#082A22;
+  --br-green-l:#1B6B56;
+  --br-sand:#F6F1E7;
+  --br-cream:#FDFBF7;
+  --br-brass:#B99248;
+  --br-brass-l:#D9B978;
+  --br-ink:#0A1512;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --page:#101413;
+    --page-ink:#E8EDEA;
+    --page-ink-2:#9AA6A0;
+    --page-ink-3:#6E7A74;
+    --page-surface:#181E1C;
+    --page-rule:#2A3330;
+    --page-accent:#4FB894;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#101413;
+  --page-ink:#E8EDEA;
+  --page-ink-2:#9AA6A0;
+  --page-ink-3:#6E7A74;
+  --page-surface:#181E1C;
+  --page-rule:#2A3330;
+  --page-accent:#4FB894;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--page);color:var(--page-ink);
+  font-family:"Tajawal",system-ui,sans-serif;direction:rtl;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",monospace;direction:ltr;unicode-bidi:isolate}
+
+.shell{
+  max-width:min(78rem,95vw);margin:0 auto;padding:1.6rem 0 3rem;
+  display:grid;grid-template-columns:1fr 19rem;gap:1.6rem;align-items:start;
+}
+@media (max-width:900px){ .shell{grid-template-columns:1fr} }
+
+/* ---------- head ---------- */
+.head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;padding-bottom:1rem;border-bottom:1px solid var(--page-rule)}
+.head h1{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:1.15rem;font-weight:600;margin:0}
+.head p{margin:.25rem 0 0;font-size:.82rem;color:var(--page-ink-3);max-width:44ch;line-height:1.7}
+.head .badge{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--page-accent);border:1px solid currentColor;padding:.2rem .55rem;border-radius:99px;white-space:nowrap}
+
+/* ---------- stage ---------- */
+.stage{display:flex;justify-content:center;align-items:flex-start;min-height:10rem}
+.bezel{
+  position:relative;background:#0B0D0C;padding:.7rem;border-radius:10px;
+  box-shadow:0 24px 60px -28px rgba(0,0,0,.6), 0 2px 0 rgba(255,255,255,.04) inset;
+}
+.bezel::after{
+  content:"";position:absolute;inset-inline:0;bottom:-1.5rem;height:1.5rem;margin-inline:22%;
+  background:linear-gradient(#141716,#0B0D0C);border-radius:0 0 4px 4px;
+}
+#screen{
+  position:relative;overflow:hidden;background:var(--br-green-d);
+  border-radius:3px;isolation:isolate;
+}
+
+/* ---------- slides ---------- */
+.slide{
+  position:absolute;inset:0;opacity:0;
+  display:flex;flex-direction:column;
+  padding:calc(var(--mm)*34) calc(var(--mm)*26);
+  transition:opacity .6s ease;
+}
+.slide.on{opacity:1}
+.slide.ken > .art{animation:ken 12s ease-out both}
+@keyframes ken{from{transform:scale(1.0)}to{transform:scale(1.09)}}
+
+.art{position:absolute;inset:0;z-index:-1}
+.grain{position:absolute;inset:0;opacity:.5;mix-blend-mode:overlay;
+  background-image:radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 45%),
+                   radial-gradient(circle at 75% 80%,rgba(255,255,255,.12),transparent 40%)}
+
+.kicker{
+  font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:500;
+  font-size:calc(var(--mm)*11);letter-spacing:.14em;
+  color:var(--br-brass-l);margin-bottom:calc(var(--mm)*10);
+}
+.big{
+  font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:700;
+  font-size:calc(var(--mm)*var(--hero));line-height:1.1;color:var(--br-cream);
+  margin:0;text-wrap:balance;letter-spacing:-.01em;
+}
+.sub{
+  font-size:calc(var(--mm)*var(--sub));line-height:1.45;font-weight:400;
+  color:rgba(253,251,247,.82);margin:calc(var(--mm)*10) 0 0;max-width:82%;
+}
+.spacer{flex:1}
+
+.price-row{display:flex;align-items:baseline;gap:calc(var(--mm)*8);margin-top:calc(var(--mm)*12)}
+.price{
+  font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:700;
+  font-size:calc(var(--mm)*var(--price));color:var(--br-brass-l);line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.price small{font-size:.42em;font-weight:500;color:rgba(253,251,247,.7);margin-inline-start:.25em}
+.was{
+  font-size:calc(var(--mm)*var(--sub));color:rgba(253,251,247,.5);
+  text-decoration:line-through;font-variant-numeric:tabular-nums;
+}
+.pill{
+  align-self:flex-start;background:var(--br-brass);color:var(--br-green-d);
+  font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:700;
+  font-size:calc(var(--mm)*13);padding:calc(var(--mm)*4) calc(var(--mm)*12);
+  border-radius:99px;margin-bottom:calc(var(--mm)*12);
+}
+
+/* logo slide */
+.logo-wrap{margin:auto;text-align:center}
+.logo-mark{
+  width:calc(var(--mm)*70);height:calc(var(--mm)*70);margin:0 auto calc(var(--mm)*16);
+  border:calc(var(--mm)*1.6) solid var(--br-brass);border-radius:50%;
+  display:grid;place-items:center;
+}
+.logo-mark span{font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:600;font-size:calc(var(--mm)*30);color:var(--br-brass-l)}
+.logo-name{font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:700;font-size:calc(var(--mm)*var(--hero));color:var(--br-cream);letter-spacing:-.01em;margin:0}
+.logo-tag{font-size:calc(var(--mm)*var(--sub));color:rgba(253,251,247,.62);margin:calc(var(--mm)*8) 0 0;letter-spacing:.06em}
+.rule-x{width:calc(var(--mm)*40);height:calc(var(--mm)*1);background:var(--br-brass);margin:calc(var(--mm)*14) auto 0;opacity:.7}
+
+/* product silhouette */
+.bottle{position:absolute;inset-inline-end:6%;bottom:calc(var(--mm)*-10);height:58%;opacity:.92}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+/* awareness slide */
+.slide.light .big{color:var(--br-green-d)}
+.slide.light .sub{color:rgba(10,21,18,.72)}
+.slide.light .kicker{color:var(--br-green-l)}
+.source{
+  font-size:calc(var(--mm)*8);color:rgba(10,21,18,.45);margin-top:calc(var(--mm)*14);
+  font-family:"IBM Plex Sans Arabic",sans-serif;
+}
+
+/* cta */
+.cta-hand{
+  width:calc(var(--mm)*54);height:calc(var(--mm)*54);margin-bottom:calc(var(--mm)*14);
+  border:calc(var(--mm)*1.4) solid var(--br-brass-l);border-radius:50%;
+  display:grid;place-items:center;position:relative;
+}
+.cta-hand::before{
+  content:"";position:absolute;inset:calc(var(--mm)*-8);border-radius:50%;
+  border:calc(var(--mm)*1) solid var(--br-brass-l);opacity:0;
+  animation:ping 2.2s ease-out infinite;
+}
+@keyframes ping{0%{transform:scale(.85);opacity:.7}100%{transform:scale(1.25);opacity:0}}
+.cta-hand svg{width:50%;height:50%;fill:none;stroke:var(--br-brass-l);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cta-wrap{margin:auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+
+/* ---------- daylight simulation ---------- */
+#glare{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .45s ease;z-index:5}
+#glare .wash{position:absolute;inset:0;background:#EDEFF0}
+#glare .refl{
+  position:absolute;inset:0;
+  background:linear-gradient(118deg,rgba(255,255,255,.85) 0%,rgba(255,255,255,0) 28%,
+             rgba(255,255,255,0) 62%,rgba(255,255,255,.55) 78%,rgba(255,255,255,0) 92%);
+}
+#screen.sun{filter:contrast(.24) brightness(1.5) saturate(.5)}
+#screen.sun #glare{opacity:.80}
+#screen.night{filter:none}
+
+.simlabel{
+  position:absolute;inset-inline:0;bottom:0;z-index:6;
+  background:rgba(11,13,12,.82);color:#fff;
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.06em;
+  padding:.4rem .7rem;text-align:center;opacity:0;transition:opacity .3s;direction:rtl;
+}
+#screen.sun .simlabel{opacity:1}
+
+/* ---------- panel ---------- */
+.panel{
+  background:var(--page-surface);border:1px solid var(--page-rule);border-radius:6px;
+  padding:1.1rem 1.2rem;position:sticky;top:1rem;
+}
+.panel h2{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:.82rem;font-weight:600;margin:0 0 .2rem}
+.panel > p{font-size:.75rem;color:var(--page-ink-3);margin:0 0 1.1rem;line-height:1.65}
+fieldset{border:0;padding:0;margin:0 0 1.1rem}
+legend{
+  font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--page-ink-3);margin-bottom:.45rem;padding:0
+}
+.seg{display:flex;gap:.3rem;flex-wrap:wrap}
+.seg button{
+  flex:1 1 auto;font-family:"Tajawal",sans-serif;font-size:.78rem;font-weight:500;
+  padding:.42rem .5rem;border:1px solid var(--page-rule);background:transparent;
+  color:var(--page-ink-2);border-radius:4px;cursor:pointer;transition:.15s;white-space:nowrap;
+}
+.seg button:hover{border-color:var(--page-accent);color:var(--page-ink)}
+.seg button[aria-pressed="true"]{background:var(--page-accent);border-color:var(--page-accent);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--page-accent);outline-offset:2px}
+
+.readout{
+  border-top:1px solid var(--page-rule);padding-top:.85rem;margin-top:.2rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--page-ink-2);line-height:1.9;
+}
+.readout div{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline}
+.readout span{font-family:"Tajawal",sans-serif;font-size:.74rem}
+.readout b{
+  color:var(--page-ink);font-weight:500;font-variant-numeric:tabular-nums;
+  direction:ltr;unicode-bidi:isolate;text-align:left;white-space:nowrap;
+}
+
+.warn{
+  margin-top:1rem;padding:.75rem .85rem;border-radius:4px;
+  background:color-mix(in srgb,#C0392B 12%,transparent);
+  border:1px solid color-mix(in srgb,#C0392B 40%,transparent);
+  font-size:.75rem;line-height:1.7;color:var(--page-ink);
+}
+.warn b{display:block;font-family:"IBM Plex Sans Arabic",sans-serif;font-size:.78rem;margin-bottom:.2rem;color:#C0392B}
+
+.foot{
+  grid-column:1/-1;border-top:1px solid var(--page-rule);margin-top:.6rem;padding-top:1rem;
+  font-size:.76rem;color:var(--page-ink-3);line-height:1.8;
+}
+.foot a{color:var(--page-accent)}
+.foot code{font-family:"IBM Plex Mono",monospace;font-size:.9em;background:color-mix(in srgb,var(--page-ink) 8%,transparent);padding:.1em .35em;border-radius:3px;direction:ltr;display:inline-block}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<div class="shell">
+
+  <div class="head">
+    <div>
+      <h1>وضع الجذب — نموذج أوّلي</h1>
+      <p>الدورة الإعلانية كما رح تشتغل على الشاشة. كل الأحجام محسوبة بالمليمتر من هندسة اللوحة، مو مكتوبة بالبكسل — غيّر الاتجاه أو الدقّة وشوف كيف بتنضبط لحالها.</p>
+    </div>
+    <span class="badge">Phase 0 · Prototype</span>
+  </div>
+
+  <div class="stage">
+    <div class="bezel">
+      <div id="screen">
+
+        <!-- 1 · الهوية -->
+        <div class="slide on" data-ms="4000">
+          <div class="art" style="background:radial-gradient(120% 80% at 70% 10%,#125445,#0E4437 42%,#082A22)"><div class="grain"></div></div>
+          <div class="logo-wrap">
+            <div class="logo-mark"><span>م</span></div>
+            <p class="logo-name">صيدلية مهند</p>
+            <p class="logo-tag">عناية بالبشرة · مكمّلات غذائية</p>
+            <div class="rule-x"></div>
+          </div>
+        </div>
+
+        <!-- 2 · الحملة -->
+        <div class="slide ken" data-ms="8000">
+          <div class="art" style="background:linear-gradient(155deg,#0E4437,#1B6B56 55%,#0A3A2E)"><div class="grain"></div></div>
+          <p class="kicker">حملة نهاية الصيف</p>
+          <h2 class="big">بشرتك بعد الصيف<br>بدها ترطيب</h2>
+          <p class="sub">مجموعة العناية اليومية متوفّرة الآن — غسول، سيروم، مرطّب، واقٍ شمسي.</p>
+          <div class="spacer"></div>
+        </div>
+
+        <!-- 3 · منتج مميّز -->
+        <div class="slide ken" data-ms="6000">
+          <div class="art" style="background:linear-gradient(200deg,#0A3A2E,#0E4437 60%,#082A22)">
+            <svg class="bottle" viewBox="0 0 120 300" aria-hidden="true">
+              <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#D9B978" stop-opacity=".9"/>
+                <stop offset="1" stop-color="#B99248" stop-opacity=".35"/>
+              </linearGradient></defs>
+              <rect x="42" y="6" width="36" height="34" rx="5" fill="url(#g1)" opacity=".85"/>
+              <path d="M28 58c0-10 8-18 18-18h28c10 0 18 8 18 18v212c0 12-9 22-21 22H49c-12 0-21-10-21-22z" fill="url(#g1)"/>
+              <rect x="40" y="120" width="40" height="2.5" rx="1" fill="#0A3A2E" opacity=".5"/>
+              <rect x="40" y="132" width="26" height="2.5" rx="1" fill="#0A3A2E" opacity=".35"/>
+            </svg>
+            <div class="grain"></div>
+          </div>
+          <p class="kicker">منتج مميّز</p>
+          <h2 class="big">واقٍ شمسي<br><span class="ltr">SPF 50+</span></h2>
+          <p class="sub">50 مل · ملمس خفيف غير دهني</p>
+          <div class="spacer"></div>
+          <div class="price-row"><span class="price">185<small>ل.س</small></span></div>
+        </div>
+
+        <!-- 4 · عرض -->
+        <div class="slide" data-ms="6000">
+          <div class="art" style="background:linear-gradient(145deg,#123F35,#0E4437 40%,#06231C)"><div class="grain"></div></div>
+          <span class="pill">عرض هذا الأسبوع</span>
+          <h2 class="big">خصم 20٪<br>على المكمّلات</h2>
+          <p class="sub">فيتامين D · حديد · أوميغا 3 · مغنيزيوم</p>
+          <div class="spacer"></div>
+          <div class="price-row"><span class="price">96<small>ل.س</small></span><span class="was">120 ل.س</span></div>
+        </div>
+
+        <!-- 5 · توعية -->
+        <div class="slide light" data-ms="7000">
+          <div class="art" style="background:linear-gradient(160deg,#FDFBF7,#F6F1E7 60%,#EDE5D6)"></div>
+          <p class="kicker">معلومة عامة</p>
+          <h2 class="big">الوقاية من الشمس<br>عادة يومية</h2>
+          <p class="sub">تُنصح إعادة تطبيق الواقي الشمسي كل ساعتين عند التعرّض المطوّل للشمس.</p>
+          <div class="spacer"></div>
+          <p class="source">محتوى تعريفي عام · للاستشارة الشخصية اسأل الصيدلاني</p>
+        </div>
+
+        <!-- 6 · دعوة -->
+        <div class="slide" data-ms="4000">
+          <div class="art" style="background:radial-gradient(110% 70% at 50% 85%,#1B6B56,#0E4437 50%,#082A22)"><div class="grain"></div></div>
+          <div class="cta-wrap">
+            <div class="cta-hand">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 013 0V11m0-1.5a1.5 1.5 0 013 0V12m0-1a1.5 1.5 0 013 0v5a5 5 0 01-5 5h-2.5a5 5 0 01-4.33-2.5l-2.4-4.16a1.5 1.5 0 012.6-1.5L9 15"/></svg>
+            </div>
+            <h2 class="big">المس الشاشة</h2>
+            <p class="sub" style="max-width:none">لتصفّح المنتجات والعروض</p>
+          </div>
+        </div>
+
+        <div id="glare"><div class="wash"></div><div class="refl"></div></div>
+        <div class="simlabel">محاكاة تقريبية · مو قياس فعلي</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>لوحة المحاكاة</h2>
+    <p>هذه اللوحة مو جزء من الكشك — هي أداة لك أنت. الشاشة الحقيقية ما فيها ولا زر ظاهر بوضع الجذب.</p>
+
+    <fieldset>
+      <legend>اتجاه التركيب</legend>
+      <div class="seg" id="ori">
+        <button data-v="portrait" aria-pressed="true">عمودي</button>
+        <button data-v="landscape" aria-pressed="false">أفقي</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>دقّة اللوحة</legend>
+      <div class="seg" id="res">
+        <button data-v="1080" aria-pressed="true">1080p</button>
+        <button data-v="2160" aria-pressed="false">4K</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>ظرف الإضاءة</legend>
+      <div class="seg" id="env">
+        <button data-v="in" aria-pressed="true">داخل الصيدلية</button>
+        <button data-v="night" aria-pressed="false">الرصيف ليلاً</button>
+        <button data-v="sun" aria-pressed="false">الرصيف نهاراً</button>
+      </div>
+    </fieldset>
+
+    <div class="readout">
+      <div><span>المساحة الفعّالة</span><b id="ro-mm">—</b></div>
+      <div><span>مقياس <span class="mono">--mm</span></span><b id="ro-scale">—</b></div>
+      <div><span>كثافة اللوحة</span><b id="ro-ppi">—</b></div>
+      <div><span>العنوان البطل</span><b id="ro-hero">—</b></div>
+    </div>
+
+    <div class="warn" id="warn" hidden>
+      <b>هيك بتصير الشاشة نهاراً على الرصيف</b>
+      لوحة بسطوع 300–450 شمعة/م² قدّام إضاءة نهار 3000–5000 لوكس. الرقم المطلوب للاستعمال الخارجي المظلّل 2000–3000، وبالشمس المباشرة 4000+.
+    </div>
+  </div>
+
+  <div class="foot">
+    <p style="margin:0 0 .6rem">
+      <strong>المحتوى المعروض تجريبي</strong> — أسعار ومنتجات للتوضيح، بلا أي ادعاء علاجي، تُستبدل بجرد الصيدلية الحقيقي.
+      الخطوط <span class="mono">Tajawal</span> و<span class="mono">IBM Plex Sans Arabic</span> نفس خطوط النموذج الأولي.
+    </p>
+    <p style="margin:0">
+      البنية: كل بُعد مكتوب <code>calc(var(--mm) * n)</code>، و<code>--mm</code> يُحسب مرة واحدة عند الإقلاع من عرض اللوحة الفيزيائي (43″ · 16:9 · 952.4 × 535.7 مم).
+      محاكاة الإضاءة تقريبية بصرياً وليست قياساً ضوئياً — الغاية منها إظهار المشكلة، لا قياسها.
+    </p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var screenEl = document.getElementById('screen');
+  var slides   = Array.prototype.slice.call(screenEl.querySelectorAll('.slide'));
+  var state    = { ori:'portrait', res:1080, env:'in' };
+  var PANEL    = { w:952.4, h:535.7 };   // مساحة 43 بوصة الفعّالة بالمليمتر
+
+  /* ---- هندسة اللوحة ونظام المليمتر ---- */
+  function geometry(){
+    var portrait = state.ori === 'portrait';
+    var mmW = portrait ? PANEL.h : PANEL.w;
+    var mmH = portrait ? PANEL.w : PANEL.h;
+    var pxW = portrait ? (state.res === 1080 ? 1080 : 2160)
+                       : (state.res === 1080 ? 1920 : 3840);
+    return { mmW:mmW, mmH:mmH, pxW:pxW, ratio:mmH/mmW };
+  }
+
+  function layout(){
+    var g = geometry();
+    var maxH = Math.min(window.innerHeight * 0.74, 760);
+    var maxW = Math.min(screenEl.parentElement.parentElement.clientWidth - 24, 520);
+    var w = Math.min(maxW, maxH / g.ratio);
+    var h = w * g.ratio;
+
+    screenEl.style.width  = w + 'px';
+    screenEl.style.height = h + 'px';
+
+    /* هذا هو السطر الوحيد الذي يحمل نظام التصميم كله */
+    var mm = w / g.mmW;
+    screenEl.style.setProperty('--mm', mm + 'px');
+
+    /* سُلَّم الخطوط بالمليمتر — ثابت مهما تغيّرت الدقّة */
+    screenEl.style.setProperty('--hero',  state.ori === 'portrait' ? 46 : 38);
+    screenEl.style.setProperty('--sub',   14);
+    screenEl.style.setProperty('--price', 40);
+
+    var ppi  = g.pxW / (g.mmW / 25.4);
+    var hero = state.ori === 'portrait' ? 46 : 38;
+    document.getElementById('ro-mm').textContent    = Math.round(g.mmW) + ' × ' + Math.round(g.mmH) + ' mm';
+    document.getElementById('ro-scale').textContent = (g.pxW / g.mmW).toFixed(2) + ' px/mm';
+    document.getElementById('ro-ppi').textContent   = Math.round(ppi) + ' PPI';
+    document.getElementById('ro-hero').textContent  =
+      hero + ' mm → ' + Math.round(hero * (g.pxW / g.mmW)) + ' px';
+  }
+
+  /* ---- دورة العرض ---- */
+  var i = 0, timer = null;
+  var pans = slides.map(function(s){ return s.classList.contains('ken'); });
+
+  function advance(){
+    var prev = slides[i];
+    prev.classList.remove('on', 'ken');
+
+    i = (i + 1) % slides.length;
+    var next = slides[i];
+    next.classList.add('on');
+    if (pans[i]) { void next.offsetWidth; next.classList.add('ken'); }
+
+    timer = setTimeout(advance, parseInt(next.getAttribute('data-ms'), 10));
+  }
+
+  function start(){
+    slides.forEach(function(s, n){ if (n !== i) s.classList.remove('ken'); });
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(advance, parseInt(slides[i].getAttribute('data-ms'), 10));
+  }
+
+  /* ---- أزرار اللوحة ---- */
+  function bind(id, key, cast){
+    var group = document.getElementById(id);
+    group.addEventListener('click', function(e){
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      Array.prototype.forEach.call(group.querySelectorAll('button'), function(b){
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      state[key] = cast ? cast(btn.dataset.v) : btn.dataset.v;
+      if (key === 'env') applyEnv(); else layout();
+    });
+  }
+
+  function applyEnv(){
+    screenEl.classList.remove('sun','night');
+    if (state.env !== 'in') screenEl.classList.add(state.env);
+    document.getElementById('warn').hidden = state.env !== 'sun';
+  }
+
+  bind('ori','ori');
+  bind('res','res', Number);
+  bind('env','env');
+
+  window.addEventListener('resize', layout);
+  layout();
+  start();
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local / secrets
+.env
+.env.*
+*.local
+
+# Private business documents (quotes, contracts) — never commit
+quotes/
+private/
+*.quote.*

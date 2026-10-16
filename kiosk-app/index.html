@@ -1,0 +1,1284 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>تطبيق كشك مهند</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   هوية صيدلية مهند — القيم منسوخة حرفياً من بناء المنصّة القائمة
+   لا تُعدَّل هنا. مصدرها الوحيد src/config/brand.ts + tailwind theme
+   ═══════════════════════════════════════════════════════════════ */
+:root{
+  --brand-50:#f0f6fa; --brand-100:#dceaf3; --brand-200:#b9d5e7; --brand-300:#8cb8d5;
+  --brand-400:#5793bc; --brand-500:#2e74a2; --brand-600:#0d517e; --brand-700:#0b4569;
+  --brand-800:#093856; --brand-900:#082f48; --brand-950:#061e30;
+
+  --leaf-50:#f5faec; --leaf-100:#e9f4d6; --leaf-200:#d4e9ae; --leaf-300:#b9da7c;
+  --leaf-400:#a0cc55; --leaf-500:#8ec341; --leaf-600:#74a430; --leaf-700:#587d26;
+  --leaf-800:#476324; --leaf-900:#3c5422;
+
+  --ink-50:#f7f9fb; --ink-100:#eef2f6; --ink-200:#e1e8ef; --ink-300:#cbd6e0;
+  --ink-400:#94a6b8; --ink-500:#667c92; --ink-600:#4c6178; --ink-700:#3a4c60;
+
+  --ok:#5f9c2f;     --ok-soft:#eef7e2;
+  --warn:#b8791a;   --warn-soft:#fdf3e2;
+  --danger:#b3403a; --danger-soft:#fbeceb;
+  --info:#0d517e;   --info-soft:#eaf3f9;
+  --wa:#1fa855;     --wa-dark:#189349;
+
+  --font-display:"Tajawal","Segoe UI",system-ui,sans-serif;
+  --font-sans:"IBM Plex Sans Arabic","Tajawal",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",monospace;
+
+  --sh-card:0 4px 14px -4px rgba(6,30,48,.10), 0 2px 5px -3px rgba(6,30,48,.06);
+  --sh-lift:0 12px 32px -10px rgba(6,30,48,.16), 0 4px 10px -6px rgba(6,30,48,.08);
+  --sh-brand:0 10px 26px -12px rgba(13,81,126,.9);
+  --sh-leaf:0 8px 20px -10px rgba(116,164,48,.85);
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:#061e30}
+body{font-family:var(--font-sans);direction:rtl;-webkit-font-smoothing:antialiased;
+     user-select:none;-webkit-user-select:none;touch-action:manipulation}
+
+#stage{height:100dvh;display:flex;align-items:center;justify-content:center;background:#061e30}
+
+/* ═══ اللوحة: نسبة 43″ عمودي. --mm يُحسب عند الإقلاع من عرضها الفيزيائي ═══ */
+#kiosk{
+  --mm:1px;
+  position:relative;overflow:hidden;
+  aspect-ratio:1080/1920;height:100dvh;max-width:100vw;
+  background:var(--ink-50);
+  --r-xs:calc(var(--mm)*2); --r-md:calc(var(--mm)*6);
+  --r-lg:calc(var(--mm)*8); --r-xl:calc(var(--mm)*11);
+  --t-hero:calc(var(--mm)*46);  --t-kick:calc(var(--mm)*11);
+  --t-h1:calc(var(--mm)*16);    --t-h2:calc(var(--mm)*11);
+  --t-body:calc(var(--mm)*7);   --t-cap:calc(var(--mm)*5.5);
+  --t-price:calc(var(--mm)*9);
+  --tap:calc(var(--mm)*18);     --cta:calc(var(--mm)*28);
+  --pad:calc(var(--mm)*22);
+}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column}
+
+/* ────────────────────────── وضع الجذب ────────────────────────── */
+#attract{z-index:20;transition:opacity .45s ease}
+#attract.hide{opacity:0;pointer-events:none}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;
+       display:flex;flex-direction:column;padding:calc(var(--mm)*40) var(--pad)}
+.slide.on{opacity:1}
+.slide .bg{position:absolute;inset:0;z-index:-2}
+.slide.pan .bg{animation:pan 14s ease-out both}
+@keyframes pan{from{transform:scale(1)}to{transform:scale(1.1)}}
+.glow{position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(70% 45% at 50% 12%,rgba(255,255,255,.16),transparent 70%)}
+.kick{font-family:var(--font-sans);font-weight:600;font-size:var(--t-kick);
+      letter-spacing:.13em;color:var(--leaf-300);margin-bottom:calc(var(--mm)*12)}
+.hero{font-family:var(--font-display);font-weight:800;font-size:var(--t-hero);
+      line-height:1.12;color:#fff;margin:0;letter-spacing:-.015em;text-wrap:balance}
+.lede{font-size:calc(var(--mm)*14);line-height:1.5;color:rgba(255,255,255,.84);
+      margin:calc(var(--mm)*12) 0 0;max-width:84%;font-weight:400}
+.grow{flex:1}
+.aprice{font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*40);
+        color:var(--leaf-300);line-height:1;font-variant-numeric:tabular-nums}
+.aprice i{font-style:normal;font-size:.36em;font-weight:500;color:rgba(255,255,255,.72);margin-inline-start:.3em}
+.awas{font-size:calc(var(--mm)*13);color:rgba(255,255,255,.5);text-decoration:line-through;
+      margin-inline-start:calc(var(--mm)*8);font-variant-numeric:tabular-nums}
+.tagpill{align-self:flex-start;background:var(--leaf-500);color:var(--brand-950);
+  font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*13);
+  padding:calc(var(--mm)*4) calc(var(--mm)*13);border-radius:999px;margin-bottom:calc(var(--mm)*13)}
+.slide.light .hero{color:var(--brand-900)}
+.slide.light .lede{color:var(--ink-600)}
+.slide.light .kick{color:var(--leaf-700)}
+.srcline{font-size:calc(var(--mm)*7);color:var(--ink-500);margin-top:calc(var(--mm)*14)}
+
+.mark{margin:auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.mark .ring{width:calc(var(--mm)*76);height:calc(var(--mm)*76);border-radius:50%;
+  border:calc(var(--mm)*1.8) solid var(--leaf-400);display:grid;place-items:center;
+  margin-bottom:calc(var(--mm)*18)}
+.mark .ring b{font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*34);color:#fff}
+.mark .nm{font-family:var(--font-display);font-weight:800;font-size:var(--t-hero);color:#fff;margin:0}
+.mark .tg{font-size:calc(var(--mm)*13);color:rgba(255,255,255,.72);margin:calc(var(--mm)*9) 0 0;letter-spacing:.04em}
+.mark .lc{font-size:calc(var(--mm)*9);color:rgba(255,255,255,.5);margin:calc(var(--mm)*14) 0 0}
+.mark .hr{width:calc(var(--mm)*46);height:calc(var(--mm)*1);background:var(--leaf-400);
+  opacity:.75;margin:calc(var(--mm)*16) 0 0}
+
+.touchcue{margin:auto;display:flex;flex-direction:column;align-items:center;text-align:center}
+.touchcue .circ{width:calc(var(--mm)*58);height:calc(var(--mm)*58);border-radius:50%;
+  border:calc(var(--mm)*1.5) solid var(--leaf-300);display:grid;place-items:center;
+  position:relative;margin-bottom:calc(var(--mm)*16)}
+.touchcue .circ::after{content:"";position:absolute;inset:calc(var(--mm)*-9);border-radius:50%;
+  border:calc(var(--mm)*1) solid var(--leaf-300);animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{transform:scale(.86);opacity:.75}100%{transform:scale(1.28);opacity:0}}
+.touchcue svg{width:52%;height:52%;fill:none;stroke:var(--leaf-300);stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round}
+
+/* ────────────────────────── الوضع التفاعلي ────────────────────────── */
+#app{z-index:10;background:var(--ink-50)}
+.topbar{
+  flex:none;background:var(--brand-600);color:#fff;
+  padding:calc(var(--mm)*16) var(--pad) calc(var(--mm)*13);
+  display:flex;align-items:center;justify-content:space-between;gap:calc(var(--mm)*10);
+  box-shadow:var(--sh-brand);z-index:3;
+}
+.topbar .id{display:flex;align-items:center;gap:calc(var(--mm)*9);min-width:0}
+.topbar .rg{width:calc(var(--mm)*26);height:calc(var(--mm)*26);border-radius:50%;flex:none;
+  border:calc(var(--mm)*1.1) solid var(--leaf-400);display:grid;place-items:center}
+.topbar .rg b{font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*13);color:#fff}
+.topbar .nm{font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*15);line-height:1.2}
+.topbar .sb{font-size:calc(var(--mm)*7);color:var(--brand-200);margin-top:calc(var(--mm)*1)}
+.topbar .ig{font-size:calc(var(--mm)*7.5);color:var(--brand-100);direction:ltr;unicode-bidi:isolate;
+  font-family:var(--font-mono);white-space:nowrap}
+
+.view{flex:1;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+      -webkit-overflow-scrolling:touch;padding:0 var(--pad) calc(var(--mm)*18)}
+.view::-webkit-scrollbar{width:calc(var(--mm)*3)}
+.view::-webkit-scrollbar-thumb{background:var(--ink-300);border-radius:999px}
+
+.ttl{font-family:var(--font-display);font-weight:800;font-size:var(--t-h1);color:var(--brand-900);
+     margin:calc(var(--mm)*18) 0 calc(var(--mm)*3);letter-spacing:-.01em}
+.sub{font-size:var(--t-body);color:var(--ink-500);margin:0 0 calc(var(--mm)*14)}
+.eyebrow{font-family:var(--font-display);font-size:calc(var(--mm)*8);font-weight:700;
+  letter-spacing:.06em;color:var(--brand-600);margin:calc(var(--mm)*20) 0 calc(var(--mm)*9);
+  display:flex;align-items:center;gap:calc(var(--mm)*7)}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--ink-200)}
+
+/* بطاقات الأقسام */
+.sectors{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--mm)*8)}
+.sec{
+  position:relative;border:0;text-align:start;cursor:pointer;font-family:inherit;
+  min-height:calc(var(--mm)*74);border-radius:var(--r-lg);padding:calc(var(--mm)*13);
+  display:flex;flex-direction:column;justify-content:space-between;
+  color:#fff;box-shadow:var(--sh-card);overflow:hidden;transition:transform .12s ease;
+}
+.sec:active{transform:scale(.975)}
+.sec.b{background:linear-gradient(150deg,var(--brand-500),var(--brand-700))}
+.sec.l{background:linear-gradient(150deg,var(--leaf-500),var(--leaf-700))}
+.sec.gated{background:linear-gradient(150deg,var(--ink-400),var(--ink-600))}
+.sec h3{font-family:var(--font-display);font-weight:800;font-size:var(--t-h2);margin:0;line-height:1.25}
+.sec .cnt{font-size:var(--t-cap);color:rgba(255,255,255,.82);margin-top:calc(var(--mm)*3)}
+.sec .ico{position:absolute;inset-inline-end:calc(var(--mm)*-6);top:calc(var(--mm)*-6);
+  width:calc(var(--mm)*40);height:calc(var(--mm)*40);opacity:.22}
+.sec .ico svg{width:100%;height:100%;fill:none;stroke:#fff;stroke-width:1.3}
+.sec .ask{font-size:var(--t-cap);background:rgba(255,255,255,.2);align-self:flex-start;
+  padding:calc(var(--mm)*2) calc(var(--mm)*7);border-radius:999px;margin-top:calc(var(--mm)*5)}
+
+/* شبكة المنتجات */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--mm)*8)}
+.card{
+  border:0;padding:0;text-align:start;cursor:pointer;font-family:inherit;
+  background:#fff;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-card);
+  display:flex;flex-direction:column;transition:transform .12s ease;
+}
+.card:active{transform:scale(.975)}
+.thumb{aspect-ratio:1;position:relative;display:grid;place-items:center;overflow:hidden}
+.thumb .bn{font-family:var(--font-display);font-weight:800;color:rgba(255,255,255,.9);
+  font-size:calc(var(--mm)*9);direction:ltr;unicode-bidi:isolate;text-align:center;
+  padding:0 calc(var(--mm)*6);line-height:1.2;z-index:2}
+.thumb svg{position:absolute;height:56%;opacity:.34;z-index:1}
+.thumb svg *{fill:#fff}
+.cbody{padding:calc(var(--mm)*9) calc(var(--mm)*10) calc(var(--mm)*10);display:flex;
+  flex-direction:column;gap:calc(var(--mm)*3);flex:1}
+.cname{font-family:var(--font-display);font-weight:700;font-size:calc(var(--mm)*8);
+  color:var(--brand-900);line-height:1.3;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.csize{font-size:var(--t-cap);color:var(--ink-500)}
+.cfoot{display:flex;align-items:baseline;justify-content:space-between;gap:calc(var(--mm)*4);
+  margin-top:auto;padding-top:calc(var(--mm)*4)}
+.cprice{font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*9);
+  color:var(--brand-700);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cprice i{font-style:normal;font-size:.6em;font-weight:500;color:var(--ink-500);margin-inline-start:.2em}
+.cwas{display:block;font-size:calc(var(--mm)*5.5);font-weight:400;color:var(--ink-400);
+  text-decoration:line-through;margin-top:calc(var(--mm)*1)}
+
+/* شارة التوفّر — نصّ + شكل، لا لون وحده */
+.av{display:inline-flex;align-items:center;gap:calc(var(--mm)*3);font-size:var(--t-cap);
+  font-weight:600;padding:calc(var(--mm)*1.5) calc(var(--mm)*6);border-radius:999px;white-space:nowrap}
+.av::before{content:"";width:calc(var(--mm)*3.5);height:calc(var(--mm)*3.5);border-radius:50%;background:currentColor}
+.av.in{background:var(--ok-soft);color:var(--ok)}
+.av.low{background:var(--warn-soft);color:var(--warn)}
+.av.ask{background:var(--info-soft);color:var(--info)}
+.av.ask::before{border-radius:1px;transform:rotate(45deg)}
+.av.low::before{border-radius:1px}
+
+/* صفحة المنتج */
+.hero-img{aspect-ratio:1.35;border-radius:var(--r-lg);position:relative;display:grid;
+  place-items:center;overflow:hidden;margin-top:calc(var(--mm)*14)}
+.hero-img .bn{font-family:var(--font-display);font-weight:800;color:rgba(255,255,255,.92);
+  font-size:calc(var(--mm)*15);direction:ltr;unicode-bidi:isolate;z-index:2}
+.hero-img svg{position:absolute;height:62%;opacity:.32;z-index:1}
+.hero-img svg *{fill:#fff}
+.pname{font-family:var(--font-display);font-weight:800;font-size:var(--t-h1);color:var(--brand-900);
+  margin:calc(var(--mm)*13) 0 calc(var(--mm)*4);line-height:1.25;letter-spacing:-.01em}
+.pmeta{display:flex;flex-wrap:wrap;gap:calc(var(--mm)*5) calc(var(--mm)*10);align-items:center;
+  font-size:var(--t-body);color:var(--ink-500);margin-bottom:calc(var(--mm)*12)}
+.pmeta b{color:var(--ink-700);font-weight:600;direction:ltr;unicode-bidi:isolate}
+.pricebox{display:flex;align-items:baseline;gap:calc(var(--mm)*8);
+  background:#fff;border:1px solid var(--ink-200);border-radius:var(--r-md);
+  padding:calc(var(--mm)*11) calc(var(--mm)*13);box-shadow:var(--sh-card)}
+.pricebox .pp{font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*17);
+  color:var(--brand-700);font-variant-numeric:tabular-nums}
+.pricebox .pp i{font-style:normal;font-size:.5em;font-weight:500;color:var(--ink-500);margin-inline-start:.25em}
+.pricebox .ww{font-size:var(--t-body);color:var(--ink-400);text-decoration:line-through;
+  font-variant-numeric:tabular-nums}
+
+.disclaim{display:flex;gap:calc(var(--mm)*7);align-items:flex-start;
+  background:var(--info-soft);border-radius:var(--r-md);padding:calc(var(--mm)*9) calc(var(--mm)*11);
+  margin:calc(var(--mm)*12) 0;font-size:var(--t-cap);color:var(--brand-800);line-height:1.6}
+.disclaim svg{flex:none;width:calc(var(--mm)*10);height:calc(var(--mm)*10);stroke:var(--brand-600);
+  fill:none;stroke-width:1.7;margin-top:calc(var(--mm)*1)}
+
+.qrbox{display:flex;gap:calc(var(--mm)*12);align-items:center;background:#fff;
+  border:1px solid var(--ink-200);border-inline-start:calc(var(--mm)*2.5) solid var(--wa);
+  border-radius:var(--r-md);padding:calc(var(--mm)*11);
+  margin:calc(var(--mm)*12) 0;box-shadow:var(--sh-card)}
+.qrbox canvas{width:calc(var(--mm)*56);height:calc(var(--mm)*56);flex:none;
+  image-rendering:pixelated;border-radius:calc(var(--mm)*2)}
+.qrbox .qt{font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*9);
+  color:var(--brand-900);display:flex;align-items:center;gap:calc(var(--mm)*5)}
+.qrbox .qt svg{width:calc(var(--mm)*11);height:calc(var(--mm)*11);fill:var(--wa);flex:none}
+.qrbox .qd{font-size:var(--t-cap);color:var(--ink-500);line-height:1.65;margin-top:calc(var(--mm)*4)}
+
+.routine{margin:calc(var(--mm)*16) 0 0}
+.routine .steps{display:flex;gap:calc(var(--mm)*5);align-items:stretch;overflow-x:auto;padding-bottom:calc(var(--mm)*4)}
+.rstep{flex:0 0 calc(var(--mm)*72);background:#fff;border:1px solid var(--ink-200);
+  border-radius:var(--r-md);padding:calc(var(--mm)*9);display:flex;flex-direction:column;gap:calc(var(--mm)*3)}
+.rstep .n{font-family:var(--font-mono);font-size:var(--t-cap);color:var(--leaf-700);font-weight:500}
+.rstep .t{font-family:var(--font-display);font-weight:700;font-size:calc(var(--mm)*7.5);color:var(--brand-900);line-height:1.3}
+
+/* أزرار الإجراء — أسفل الشاشة، داخل نطاق الوصول */
+.actions{flex:none;display:flex;gap:calc(var(--mm)*7);padding:calc(var(--mm)*10) var(--pad) 0;background:var(--ink-50)}
+.btn{flex:1;min-height:var(--cta);border:0;border-radius:var(--r-md);cursor:pointer;
+  font-family:var(--font-display);font-weight:800;font-size:calc(var(--mm)*10);
+  display:flex;align-items:center;justify-content:center;gap:calc(var(--mm)*6);
+  transition:transform .1s ease}
+.btn:active{transform:scale(.97)}
+.btn svg{width:calc(var(--mm)*12);height:calc(var(--mm)*12);fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.btn.primary{background:var(--leaf-600);color:#fff;box-shadow:var(--sh-leaf)}
+.btn.ghost{background:#fff;color:var(--brand-700);border:1px solid var(--ink-200);box-shadow:var(--sh-card)}
+
+/* شريط التنقّل السفلي — دائم، داخل نطاق الوصول 850–1220 مم */
+.navbar{
+  flex:none;display:flex;gap:calc(var(--mm)*5);align-items:stretch;
+  padding:calc(var(--mm)*9) var(--pad) calc(var(--mm)*12);
+  background:#fff;border-top:1px solid var(--ink-200);
+  box-shadow:0 -6px 22px -14px rgba(6,30,48,.35);z-index:3;
+}
+.nb{flex:1;min-height:var(--tap);border:0;background:var(--ink-100);border-radius:var(--r-md);
+  cursor:pointer;font-family:var(--font-sans);font-weight:600;font-size:var(--t-cap);
+  color:var(--brand-700);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:calc(var(--mm)*2.5);padding:calc(var(--mm)*6) calc(var(--mm)*3);transition:transform .1s ease}
+.nb:active{transform:scale(.95)}
+.nb svg{width:calc(var(--mm)*11);height:calc(var(--mm)*11);fill:none;stroke:currentColor;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nb[disabled]{opacity:.34}
+.nb.assist{flex:1.55;background:var(--leaf-600);color:#fff;box-shadow:var(--sh-leaf)}
+.nb.lang{flex:.72;font-family:var(--font-mono);font-size:calc(var(--mm)*7)}
+
+/* البحث */
+.chips{display:flex;flex-wrap:wrap;gap:calc(var(--mm)*5);margin-bottom:calc(var(--mm)*14)}
+.chip{border:1px solid var(--ink-200);background:#fff;border-radius:999px;cursor:pointer;
+  min-height:var(--tap);padding:0 calc(var(--mm)*12);font-family:var(--font-sans);font-weight:600;
+  font-size:var(--t-body);color:var(--brand-700);box-shadow:var(--sh-card)}
+.chip:active{transform:scale(.96)}
+.chip.on{background:var(--brand-600);color:#fff;border-color:var(--brand-600)}
+.qbox{display:flex;align-items:center;gap:calc(var(--mm)*8);background:#fff;border:1px solid var(--ink-200);
+  border-radius:var(--r-md);padding:calc(var(--mm)*10) calc(var(--mm)*12);margin-top:calc(var(--mm)*14);
+  box-shadow:var(--sh-card);min-height:var(--cta)}
+.qbox svg{width:calc(var(--mm)*12);height:calc(var(--mm)*12);fill:none;stroke:var(--ink-400);stroke-width:1.9;flex:none}
+.qtext{flex:1;font-family:var(--font-display);font-weight:700;font-size:calc(var(--mm)*11);
+  color:var(--brand-900);min-height:1.2em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.qtext.ph{color:var(--ink-400);font-weight:400}
+.caret{display:inline-block;width:calc(var(--mm)*1.6);height:1em;background:var(--brand-600);
+  vertical-align:-.14em;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.kbd{flex:none;background:var(--ink-100);border-top:1px solid var(--ink-200);
+  padding:calc(var(--mm)*8) calc(var(--mm)*8) calc(var(--mm)*10);
+  display:flex;flex-direction:column;gap:calc(var(--mm)*4)}
+.krow{display:flex;gap:calc(var(--mm)*3.5);justify-content:center}
+.key{flex:1;min-height:calc(var(--mm)*19);border:0;background:#fff;border-radius:var(--r-xs);
+  cursor:pointer;font-family:var(--font-sans);font-size:calc(var(--mm)*9);font-weight:500;
+  color:var(--brand-900);box-shadow:0 1px 2px rgba(6,30,48,.14);padding:0}
+.key:active{background:var(--brand-100);transform:scale(.94)}
+.key.wide{flex:2.1}
+.key.act{background:var(--brand-600);color:#fff;font-weight:700}
+.key.del{background:var(--ink-200)}
+
+.pgrow{flex:1}
+.empty{text-align:center;padding:calc(var(--mm)*26) calc(var(--mm)*10)}
+.gate{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;min-height:calc(var(--mm)*440);padding:0 calc(var(--mm)*14)}
+.gicon{width:calc(var(--mm)*66);height:calc(var(--mm)*66);border-radius:50%;
+  background:var(--brand-50);display:grid;place-items:center;margin-bottom:calc(var(--mm)*16)}
+.gicon svg{width:52%;height:52%;fill:none;stroke:var(--brand-500);stroke-width:1.4}
+.gate .em{font-family:var(--font-display);font-weight:800;font-size:var(--t-h1);
+  color:var(--brand-900);margin-bottom:calc(var(--mm)*7)}
+.gate .es{font-size:var(--t-body);color:var(--ink-500);line-height:1.75;max-width:82%}
+.gnote{display:flex;gap:calc(var(--mm)*7);align-items:flex-start;text-align:start;
+  background:var(--info-soft);border-radius:var(--r-md);padding:calc(var(--mm)*10) calc(var(--mm)*12);
+  margin-top:calc(var(--mm)*22);font-size:var(--t-cap);color:var(--brand-800);line-height:1.65}
+.gnote svg{flex:none;width:calc(var(--mm)*10);height:calc(var(--mm)*10);stroke:var(--brand-600);
+  fill:none;stroke-width:1.7;margin-top:calc(var(--mm)*1)}
+.empty .em{font-family:var(--font-display);font-weight:800;font-size:var(--t-h2);color:var(--brand-900);margin-bottom:calc(var(--mm)*6)}
+.empty .es{font-size:var(--t-body);color:var(--ink-500);line-height:1.7;margin-bottom:calc(var(--mm)*16)}
+
+/* شاشة تأكيد الطلب */
+.done{margin:auto;text-align:center;padding:0 calc(var(--mm)*20);display:flex;
+  flex-direction:column;align-items:center}
+.done .tick{width:calc(var(--mm)*62);height:calc(var(--mm)*62);border-radius:50%;
+  background:var(--leaf-500);display:grid;place-items:center;margin-bottom:calc(var(--mm)*18);
+  box-shadow:var(--sh-leaf);animation:pop .45s cubic-bezier(.2,1.3,.4,1) both}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.done .tick svg{width:52%;height:52%;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.done h2{font-family:var(--font-display);font-weight:800;font-size:var(--t-h1);color:var(--brand-900);margin:0}
+.done p{font-size:var(--t-body);color:var(--ink-500);line-height:1.7;margin:calc(var(--mm)*8) 0 0}
+
+/* مؤقّت الخمول */
+#idle{position:absolute;inset:0;z-index:40;display:none;align-items:center;justify-content:center;
+  background:rgba(6,30,48,.72);backdrop-filter:blur(calc(var(--mm)*2))}
+#idle.on{display:flex}
+.idlecard{background:#fff;border-radius:var(--r-xl);padding:calc(var(--mm)*26);
+  width:76%;text-align:center;box-shadow:0 28px 60px -22px rgba(6,30,48,.5)}
+.idlecard h2{font-family:var(--font-display);font-weight:800;font-size:var(--t-h1);color:var(--brand-900);margin:0}
+.idlecard p{font-size:var(--t-body);color:var(--ink-500);margin:calc(var(--mm)*8) 0 calc(var(--mm)*18)}
+.idlecard .cd{font-family:var(--font-mono);font-size:calc(var(--mm)*30);color:var(--brand-600);
+  font-variant-numeric:tabular-nums;line-height:1;margin-bottom:calc(var(--mm)*18)}
+
+/* شاشة الخدمة المخفية */
+#svc{position:absolute;inset:0;z-index:60;display:none;background:var(--brand-950);color:#cbd6e0;
+  padding:calc(var(--mm)*24);font-family:var(--font-mono);font-size:calc(var(--mm)*7);
+  flex-direction:column;gap:calc(var(--mm)*5);overflow-y:auto}
+#svc.on{display:flex}
+#svc h3{font-family:var(--font-display);color:#fff;font-size:var(--t-h2);margin:0 0 calc(var(--mm)*6)}
+#svc .row{display:flex;justify-content:space-between;gap:calc(var(--mm)*8);
+  border-bottom:1px solid rgba(255,255,255,.09);padding:calc(var(--mm)*3) 0}
+#svc .row b{color:#fff;font-weight:500;direction:ltr;unicode-bidi:isolate}
+#svc button{margin-top:auto;min-height:var(--cta);border:0;border-radius:var(--r-md);
+  background:var(--brand-600);color:#fff;font-family:var(--font-display);font-weight:700;
+  font-size:calc(var(--mm)*10);cursor:pointer}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div id="stage">
+<div id="kiosk">
+
+  <!-- ═══ وضع الجذب ═══ -->
+  <section class="screen" id="attract"></section>
+
+  <!-- ═══ الوضع التفاعلي ═══ -->
+  <section class="screen" id="app" style="display:none">
+    <header class="topbar">
+      <div class="id">
+        <div class="rg"><b>م</b></div>
+        <div>
+          <div class="nm" id="tb-name"></div>
+          <div class="sb" id="tb-sub"></div>
+        </div>
+      </div>
+      <div class="ig" id="tb-ig"></div>
+    </header>
+    <div class="view" id="view"></div>
+    <div id="actions"></div>
+    <nav class="navbar" id="navbar"></nav>
+  </section>
+
+  <!-- ═══ مؤقّت الخمول ═══ -->
+  <div id="idle">
+    <div class="idlecard">
+      <h2 id="idle-t"></h2>
+      <p id="idle-p"></p>
+      <div class="cd" id="idle-cd">15</div>
+      <button class="btn primary" id="idle-btn" style="width:100%"></button>
+    </div>
+  </div>
+
+  <!-- ═══ شاشة الخدمة (أربع زوايا خلال 3 ثوانٍ) ═══ -->
+  <div id="svc"></div>
+
+</div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   مُرمِّز QR — وضع البايت، مستوى تصحيح M، الإصدارات 1–20.
+   مكتوب من الصفر بلا أي اعتماد خارجي، لأن الكشك يعمل بلا إنترنت.
+   يرجّع مصفوفة منطقية ثنائية الأبعاد.
+   ════════════════════════════════════════════════════════════════ */
+const QR = (function () {
+  /* ── حقل غالوا GF(256) ── */
+  const EXP = new Uint8Array(512), LOG = new Uint8Array(256);
+  for (let i = 0, x = 1; i < 255; i++) { EXP[i] = x; LOG[x] = i; x <<= 1; if (x & 256) x ^= 0x11d; }
+  for (let i = 255; i < 512; i++) EXP[i] = EXP[i - 255];
+  const mul = (a, b) => (a === 0 || b === 0) ? 0 : EXP[LOG[a] + LOG[b]];
+
+  const polyMul = (a, b) => {
+    const r = new Array(a.length + b.length - 1).fill(0);
+    for (let i = 0; i < a.length; i++) for (let j = 0; j < b.length; j++) r[i + j] ^= mul(a[i], b[j]);
+    return r;
+  };
+  const rsGen = n => { let g = [1]; for (let i = 0; i < n; i++) g = polyMul(g, [1, EXP[i]]); return g; };
+  function rsEnc(data, n) {
+    const g = rsGen(n), res = data.concat(new Array(n).fill(0));
+    for (let i = 0; i < data.length; i++) {
+      const f = res[i]; if (!f) continue;
+      for (let j = 0; j < g.length; j++) res[i + j] ^= mul(g[j], f);
+    }
+    return res.slice(data.length);
+  }
+
+  /* ── جداول المستوى M: [ecPerBlock, blocks1, data1, blocks2, data2] ── */
+  const M = [
+    null,
+    [10, 1, 16, 0, 0], [16, 1, 28, 0, 0], [26, 1, 44, 0, 0], [18, 2, 32, 0, 0],
+    [24, 2, 43, 0, 0], [16, 4, 27, 0, 0], [18, 4, 31, 0, 0], [22, 2, 38, 2, 39],
+    [22, 3, 36, 2, 37], [26, 4, 43, 1, 44], [30, 1, 50, 4, 51], [22, 6, 36, 2, 37],
+    [22, 8, 37, 1, 38], [24, 4, 40, 5, 41], [24, 5, 41, 5, 42], [28, 7, 45, 3, 46],
+    [28, 10, 46, 1, 47], [26, 9, 43, 4, 44], [26, 3, 44, 11, 45], [26, 3, 41, 13, 42]
+  ];
+  const ALIGN = [
+    null, [], [6,18], [6,22], [6,26], [6,30], [6,34], [6,22,38], [6,24,42], [6,26,46],
+    [6,28,50], [6,30,54], [6,32,58], [6,34,62], [6,26,46,66], [6,26,48,70], [6,26,50,74],
+    [6,30,54,78], [6,30,56,82], [6,30,58,86], [6,34,62,90]
+  ];
+  const dataBytes = v => { const [, b1, d1, b2, d2] = M[v]; return b1 * d1 + b2 * d2; };
+
+  /* ── BCH لمعلومات الصيغة والإصدار ── */
+  const blen = x => 32 - Math.clz32(x);
+  function bch(data, poly) {                        // باقي القسمة على كثير الحدود
+    let d = data; const pl = blen(poly);
+    while (blen(d) >= pl) d ^= poly << (blen(d) - pl);
+    return d;
+  }
+  const fmtBits = mask => {
+    const d = (0b00 << 3) | mask;                   // 00 = مستوى M
+    const v = (d << 10) | bch(d << 10, 0b10100110111);
+    return v ^ 0b101010000010010;
+  };
+  const verBits = v => (v << 12) | bch(v << 12, 0b1111100100101);
+
+  /* ── بناء تدفّق البتات ── */
+  function bitStream(bytes, v) {
+    const bits = [];
+    const push = (val, n) => { for (let i = n - 1; i >= 0; i--) bits.push((val >> i) & 1); };
+    push(0b0100, 4);                                 // وضع البايت
+    push(bytes.length, v <= 9 ? 8 : 16);             // عدّاد الطول
+    for (const b of bytes) push(b, 8);
+    const cap = dataBytes(v) * 8;
+    for (let i = 0; i < 4 && bits.length < cap; i++) bits.push(0);
+    while (bits.length % 8) bits.push(0);
+    const pad = [0xEC, 0x11];
+    for (let i = 0; bits.length < cap; i++) push(pad[i % 2], 8);
+    const out = [];
+    for (let i = 0; i < bits.length; i += 8) {
+      let b = 0; for (let j = 0; j < 8; j++) b = (b << 1) | bits[i + j];
+      out.push(b);
+    }
+    return out;
+  }
+
+  /* ── تقسيم الكتل والتشابك ── */
+  function codewords(bytes, v) {
+    const [ec, b1, d1, b2, d2] = M[v];
+    const data = bitStream(bytes, v);
+    const blocks = [], ecs = [];
+    let o = 0;
+    for (let i = 0; i < b1; i++) { blocks.push(data.slice(o, o + d1)); o += d1; }
+    for (let i = 0; i < b2; i++) { blocks.push(data.slice(o, o + d2)); o += d2; }
+    for (const b of blocks) ecs.push(rsEnc(b, ec));
+    const out = [];
+    const maxD = Math.max(d1, d2 || 0);
+    for (let i = 0; i < maxD; i++) for (const b of blocks) if (i < b.length) out.push(b[i]);
+    for (let i = 0; i < ec; i++) for (const e of ecs) out.push(e[i]);
+    return out;
+  }
+
+  /* ── رسم المصفوفة ── */
+  function build(v, cw, mask) {
+    const n = v * 4 + 17;
+    const m = Array.from({ length: n }, () => new Array(n).fill(null));   // null = وحدة حرّة
+    const set = (r, c, val) => { if (r >= 0 && r < n && c >= 0 && c < n) m[r][c] = val; };
+
+    const finder = (r, c) => {
+      for (let i = -1; i <= 7; i++) for (let j = -1; j <= 7; j++) {
+        const inside = i >= 0 && i <= 6 && j >= 0 && j <= 6;
+        const ring = inside && (i === 0 || i === 6 || j === 0 || j === 6 || (i >= 2 && i <= 4 && j >= 2 && j <= 4));
+        set(r + i, c + j, inside ? ring : false);
+      }
+    };
+    finder(0, 0); finder(0, n - 7); finder(n - 7, 0);
+
+    for (let i = 8; i < n - 8; i++) { m[6][i] = i % 2 === 0; m[i][6] = i % 2 === 0; }
+
+    for (const r of ALIGN[v]) for (const c of ALIGN[v]) {
+      if ((r <= 8 && c <= 8) || (r <= 8 && c >= n - 9) || (r >= n - 9 && c <= 8)) continue;
+      for (let i = -2; i <= 2; i++) for (let j = -2; j <= 2; j++)
+        m[r + i][c + j] = Math.max(Math.abs(i), Math.abs(j)) !== 1;
+    }
+
+    /* حجز مواضع معلومات الصيغة والإصدار */
+    const reserved = Array.from({ length: n }, () => new Array(n).fill(false));
+    for (let i = 0; i < 9; i++) { reserved[8][i] = true; reserved[i][8] = true; }
+    for (let i = 0; i < 8; i++) { reserved[8][n - 1 - i] = true; reserved[n - 1 - i][8] = true; }
+    if (v >= 7) for (let i = 0; i < 6; i++) for (let j = 0; j < 3; j++) {
+      reserved[i][n - 11 + j] = true; reserved[n - 11 + j][i] = true;
+    }
+
+    /* وضع البيانات بمسار الأفعى */
+    let bi = 0, up = true;
+    for (let c = n - 1; c > 0; c -= 2) {
+      if (c === 6) c--;
+      for (let k = 0; k < n; k++) {
+        const r = up ? n - 1 - k : k;
+        for (const cc of [c, c - 1]) {
+          if (m[r][cc] !== null || reserved[r][cc]) continue;
+          let bit = bi < cw.length * 8 ? (cw[bi >> 3] >> (7 - (bi & 7))) & 1 : 0;
+          bi++;
+          if (maskFn(mask, r, cc)) bit ^= 1;
+          m[r][cc] = !!bit;
+        }
+      }
+      up = !up;
+    }
+
+    /* معلومات الصيغة */
+    const f = fmtBits(mask);
+    for (let i = 0; i < 15; i++) {
+      const b = ((f >> i) & 1) === 1;
+      /* النسخة الأولى: البتات 0–5 في العمود 8 نزولاً، ثم 6–14 في الصف 8 */
+      if (i < 6) m[i][8] = b;
+      else if (i === 6) m[7][8] = b;
+      else if (i === 7) m[8][8] = b;
+      else if (i === 8) m[8][7] = b;
+      else m[8][14 - i] = b;
+      /* النسخة الثانية: البتات 0–7 في الصف 8 من اليمين، ثم 8–14 في العمود 8 نزولاً */
+      if (i < 8) m[8][n - 1 - i] = b;
+      else m[n - 7 + (i - 8)][8] = b;
+    }
+    m[n - 8][8] = true;                                     // الوحدة الداكنة الدائمة
+    if (v >= 7) {
+      const vb = verBits(v);
+      for (let i = 0; i < 18; i++) {
+        const b = ((vb >> i) & 1) === 1;
+        m[Math.floor(i / 3)][n - 11 + (i % 3)] = b;
+        m[n - 11 + (i % 3)][Math.floor(i / 3)] = b;
+      }
+    }
+    return m;
+  }
+
+  function maskFn(k, r, c) {
+    switch (k) {
+      case 0: return (r + c) % 2 === 0;
+      case 1: return r % 2 === 0;
+      case 2: return c % 3 === 0;
+      case 3: return (r + c) % 3 === 0;
+      case 4: return (Math.floor(r / 2) + Math.floor(c / 3)) % 2 === 0;
+      case 5: return (r * c) % 2 + (r * c) % 3 === 0;
+      case 6: return ((r * c) % 2 + (r * c) % 3) % 2 === 0;
+      default: return ((r + c) % 2 + (r * c) % 3) % 2 === 0;
+    }
+  }
+
+  /* ── تقييم الأقنعة (قواعد الجزاء الأربع) ── */
+  function penalty(m) {
+    const n = m.length; let p = 0;
+    const runScan = get => {
+      for (let a = 0; a < n; a++) {
+        let run = 1;
+        for (let b = 1; b < n; b++) {
+          if (get(a, b) === get(a, b - 1)) run++;
+          else { if (run >= 5) p += 3 + (run - 5); run = 1; }
+        }
+        if (run >= 5) p += 3 + (run - 5);
+      }
+    };
+    runScan((a, b) => m[a][b]);
+    runScan((a, b) => m[b][a]);
+
+    for (let r = 0; r < n - 1; r++) for (let c = 0; c < n - 1; c++)
+      if (m[r][c] === m[r][c + 1] && m[r][c] === m[r + 1][c] && m[r][c] === m[r + 1][c + 1]) p += 3;
+
+    const pat1 = [true,false,true,true,true,false,true,false,false,false,false];
+    const pat2 = [false,false,false,false,true,false,true,true,true,false,true];
+    const match = (get, a, b, pat) => { for (let i = 0; i < 11; i++) if (get(a, b + i) !== pat[i]) return false; return true; };
+    for (let a = 0; a < n; a++) for (let b = 0; b + 11 <= n; b++) {
+      if (match((x, y) => m[x][y], a, b, pat1) || match((x, y) => m[x][y], a, b, pat2)) p += 40;
+      if (match((x, y) => m[y][x], a, b, pat1) || match((x, y) => m[y][x], a, b, pat2)) p += 40;
+    }
+
+    let dark = 0;
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (m[r][c]) dark++;
+    p += Math.floor(Math.abs(dark * 100 / (n * n) - 50) / 5) * 10;
+    return p;
+  }
+
+  /* ── الواجهة ── */
+  return function qrMatrix(text) {
+    const bytes = Array.from(new TextEncoder().encode(text));
+    let v = 0;
+    for (let i = 1; i <= 20; i++) {
+      const cnt = i <= 9 ? 8 : 16;
+      if (dataBytes(i) * 8 >= 4 + cnt + bytes.length * 8) { v = i; break; }
+    }
+    if (!v) throw new Error('النصّ أطول من سعة الإصدار 20');
+    const cw = codewords(bytes, v);
+    let best = null, bestP = Infinity;
+    for (let k = 0; k < 8; k++) {
+      const m = build(v, cw, k), p = penalty(m);
+      if (p < bestP) { bestP = p; best = m; }
+    }
+    return best;
+  };
+})();
+
+const DATA = {"sectors":[{"id":"maternity","name":"الأمومة والطفل","nameEn":"Mother & Baby","accent":"leaf"},{"id":"sports","name":"المكمّلات الرياضية","nameEn":"Sports Nutrition","accent":"brand"},{"id":"beauty","name":"العناية والتجميل","nameEn":"Beauty & Care","accent":"leaf"},{"id":"equipment","name":"الأدوات الطبية","nameEn":"Medical Devices","accent":"brand"},{"id":"oncology","name":"أدوية الأورام","nameEn":"Oncology","accent":"brand"},{"id":"general","name":"الأدوية والمستلزمات العامة","nameEn":"General Medicines","accent":"brand"}],"products":[{"id":"p001","name":"إيليفيت فيتامينات الحمل","brand":"Elevit","size":"100 قرص","form":"أقراص","price":3450,"was":null,"avail":"in","sector":"maternity","featured":true},{"id":"p002","name":"نان أوبتي برو 1 حليب أطفال","brand":"NAN","size":"800 غ","form":"مسحوق","price":2890,"was":null,"avail":"in","sector":"maternity","featured":false},{"id":"p003","name":"بيبانثين مرهم واقٍ","brand":"Bepanthen","size":"100 غ","form":"مرهم","price":980,"was":null,"avail":"in","sector":"maternity","featured":false},{"id":"p004","name":"موستيلا جل غسول للأطفال","brand":"Mustela","size":"500 مل","form":"جل","price":1750,"was":null,"avail":"low","sector":"maternity","featured":true},{"id":"p005","name":"شيكو زجاجة رضاعة","brand":"Chicco","size":"250 مل","form":"قطعة","price":620,"was":null,"avail":"in","sector":"maternity","featured":false},{"id":"p006","name":"سودوكريم كريم واقٍ","brand":"Sudocrem","size":"125 غ","form":"كريم","price":890,"was":null,"avail":"in","sector":"maternity","featured":false},{"id":"p007","name":"بامبرز حفاضات مقاس 3","brand":"Pampers","size":"70 حفاضة","form":"عبوة","price":1890,"was":2320,"avail":"in","sector":"maternity","featured":false},{"id":"p008","name":"فيتامين د3 نقط للرضّع","brand":"D-Vi-Sol","size":"15 مل","form":"نقط","price":740,"was":null,"avail":"in","sector":"maternity","featured":false},{"id":"p009","name":"أفينت مضخة حليب يدوية","brand":"Philips Avent","size":"قطعة","form":"جهاز","price":3900,"was":null,"avail":"ask","sector":"maternity","featured":false},{"id":"p010","name":"أوبتيموم غولد ستاندرد واي بروتين","brand":"Optimum Nutrition","size":"2.27 كغ","form":"مسحوق","price":9450,"was":null,"avail":"in","sector":"sports","featured":true},{"id":"p011","name":"كرياتين مونوهيدرات","brand":"Optimum Nutrition","size":"300 غ","form":"مسحوق","price":2150,"was":null,"avail":"in","sector":"sports","featured":false},{"id":"p012","name":"بي سي إيه إيه 2:1:1","brand":"Scitec","size":"300 غ","form":"مسحوق","price":1980,"was":2400,"avail":"in","sector":"sports","featured":false},{"id":"p013","name":"أوميغا 3","brand":"Now Foods","size":"100 كبسولة","form":"كبسولات","price":1340,"was":null,"avail":"in","sector":"sports","featured":false},{"id":"p014","name":"مالتي فيتامين رجالي","brand":"Optimum Nutrition","size":"90 قرص","form":"أقراص","price":1860,"was":null,"avail":"in","sector":"sports","featured":false},{"id":"p015","name":"شيكر رياضي","brand":"—","size":"700 مل","form":"قطعة","price":340,"was":null,"avail":"in","sector":"sports","featured":false},{"id":"p016","name":"زنك + مغنيزيوم ZMA","brand":"Now Foods","size":"90 كبسولة","form":"كبسولات","price":1120,"was":null,"avail":"low","sector":"sports","featured":false},{"id":"p017","name":"بروتين بار شوكولا","brand":"Quest","size":"60 غ","form":"لوح","price":210,"was":null,"avail":"in","sector":"sports","featured":false},{"id":"p018","name":"لاروش بوزيه أنتيليوس واقٍ شمسي SPF50+","brand":"La Roche-Posay","size":"50 مل","form":"كريم","price":3650,"was":null,"avail":"in","sector":"beauty","featured":true},{"id":"p019","name":"لاروش بوزيه إيفاكلار ديو+ M","brand":"La Roche-Posay","size":"40 مل","form":"كريم","price":3280,"was":null,"avail":"in","sector":"beauty","featured":true},{"id":"p020","name":"لاروش بوزيه سيكابلاست بلسم B5","brand":"La Roche-Posay","size":"40 مل","form":"بلسم","price":1780,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p021","name":"فيشي مينيرال 89 سيروم","brand":"Vichy","size":"50 مل","form":"سيروم","price":3120,"was":3680,"avail":"in","sector":"beauty","featured":true},{"id":"p022","name":"بيوديرما سينسيبيو ماء ميسيلار","brand":"Bioderma","size":"500 مل","form":"محلول","price":2450,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p023","name":"بيوديرما فوتوديرم واقٍ SPF50","brand":"Bioderma","size":"40 مل","form":"كريم","price":2980,"was":null,"avail":"low","sector":"beauty","featured":false},{"id":"p024","name":"أفين سيكالفات كريم مرمّم","brand":"Avène","size":"100 مل","form":"كريم","price":1890,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p025","name":"سيرافي غسول مرطّب","brand":"CeraVe","size":"473 مل","form":"غسول","price":2280,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p026","name":"لوريال ريفيتاليفت سيروم","brand":"L'Oréal","size":"30 مل","form":"سيروم","price":1650,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p027","name":"كلورين شامبو مضاد للقشرة","brand":"Klorane","size":"200 مل","form":"شامبو","price":1240,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p028","name":"يوسيرين ديودورانت","brand":"Eucerin","size":"50 مل","form":"بخّاخ","price":890,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p029","name":"نيوتروجينا كريم يد","brand":"Neutrogena","size":"75 مل","form":"كريم","price":480,"was":null,"avail":"in","sector":"beauty","featured":false},{"id":"p030","name":"أومرون جهاز ضغط رقمي M3","brand":"Omron","size":"جهاز","form":"جهاز","price":8900,"was":null,"avail":"in","sector":"equipment","featured":true},{"id":"p031","name":"أكيوتشيك جهاز سكر + 10 شرائط","brand":"Accu-Chek","size":"طقم","form":"جهاز","price":5400,"was":null,"avail":"in","sector":"equipment","featured":false},{"id":"p032","name":"شرائط سكر أكيوتشيك","brand":"Accu-Chek","size":"50 شريط","form":"عبوة","price":3200,"was":null,"avail":"low","sector":"equipment","featured":false},{"id":"p033","name":"مقياس تأكسج نبضي","brand":"Contec","size":"جهاز","form":"جهاز","price":1950,"was":2300,"avail":"in","sector":"equipment","featured":false},{"id":"p034","name":"بيورر ميزان حرارة رقمي","brand":"Beurer","size":"جهاز","form":"جهاز","price":620,"was":null,"avail":"in","sector":"equipment","featured":false},{"id":"p035","name":"كمّامات طبية","brand":"—","size":"50 قطعة","form":"عبوة","price":380,"was":null,"avail":"in","sector":"equipment","featured":false},{"id":"p036","name":"رباط ضاغط مرن","brand":"—","size":"10 سم","form":"قطعة","price":290,"was":null,"avail":"in","sector":"equipment","featured":false}]};
+
+/* ═══════════════════════════════════════════════════════════════
+   هوية الصيدلية — المصدر الوحيد. مطابقة لـ src/config/brand.ts
+   ═══════════════════════════════════════════════════════════════ */
+const BRAND = {
+  name:'صيدلية مهند', nameLatin:'Mohannad Pharmacy',
+  owner:'الدكتور مهنّد سخيطة',
+  location:'التراسات، مشروع دمّر — دمشق',
+  tagline:'ابحث · تأكّد من التوفّر · اطلب بضغطة',
+  instagram:'@mohannad.pharmacy',
+  /* ⚠ رقم تجريبي (رقم المطوّر كما في النموذج الأولي)، وليس رقم الصيدلية.
+     يُستبدل برقم واتساب الصيدلية قبل التركيب. رمز QR يُولَّد وقت التشغيل
+     من هذا الحقل (انظر waLink و drawQR)، فيكفي تعديل هذا السطر وحده. */
+  order:{ e164:'963933527091', display:'0933527091' }
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   رايات الميزات — تُدار من الخادم لاحقاً، لا من الكود.
+   القرار التنظيمي 24/ت (وزارة الصحة، 2/12/2025) يحكم «تطبيقات
+   الصحة الإلكترونية». حتى تتّضح الموافقة، يبقى الكشك عرضاً تجارياً:
+   الأقسام الدوائية تُعرَض كوجود، بلا أسعار ولا معلومات دواء ولا طلب.
+   ═══════════════════════════════════════════════════════════════ */
+const CAPABILITIES = {
+  regulatedFeaturesEnabled:false,
+  browsableSectors:['maternity','sports','beauty','equipment'],
+  inquiryOnlySectors:['oncology','general'],
+  availabilityStaleAfterSec:7200,
+  idleWarnSec:45, idleCountdownSec:15
+};
+
+const STATE = { lang:'ar', view:'home', sector:null, product:null, q:'', lastSync:Date.now() };
+
+
+/* ═══════════════════════════════════════════════════════════════
+   مصدر المحتوى — جدول Google Sheets منشور كـ CSV.
+   بالجدول: ملف ← مشاركة ← النشر على الويب ← CSV ← انسخ الرابط هنا.
+   فارغاً = يعمل الكشك بالكتالوج المدمّج فقط.
+   ═══════════════════════════════════════════════════════════════ */
+const SHEET_CSV = '';
+const SYNC_EVERY_MS = 5 * 60 * 1000;
+const CACHE_KEY = 'mohannad.catalog.v1';
+
+function parseCSV(text){
+  const rows = []; let row = [], f = '', q = false;
+  text = text.replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n');
+  for(let i = 0; i < text.length; i++){
+    const c = text[i];
+    if(q){ if(c === '"'){ if(text[i+1] === '"'){ f += '"'; i++; } else q = false; } else f += c; }
+    else if(c === '"') q = true;
+    else if(c === ','){ row.push(f); f = ''; }
+    else if(c === '\n'){ row.push(f); f = ''; rows.push(row); row = []; }
+    else f += c;
+  }
+  if(f || row.length){ row.push(f); rows.push(row); }
+  return rows.filter(r => r.some(x => x.trim() !== ''));
+}
+
+function rowsToProducts(rows){
+  const head = rows[0].map(h => h.trim().toLowerCase());
+  const ix = n => head.indexOf(n);
+  if(['sector','name','price'].some(n => ix(n) < 0)) throw new Error('أعمدة ناقصة');
+  const valid = new Set(DATA.sectors.map(x => x.id));
+  const out = [];
+  rows.slice(1).forEach((r, i) => {
+    const g = n => (ix(n) >= 0 ? (r[ix(n)] || '').trim() : '');
+    const sector = g('sector'), name = g('name'), price = parseFloat(g('price'));
+    if(!valid.has(sector) || !name || !isFinite(price)) return;   // صفّ معطوب يُتخطّى بصمت
+    const av = g('availability').toLowerCase();
+    out.push({
+      id: g('id') || ('s' + (i+1)), sector, name,
+      brand: g('brand') || '—', size: g('size') || '—', form: g('form') || 'قطعة',
+      price, was: parseFloat(g('was')) || null,
+      avail: ['in','low','ask'].includes(av) ? av : 'in',
+      featured: ['1','true','yes','نعم'].includes(g('featured').toLowerCase())
+    });
+  });
+  return out;
+}
+
+let pendingCatalog = null;
+const applyCatalog = (products, at) => { DATA.products = products; STATE.lastSync = at; };
+
+function loadCache(){
+  try{
+    const c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if(c && c.products && c.products.length){ applyCatalog(c.products, c.at); return true; }
+  }catch(e){}
+  return false;
+}
+
+async function sync(){
+  if(!SHEET_CSV) return;
+  try{
+    const r = await fetch(SHEET_CSV, { cache:'no-store' });
+    if(!r.ok) throw new Error(r.status);
+    const products = rowsToProducts(parseCSV(await r.text()));
+    if(!products.length) throw new Error('جدول فارغ');
+    const at = Date.now();
+    try{ localStorage.setItem(CACHE_KEY, JSON.stringify({ at, products })); }catch(e){}
+    /* لا يُبدَّل المحتوى تحت إصبع الزبون — يُطبَّق عند أول عودة لوضع الجذب */
+    if($('#app').style.display === 'none') applyCatalog(products, at);
+    else pendingCatalog = { products, at };
+  }catch(e){ /* الشبكة ليست في مسار الرسم — الفشل صامت تماماً */ }
+}
+
+/* ─────────────── الترجمة ─────────────── */
+const T = {
+  ar:{ home:'الرئيسية', back:'رجوع', search:'بحث', assist:'أطلب صيدلانياً',
+       sectors:'أقسام الصيدلية', pick:'اختر قسماً لتتصفّح منتجاته',
+       featured:'مختارات', offers:'عروض هذا الأسبوع', products:'منتج',
+       inStock:'متوفّر', low:'كمية محدودة', ask:'اسأل الصيدلاني',
+       size:'الحجم', form:'الشكل', brandLbl:'العلامة',
+       disclaimer:'المعلومات هنا تعريفية عن المنتج وحجم عبوته فقط. للاستشارة الشخصية اسأل الصيدلاني.',
+       qrTitle:'اطلب عبر واتساب', qrDesc:'امسح الرمز بكاميرا هاتفك — بتفتح رسالة جاهزة فيها اسم المنتج وحجمه. أرسلها للصيدلية.',
+       routine:'روتين العناية اليومي', askPharmacist:'اسأل الصيدلاني',
+       searchPh:'اكتب اسم منتج أو علامة…', popular:'الأكثر بحثاً', brands:'العلامات',
+       noResults:'ما لقينا نتيجة', noResultsSub:'ممكن يكون المنتج موجود باسم تاني — اسأل أي صيدلاني بالداخل.',
+       results:'نتيجة', inquiryOnly:'استفسار توفّر', inquiryNote:'هذا القسم يُدار مع الصيدلاني مباشرةً — اسأل أي صيدلاني بالداخل.',
+       idleT:'هل ما زلت هنا؟', idleP:'رح ترجع الشاشة للعرض تلقائياً', stay:'أنا هنا',
+       doneT:'وصل طلبك', doneP:'صيدلاني رح يجيك خلال لحظات.', currency:'ل.س',
+       lastSync:'آخر تحديث', service:'شاشة الخدمة', close:'إغلاق', spaceKey:'مسافة', clear:'مسح',
+       gateNote:'الأدوية لا تُعرَض بأسعارها على الشاشة. الصيادلة في الداخل يجيبونك عن التوفّر والبدائل.' },
+  en:{ home:'Home', back:'Back', search:'Search', assist:'Call a pharmacist',
+       sectors:'Our departments', pick:'Pick a department to browse',
+       featured:'Selected', offers:'This week', products:'items',
+       inStock:'In stock', low:'Low stock', ask:'Ask pharmacist',
+       size:'Size', form:'Form', brandLbl:'Brand',
+       disclaimer:'Information here describes the product and its pack size only. For personal advice, ask the pharmacist.',
+       qrTitle:'Order on WhatsApp', qrDesc:'Scan with your phone camera — a ready message with the product name and size opens. Send it to the pharmacy.',
+       routine:'Daily care routine', askPharmacist:'Ask the pharmacist',
+       searchPh:'Type a product or brand…', popular:'Most searched', brands:'Brands',
+       noResults:'No results', noResultsSub:'It may be stocked under another name — ask any pharmacist inside.',
+       results:'results', inquiryOnly:'Availability enquiry', inquiryNote:'This department is handled with the pharmacist directly — ask any pharmacist inside.',
+       idleT:'Still there?', idleP:'The screen will return to the display shortly', stay:"I'm here",
+       doneT:'Request sent', doneP:'A pharmacist will be with you shortly.', currency:'SYP',
+       lastSync:'Last sync', service:'Service screen', close:'Close', spaceKey:'space', clear:'clear',
+       gateNote:'Medicines are not listed with prices on this screen. The pharmacists inside will answer on availability and alternatives.' }
+};
+const t = k => T[STATE.lang][k];
+
+/* ─────────────── الأيقونات ─────────────── */
+const ICON = {
+  home:'<path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/>',
+  back:'<path d="M9 6l6 6-6 6"/>',
+  search:'<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
+  bell:'<path d="M12 3a6 6 0 00-6 6v4l-1.5 3h15L18 13V9a6 6 0 00-6-6z"/><path d="M10 20a2 2 0 004 0"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.1"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+  hand:'<path d="M9 11V5.5a1.5 1.5 0 013 0V11m0-1.5a1.5 1.5 0 013 0V12m0-1a1.5 1.5 0 013 0v5a5 5 0 01-5 5h-2.5a5 5 0 01-4.33-2.5l-2.4-4.16a1.5 1.5 0 012.6-1.5L9 15"/>',
+  maternity:'<circle cx="12" cy="7" r="3.2"/><path d="M6 21c0-4 2.7-7 6-7s6 3 6 7"/>',
+  sports:'<path d="M4 9v6M20 9v6M7 7v10M17 7v10"/><path d="M7 12h10"/>',
+  beauty:'<path d="M9 3h6v3l2 3v12H7V9l2-3z"/><path d="M9 13h6"/>',
+  equipment:'<path d="M3 12h4l2-5 3 10 2.5-7 1.5 2h5"/>',
+  oncology:'<path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/>',
+  general:'<rect x="3" y="8" width="18" height="11" rx="2"/><path d="M8 8V6a4 4 0 018 0v2"/>',
+  wa:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.17c-.24.68-1.42 1.31-1.96 1.36-.5.05-.97.23-3.27-.68-2.75-1.08-4.5-3.9-4.63-4.08-.14-.18-1.11-1.48-1.11-2.82s.7-2 .95-2.28c.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.23.55.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.29-.27.45-.14.16-.29.35-.41.47-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.61-.13.25.09 1.59.75 1.86.89.27.14.45.2.52.32.07.11.07.64-.17 1.32z"/></svg>'
+};
+const PKG = {
+  'كريم':'<rect x="26" y="8" width="48" height="20" rx="5"/><path d="M18 32h64v58a10 10 0 01-10 10H28a10 10 0 01-10-10z"/>',
+  'سيروم':'<rect x="38" y="4" width="24" height="22" rx="4"/><path d="M28 30h44v62a8 8 0 01-8 8H36a8 8 0 01-8-8z"/>',
+  'مسحوق':'<rect x="30" y="6" width="40" height="16" rx="4"/><rect x="16" y="24" width="68" height="76" rx="10"/>',
+  'أقراص':'<rect x="14" y="20" width="72" height="66" rx="9"/><rect x="26" y="34" width="48" height="6" rx="3"/><rect x="26" y="48" width="32" height="6" rx="3"/>',
+  'كبسولات':'<rect x="14" y="20" width="72" height="66" rx="9"/><circle cx="34" cy="52" r="8"/><circle cx="52" cy="52" r="8"/><circle cx="70" cy="52" r="8"/>',
+  'جهاز':'<rect x="10" y="24" width="80" height="56" rx="10"/><rect x="24" y="38" width="52" height="28" rx="5" opacity=".55"/>',
+  'عبوة':'<path d="M14 30l36-16 36 16v52l-36 16-36-16z"/>',
+  'محلول':'<rect x="36" y="4" width="28" height="18" rx="4"/><path d="M22 26h56v66a8 8 0 01-8 8H30a8 8 0 01-8-8z"/>',
+  'غسول':'<rect x="40" y="2" width="20" height="20" rx="4"/><path d="M24 26h52v66a8 8 0 01-8 8H32a8 8 0 01-8-8z"/>',
+  'شامبو':'<rect x="40" y="2" width="20" height="20" rx="4"/><path d="M24 26h52v66a8 8 0 01-8 8H32a8 8 0 01-8-8z"/>',
+  'مرهم':'<rect x="26" y="8" width="48" height="20" rx="5"/><path d="M18 32h64v58a10 10 0 01-10 10H28a10 10 0 01-10-10z"/>',
+  'بلسم':'<rect x="26" y="8" width="48" height="20" rx="5"/><path d="M18 32h64v58a10 10 0 01-10 10H28a10 10 0 01-10-10z"/>',
+  'نقط':'<rect x="42" y="4" width="16" height="16" rx="3"/><path d="M32 24h36v68a8 8 0 01-8 8H40a8 8 0 01-8-8z"/>',
+  'بخّاخ':'<rect x="40" y="2" width="20" height="16" rx="3"/><path d="M28 22h44v70a8 8 0 01-8 8H36a8 8 0 01-8-8z"/>',
+  'قطعة':'<rect x="14" y="24" width="72" height="60" rx="10"/>',
+  'لوح':'<rect x="10" y="36" width="80" height="32" rx="8"/>'
+};
+const svg = (p,vb) => `<svg viewBox="${vb||'0 0 24 24'}" aria-hidden="true">${p}</svg>`;
+const pkgSvg = f => `<svg viewBox="0 0 100 104" aria-hidden="true">${PKG[f]||PKG['قطعة']}</svg>`;
+
+/* تدرّجات من لوحة الهوية فقط — ثابتة لكل علامة تجارية */
+const TILES = [
+  ['#2e74a2','#0b4569'], ['#0d517e','#082f48'], ['#5793bc','#0d517e'],
+  ['#a0cc55','#587d26'], ['#8ec341','#476324'], ['#b9da7c','#74a430'],
+  ['#8cb8d5','#2e74a2']
+];
+const tile = b => { let h=0; for(const c of b) h=(h*31+c.charCodeAt(0))>>>0; const [a,z]=TILES[h%TILES.length];
+  return `background:linear-gradient(145deg,${a},${z})`; };
+
+/* ─────────────── أدوات ─────────────── */
+const $  = s => document.querySelector(s);
+const kiosk = $('#kiosk');
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* عزل المقاطع اللاتينية داخل نصّ عربي — بدونه "SPF50+" تنقلب إلى "+SPF50"
+   ولا يُصلحها dir على العنصر، لأن المشكلة داخل السلسلة نفسها. */
+const LATIN = /[A-Za-z0-9][A-Za-z0-9 .:+\-&'\/]*[A-Za-z0-9+]|[A-Za-z0-9]/g;
+function bidi(s){
+  s = String(s); let out='', last=0, m;
+  LATIN.lastIndex = 0;
+  while((m = LATIN.exec(s))){
+    out += esc(s.slice(last, m.index)) + '<bdi dir="ltr">' + esc(m[0]) + '</bdi>';
+    last = m.index + m[0].length;
+  }
+  return out + esc(s.slice(last));
+}
+const num = n => n.toLocaleString('en-US');
+const sectorOf = id => DATA.sectors.find(s=>s.id===id);
+const productsIn = id => DATA.products.filter(p=>p.sector===id);
+const browsable = () => DATA.sectors.filter(s=>CAPABILITIES.browsableSectors.includes(s.id));
+
+/* شارة التوفّر — تعترف بجهلها بدل أن تخمّن حين تقادم البيانات */
+function availOf(p){
+  const stale = (Date.now()-STATE.lastSync)/1000 > CAPABILITIES.availabilityStaleAfterSec;
+  const k = (stale && p.avail!=='ask') ? 'ask' : p.avail;
+  return { k, label: k==='in'?t('inStock') : k==='low'?t('low') : t('ask') };
+}
+const avBadge = p => { const a=availOf(p); return `<span class="av ${a.k}">${a.label}</span>`; };
+
+/* ─────────────── نظام المليمتر ─────────────── */
+const PANEL_MM = { w:535.7, h:952.4 };   // مساحة 43″ الفعّالة، عمودي. تُضبط من القياس الحقيقي عند التركيب
+function calibrate(){
+  kiosk.style.setProperty('--mm', (kiosk.clientWidth / PANEL_MM.w) + 'px');
+}
+new ResizeObserver(calibrate).observe(kiosk);
+
+/* ─────────────── رابط واتساب ورسم QR وقت التشغيل ─────────────── */
+const waLink = p =>
+  `https://wa.me/${BRAND.order.e164}?text=` +
+  encodeURIComponent(`مرحباً، استفسار عن توفّر: ${p.name} — ${p.size}`);
+
+function drawQR(cv, text){
+  const m = QR(text), n = m.length, px = 4, q = 2, size = (n + q*2) * px;
+  cv.width = cv.height = size;
+  const g = cv.getContext('2d');
+  g.fillStyle = '#fff'; g.fillRect(0,0,size,size);
+  g.fillStyle = '#061e30';
+  for(let r=0;r<n;r++) for(let c=0;c<n;c++)
+    if(m[r][c]) g.fillRect((c+q)*px, (r+q)*px, px, px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   وضع الجذب — دورة 35 ثانية، بلا أي عنصر تحكّم مرئي
+   ═══════════════════════════════════════════════════════════════ */
+const F = id => DATA.products.find(p=>p.id===id);
+function attractSlides(){
+  const sun   = F('p018');   // لاروش بوزيه أنتيليوس
+  const serum = F('p021');   // فيشي مينيرال 89 — عليه عرض
+  return [
+  { ms:4200, html:`
+    <div class="bg" style="background:radial-gradient(120% 78% at 68% 8%,#0d517e,#093856 44%,#061e30)"></div>
+    <div class="glow"></div>
+    <div class="mark">
+      <div class="ring"><b>م</b></div>
+      <p class="nm">${BRAND.name}</p>
+      <p class="tg">${BRAND.tagline}</p>
+      <div class="hr"></div>
+      <p class="lc">${BRAND.location}</p>
+    </div>` },
+
+  { ms:8000, pan:1, html:`
+    <div class="bg" style="background:linear-gradient(158deg,#0d517e,#2e74a2 52%,#0b4569)"></div>
+    <div class="glow"></div>
+    <p class="kick">العناية والتجميل</p>
+    <h2 class="hero">بشرتك بعد الصيف<br>بدها ترطيب</h2>
+    <p class="lede">لاروش بوزيه · فيشي · بيوديرما · أفين · سيرافي — متوفّرة الآن في الصيدلية.</p>
+    <div class="grow"></div>` },
+
+  { ms:6400, pan:1, html:`
+    <div class="bg" style="background:linear-gradient(200deg,#093856,#0d517e 58%,#061e30)"></div>
+    <div class="glow"></div>
+    <p class="kick">منتج مميّز</p>
+    <h2 class="hero">${bidi(sun.name)}</h2>
+    <p class="lede">${bidi(sun.brand)} · ${bidi(sun.size)} · ${esc(sun.form)}</p>
+    <div class="grow"></div>
+    <div style="display:flex;align-items:baseline">
+      <span class="aprice">${num(sun.price)}<i>ل.س</i></span>
+    </div>` },
+
+  { ms:6400, html:`
+    <div class="bg" style="background:linear-gradient(145deg,#0b4569,#093856 46%,#061e30)"></div>
+    <div class="glow"></div>
+    <span class="tagpill">عرض هذا الأسبوع</span>
+    <h2 class="hero">${bidi(serum.name)}</h2>
+    <p class="lede">${bidi(serum.brand)} · ${bidi(serum.size)}</p>
+    <div class="grow"></div>
+    <div style="display:flex;align-items:baseline">
+      <span class="aprice">${num(serum.price)}<i>ل.س</i></span>
+      <span class="awas">${num(serum.was)} ل.س</span>
+    </div>` },
+
+  { ms:7000, html:`
+    <div class="bg" style="background:linear-gradient(165deg,#f7f9fb,#f0f6fa 58%,#dceaf3)"></div>
+    <p class="kick">معلومة عامة</p>
+    <h2 class="hero">الوقاية من الشمس<br>عادة يومية</h2>
+    <p class="lede">يُنصح بإعادة تطبيق الواقي الشمسي كل ساعتين عند التعرّض المطوّل للشمس.</p>
+    <div class="grow"></div>
+    <p class="srcline">محتوى تعريفي عام · للاستشارة الشخصية اسأل الصيدلاني</p>`, light:1 },
+
+  { ms:4200, html:`
+    <div class="bg" style="background:radial-gradient(115% 72% at 50% 88%,#2e74a2,#0d517e 48%,#061e30)"></div>
+    <div class="glow"></div>
+    <div class="touchcue">
+      <div class="circ">${svg(ICON.hand)}</div>
+      <h2 class="hero">المس الشاشة</h2>
+      <p class="lede" style="max-width:none">لتتصفّح المنتجات والعروض</p>
+    </div>` }
+  ];
+}
+
+let slides = [], si = 0, sTimer = null;
+function buildAttract(){
+  slides = attractSlides();
+  $('#attract').innerHTML = slides
+    .map((s,i)=>`<div class="slide${i===0?' on':''}${s.light?' light':''}" data-i="${i}">${s.html}</div>`).join('');
+}
+function attractTick(){
+  const els = $('#attract').querySelectorAll('.slide');
+  els[si].classList.remove('on','pan');
+  si = (si+1) % slides.length;
+  els[si].classList.add('on');
+  if(slides[si].pan){ void els[si].offsetWidth; els[si].classList.add('pan'); }
+  sTimer = setTimeout(attractTick, slides[si].ms);
+}
+function startAttract(){
+  clearTimeout(sTimer);
+  buildAttract(); si = 0;
+  const els = $('#attract').querySelectorAll('.slide');
+  if(slides[0].pan) els[0].classList.add('pan');
+  sTimer = setTimeout(attractTick, slides[0].ms);
+  $('#attract').classList.remove('hide');
+  $('#app').style.display = 'none';
+}
+function stopAttract(){ clearTimeout(sTimer); $('#attract').classList.add('hide'); }
+
+/* ═══════════════════════════════════════════════════════════════
+   الوضع التفاعلي
+   ═══════════════════════════════════════════════════════════════ */
+function enterApp(){
+  if($('#app').style.display !== 'none') return;
+  stopAttract();
+  $('#app').style.display = 'flex';
+  STATE.view='home'; STATE.sector=null; STATE.product=null; STATE.q='';
+  renderChrome(); render(); kickIdle();
+}
+
+function renderChrome(){
+  $('#tb-name').textContent = BRAND.name;
+  $('#tb-sub').textContent  = BRAND.location;
+  $('#tb-ig').textContent   = BRAND.instagram;
+  const nb = (id,ic,lbl,extra='',dis='') =>
+    `<button class="nb ${extra}" data-nav="${id}" ${dis}>${svg(ICON[ic])}<span>${lbl}</span></button>`;
+  $('#navbar').innerHTML =
+    nb('home','home',t('home')) +
+    nb('back','back',t('back'),'', STATE.view==='home'?'disabled':'') +
+    nb('search','search',t('search')) +
+    `<button class="nb lang" data-nav="lang">${STATE.lang==='ar'?'EN':'ع'}</button>`;
+}
+
+/* ── الشاشات ── */
+function viewHome(){
+  const feat = DATA.products.filter(p=>p.featured);
+  const offs = DATA.products.filter(p=>p.was);
+  return `
+    <h1 class="ttl">${t('sectors')}</h1>
+    <p class="sub">${t('pick')}</p>
+    <div class="sectors">${DATA.sectors.map(s=>{
+      const gated = CAPABILITIES.inquiryOnlySectors.includes(s.id) && !CAPABILITIES.regulatedFeaturesEnabled;
+      const cls = gated ? 'gated' : (s.accent==='leaf' ? 'l' : 'b');
+      const n = productsIn(s.id).length;
+      return `<button class="sec ${cls}" data-sector="${s.id}">
+        <div class="ico">${svg(ICON[s.id])}</div>
+        <h3>${esc(STATE.lang==='ar'?s.name:s.nameEn)}</h3>
+        ${ gated ? `<span class="ask">${t('inquiryOnly')}</span>`
+                 : `<span class="cnt">${n} ${t('products')}</span>` }
+      </button>`;
+    }).join('')}</div>
+
+    <p class="eyebrow">${t('offers')}</p>
+    <div class="grid">${offs.slice(0,2).map(cardHTML).join('')}</div>
+
+    <p class="eyebrow">${t('featured')}</p>
+    <div class="grid">${feat.slice(0,4).map(cardHTML).join('')}</div>`;
+}
+
+function cardHTML(p){
+  return `<button class="card" data-product="${p.id}">
+    <div class="thumb" style="${tile(p.brand)}">${pkgSvg(p.form)}<span class="bn">${esc(p.brand)}</span></div>
+    <div class="cbody">
+      <div class="cname">${bidi(p.name)}</div>
+      <div class="csize">${bidi(p.size)} · ${esc(p.form)}</div>
+      <div class="cfoot">
+        <span class="cprice">${num(p.price)}<i>${t('currency')}</i>${
+          p.was?`<b class="cwas">${num(p.was)}</b>`:''}</span>
+        ${avBadge(p)}
+      </div>
+    </div></button>`;
+}
+
+function viewSector(){
+  const s = sectorOf(STATE.sector);
+  if(CAPABILITIES.inquiryOnlySectors.includes(s.id) && !CAPABILITIES.regulatedFeaturesEnabled){
+    return `<h1 class="ttl">${esc(STATE.lang==='ar'?s.name:s.nameEn)}</h1>
+      <div class="gate">
+        <div class="gicon">${svg(ICON[s.id])}</div>
+        <div class="em">${t('inquiryOnly')}</div>
+        <div class="es">${t('inquiryNote')}</div>
+        <div class="gnote">${svg(ICON.info)}<span>${t('gateNote')}</span></div>
+      </div>`;
+  }
+  const ps = productsIn(s.id);
+  return `<h1 class="ttl">${esc(STATE.lang==='ar'?s.name:s.nameEn)}</h1>
+    <p class="sub">${ps.length} ${t('products')}</p>
+    <div class="grid">${ps.map(cardHTML).join('')}</div>`;
+}
+
+function viewProduct(){
+  const p = F(STATE.product);
+  const related = DATA.products.filter(x=>x.sector===p.sector && x.id!==p.id).slice(0,4);
+  const isSkin = p.sector==='beauty';
+  return `
+    <div class="hero-img" style="${tile(p.brand)}">${pkgSvg(p.form)}<span class="bn">${esc(p.brand)}</span></div>
+    <h1 class="pname">${bidi(p.name)}</h1>
+    <div class="pmeta">
+      <span>${t('brandLbl')}: <b>${esc(p.brand)}</b></span>
+      <span>${t('size')}: <b>${bidi(p.size)}</b></span>
+      <span>${t('form')}: <b>${esc(p.form)}</b></span>
+    </div>
+    <div class="pricebox">
+      <span class="pp">${num(p.price)}<i>${t('currency')}</i></span>
+      ${p.was?`<span class="ww">${num(p.was)} ${t('currency')}</span>`:''}
+      <span class="pgrow"></span>
+      ${avBadge(p)}
+    </div>
+    <div class="disclaim">${svg(ICON.info)}<span>${t('disclaimer')}</span></div>
+    <div class="qrbox">
+      <canvas id="qr"></canvas>
+      <div><div class="qt">${ICON.wa}${t('qrTitle')}</div><div class="qd">${t('qrDesc')}</div></div>
+    </div>
+    ${ isSkin ? `<div class="routine">
+        <p class="eyebrow" style="margin-top:0">${t('routine')}</p>
+        <div class="steps">
+          ${['غسول','سيروم','مرطّب','واقٍ شمسي'].map((x,i)=>
+            `<div class="rstep"><span class="n">0${i+1}</span><span class="t">${x}</span></div>`).join('')}
+        </div></div>` : '' }
+    <p class="eyebrow">${t('featured')}</p>
+    <div class="grid">${related.map(cardHTML).join('')}</div>`;
+}
+
+const POPULAR = ['واقٍ شمسي','فيتامين','حليب أطفال','بروتين','سيروم','مرطّب','حفاضات','جهاز ضغط'];
+function viewSearch(){
+  const brands = [...new Set(DATA.products
+      .filter(p=>CAPABILITIES.browsableSectors.includes(p.sector) && p.brand!=='—')
+      .map(p=>p.brand))].slice(0,8);
+  const res = searchResults();
+  return `
+    <h1 class="ttl">${t('search')}</h1>
+    <div class="qbox">${svg(ICON.search)}
+      <div class="qtext ${STATE.q?'':'ph'}">${STATE.q?esc(STATE.q):t('searchPh')}<span class="caret"></span></div>
+    </div>
+    ${ STATE.q ? (res.length
+        ? `<p class="eyebrow">${res.length} ${t('results')}</p><div class="grid">${res.map(cardHTML).join('')}</div>`
+        : `<div class="empty"><div class="em">${t('noResults')}</div>
+             <div class="es">${t('noResultsSub')}</div></div>`)
+      : `<p class="eyebrow">${t('popular')}</p>
+         <div class="chips">${POPULAR.map(x=>`<button class="chip" data-q="${esc(x)}">${esc(x)}</button>`).join('')}</div>
+         <p class="eyebrow">${t('brands')}</p>
+         <div class="chips">${brands.map(b=>`<button class="chip" data-q="${esc(b)}" style="direction:ltr">${esc(b)}</button>`).join('')}</div>` }`;
+}
+
+/* بحث عربي متسامح: يوحّد الهمزات والتاء المربوطة ويحذف التشكيل */
+const norm = s => String(s).toLowerCase()
+  .replace(/[ً-ْـ]/g,'')
+  .replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')
+  .replace(/[^\p{L}\p{N}]/gu,'');
+function searchResults(){
+  const q = norm(STATE.q); if(!q) return [];
+  return DATA.products.filter(p=>{
+    if(!CAPABILITIES.browsableSectors.includes(p.sector)) return false;
+    return norm(p.name).includes(q) || norm(p.brand).includes(q) || norm(p.form).includes(q);
+  });
+}
+
+/* ── لوحة المفاتيح العربية — في القاع، مفاتيح ≥ 18 مم ── */
+const KB_AR = [['ض','ص','ث','ق','ف','غ','ع','ه','خ','ح'],
+               ['ش','س','ي','ب','ل','ا','ت','ن','م','ك'],
+               ['ئ','ء','ؤ','ر','ى','ة','و','ز','ظ','د']];
+const KB_EN = [['q','w','e','r','t','y','u','i','o','p'],
+               ['a','s','d','f','g','h','j','k','l'],
+               ['z','x','c','v','b','n','m']];
+function keyboardHTML(){
+  const rows = (STATE.lang==='ar'?KB_AR:KB_EN)
+    .map(r=>`<div class="krow">${r.map(k=>`<button class="key" data-k="${k}">${k}</button>`).join('')}</div>`).join('');
+  return `<div class="kbd">${rows}
+    <div class="krow">
+      <button class="key wide del" data-k="__del">⌫</button>
+      <button class="key wide" data-k=" ">${t('spaceKey')}</button>
+      <button class="key wide act" data-k="__clr">${t('clear')}</button>
+    </div></div>`;
+}
+
+/* ── الرسم ── */
+function render(){
+  const v = $('#view'), a = $('#actions');
+  a.innerHTML = ''; a.className = '';
+  if(STATE.view==='home')         v.innerHTML = viewHome();
+  else if(STATE.view==='sector')  v.innerHTML = viewSector();
+  else if(STATE.view==='product') v.innerHTML = viewProduct();
+  else if(STATE.view==='search')  v.innerHTML = viewSearch();
+  v.scrollTop = 0;
+
+  if(STATE.view==='product') drawQR($('#qr'), waLink(F(STATE.product)));
+  if(STATE.view==='search'){
+    a.innerHTML = keyboardHTML();
+  }
+  renderChrome();
+}
+
+function go(view, opts={}){
+  Object.assign(STATE, {view}, opts);
+  render(); kickIdle();
+}
+
+/* ═══ إدارة الجلسة — لا أحد يضغط «خروج» ═══ */
+let idleT = null, cdT = null;
+function resetSession(){
+  clearTimeout(idleT); clearInterval(cdT);
+  if(pendingCatalog){ applyCatalog(pendingCatalog.products, pendingCatalog.at); pendingCatalog = null; }
+  $('#idle').classList.remove('on');
+  STATE.lang='ar'; STATE.view='home'; STATE.sector=null; STATE.product=null; STATE.q='';
+  $('#app').style.display='none';
+  startAttract();
+}
+function kickIdle(){
+  clearTimeout(idleT); clearInterval(cdT);
+  $('#idle').classList.remove('on');
+  if($('#app').style.display==='none') return;
+  idleT = setTimeout(showIdle, CAPABILITIES.idleWarnSec*1000);
+}
+function showIdle(){
+  let n = CAPABILITIES.idleCountdownSec;
+  $('#idle-t').textContent = t('idleT');
+  $('#idle-p').textContent = t('idleP');
+  $('#idle-btn').textContent = t('stay');
+  $('#idle-cd').textContent = n;
+  $('#idle').classList.add('on');
+  cdT = setInterval(()=>{
+    n--; $('#idle-cd').textContent = n;
+    if(n<=0) resetSession();
+  },1000);
+}
+
+/* ═══ الأحداث ═══ */
+document.addEventListener('pointerdown', e=>{
+  if($('#svc').classList.contains('on')) return;
+  if($('#app').style.display==='none'){ enterApp(); return; }
+  kickIdle();
+
+  const nav = e.target.closest('[data-nav]');
+  if(nav){
+    const k = nav.dataset.nav;
+    if(k==='home')   go('home',{sector:null,product:null,q:''});
+    if(k==='back')   back();
+    if(k==='search') go('search',{q:''});
+    if(k==='lang'){ STATE.lang = STATE.lang==='ar'?'en':'ar'; render(); }
+    return;
+  }
+  const sec = e.target.closest('[data-sector]');
+  if(sec){ go('sector',{sector:sec.dataset.sector}); return; }
+
+  const pr = e.target.closest('[data-product]');
+  if(pr){ go('product',{product:pr.dataset.product}); return; }
+
+  const chip = e.target.closest('[data-q]');
+  if(chip){ STATE.q = chip.dataset.q; render(); return; }
+
+  const key = e.target.closest('[data-k]');
+  if(key){
+    const k = key.dataset.k;
+    if(k==='__del')      STATE.q = STATE.q.slice(0,-1);
+    else if(k==='__clr') STATE.q = '';
+    else                 STATE.q += k;
+    render(); return;
+  }
+}, true);
+
+function back(){
+  if(STATE.view==='product') go(STATE.sector?'sector':'home');
+  else go('home',{sector:null,q:''});
+}
+$('#idle-btn').addEventListener('pointerdown', e=>{ e.stopPropagation(); kickIdle(); });
+
+/* ── شاشة الخدمة: أربع زوايا خلال 3 ثوانٍ ── */
+let corners = new Set(), cornerT = null;
+kiosk.addEventListener('pointerdown', e=>{
+  const r = kiosk.getBoundingClientRect();
+  const x = e.clientX-r.left, y = e.clientY-r.top, m = r.width*0.13;
+  let c = null;
+  if(x<m && y<m) c=0; else if(x>r.width-m && y<m) c=1;
+  else if(x<m && y>r.height-m) c=2; else if(x>r.width-m && y>r.height-m) c=3;
+  if(c===null) return;
+  corners.add(c);
+  clearTimeout(cornerT);
+  cornerT = setTimeout(()=>corners.clear(), 3000);
+  if(corners.size===4){ corners.clear(); openService(); }
+});
+function openService(){
+  const g = getComputedStyle(kiosk).getPropertyValue('--mm').trim();
+  const mm = parseFloat(g);
+  const rows = [
+    ['الجهاز', 'CSHW-ELED-LS43'],
+    ['التسلسلي', 'SYET20260130'],
+    ['الاتجاه', kiosk.clientHeight>kiosk.clientWidth ? 'portrait' : 'landscape'],
+    ['أبعاد اللوحة', `${PANEL_MM.w} × ${PANEL_MM.h} mm`],
+    ['البكسل', `${kiosk.clientWidth|0} × ${kiosk.clientHeight|0} px`],
+    ['مقياس --mm', `${mm.toFixed(3)} px/mm`],
+    ['الكثافة', `${Math.round(kiosk.clientWidth/(PANEL_MM.w/25.4))} PPI`],
+    ['المنتجات', String(DATA.products.length)],
+    ['أقسام قابلة للتصفّح', CAPABILITIES.browsableSectors.join(', ')],
+    ['أقسام استفسار فقط', CAPABILITIES.inquiryOnlySectors.join(', ')],
+    ['ميزات منظَّمة', String(CAPABILITIES.regulatedFeaturesEnabled)],
+    ['مصدر المحتوى', SHEET_CSV ? 'Google Sheets' : 'مدمج في الملف'],
+    ['آخر مزامنة', STATE.lastSync ? new Date(STATE.lastSync).toISOString().slice(0,19).replace('T',' ') : 'لم تتم'],
+    ['بانتظار التطبيق', pendingCatalog ? 'نعم' : 'لا']
+  ];
+  $('#svc').innerHTML = `<h3>${t('service')}</h3>` +
+    rows.map(([k,v])=>`<div class="row"><span>${k}</span><b>${esc(v)}</b></div>`).join('') +
+    `<button id="svc-close">${t('close')}</button>`;
+  $('#svc').classList.add('on');
+  $('#svc-close').addEventListener('pointerdown', ev=>{
+    ev.stopPropagation(); $('#svc').classList.remove('on'); kickIdle();
+  });
+}
+
+/* منع إيماءات المتصفّح التي تكشف واجهة النظام */
+document.addEventListener('contextmenu', e=>e.preventDefault());
+document.addEventListener('gesturestart', e=>e.preventDefault());
+document.addEventListener('dblclick', e=>e.preventDefault());
+
+/* ── الإقلاع ── */
+if(!loadCache() && SHEET_CSV) STATE.lastSync = 0;   // لا كتالوج بعد ← التوفّر يقول «اسأل الصيدلاني»
+calibrate();
+startAttract();
+sync();
+setInterval(sync, SYNC_EVERY_MS);
+</script>
+
+</body></html>

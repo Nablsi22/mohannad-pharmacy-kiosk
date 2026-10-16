@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>كشك صيدلية مهند — Mohannad Pharmacy Kiosk</title>
+  <meta name="description" content="Portrait 43-inch touch kiosk for Mohannad Pharmacy, Damascus — attract mode, interactive catalog, and architecture docs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;800&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand-600:#0d517e; --brand-900:#061e30; --leaf-500:#8ec341;
+      --ink-50:#f7f9fb; --ink-200:#dbe3ea; --ink-500:#5b6b7c; --ink-700:#3a4c60;
+      --bg:var(--ink-50); --card:#fff; --text:var(--brand-900); --muted:var(--ink-500); --line:var(--ink-200);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#071725; --card:#0c2336; --text:#eef4f9; --muted:#9fb2c4; --line:#1c3a52; }
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;line-height:1.6}
+    main{max-width:880px;margin-inline:auto;padding:48px 16px 64px}
+    h1{font-family:Tajawal,sans-serif;font-weight:800;font-size:clamp(28px,5vw,40px);margin:0}
+    .en{display:block;text-align:right;font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:400;font-size:16px;color:var(--muted)}
+    p.lead{color:var(--muted);max-width:60ch}
+    .bar{inline-size:56px;block-size:4px;background:var(--leaf-500);border-radius:2px;margin:20px 0}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:32px}
+    a.card{display:block;text-decoration:none;color:inherit;background:var(--card);
+      border:1px solid var(--line);border-radius:16px;padding:20px;transition:border-color .15s,transform .15s}
+    a.card:hover,a.card:focus-visible{border-color:var(--brand-600);transform:translateY(-2px);outline:none}
+    .tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;
+      background:color-mix(in srgb,var(--brand-600) 12%,transparent);color:var(--brand-600)}
+    @media (prefers-color-scheme: dark){ .tag{color:#8cc4ea} }
+    a.card h2{font-family:Tajawal,sans-serif;font-weight:800;font-size:20px;margin:10px 0 4px}
+    a.card p{margin:0;color:var(--muted);font-size:15px}
+    footer{margin-top:40px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>كشك صيدلية مهند <span class="en" dir="ltr">Mohannad Pharmacy — In-store Touch Kiosk</span></h1>
+    <div class="bar"></div>
+    <p class="lead">تطبيق شاشة لمس عمودية بقياس 43 بوصة: لافتة رقمية في وضع الجذب، وكتالوج تفاعلي عند اللمس مع طلب عبر واتساب. المحتوى المعروض تجريبي.</p>
+
+    <div class="grid">
+      <a class="card" href="kiosk-app/">
+        <span class="tag">المنتج الحالي</span>
+        <h2>تطبيق الكشك</h2>
+        <p>وضع الجذب + الكتالوج التفاعلي + شاشة الخدمة. يُعرض بأفضل شكل بنسبة 9:16.</p>
+      </a>
+      <a class="card" href="attract-mode/">
+        <span class="tag">نموذج أولي</span>
+        <h2>وضع الجذب</h2>
+        <p>حلقة الشرائح الإعلانية التي تعرضها الشاشة معظم الوقت.</p>
+      </a>
+      <a class="card" href="docs/architecture.html">
+        <span class="tag">وثيقة</span>
+        <h2>المعمارية والتصميم</h2>
+        <p>العتاد، النطاق التنظيمي، نظام التصميم بالمليمتر، الأمان، وخارطة الطريق.</p>
+      </a>
+      <a class="card" href="prototype-pwa/">
+        <span class="tag">مؤرشف</span>
+        <h2>النموذج الأولي PWA</h2>
+        <p>نسخة مبنية من تطبيق الويب التقدّمي السابق، مصدر الهوية البصرية.</p>
+      </a>
+    </div>
+
+    <footer dir="ltr">© 2026 Anas Al-Nabulsi · Client work, all rights reserved · Demo content only</footer>
+  </main>
+</body>
+</html>
